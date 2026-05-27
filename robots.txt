@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://konpo-signatures.vercel.app/sitemap.xml

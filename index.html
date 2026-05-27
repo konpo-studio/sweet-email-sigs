@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ===== Primary SEO ===== -->
+<title>Sweet &amp; Simple Sigs — Free Email Signature Maker by Konpo</title>
+<meta name="description" content="Beautiful, typographic email signatures that survive Gmail, Outlook and Apple Mail. Free, table-based, inline-styled, web-safe. Made by Konpo Studio.">
+<meta name="keywords" content="email signature, signature maker, signature generator, gmail signature, html signature, outlook signature, apple mail signature, typographic signature, free email signature, konpo, konpo studio">
+<meta name="author" content="Konpo Studio">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#16161c">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://konpo-signatures.vercel.app/">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Konpo Studio">
+<meta property="og:title" content="Sweet & Simple Sigs — Free Email Signature Maker by Konpo">
+<meta property="og:description" content="Beautiful, typographic email signatures that survive Gmail, Outlook and Apple Mail. Free, table-based, inline-styled, web-safe.">
+<meta property="og:url" content="https://konpo-signatures.vercel.app/">
+<meta property="og:image" content="https://konpo-signatures.vercel.app/og.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Konpo · Sweet & Simple Sigs — email signature maker">
+<meta property="og:locale" content="en_US">
+
+<!-- ===== Twitter ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sweet & Simple Sigs — Free Email Signature Maker by Konpo">
+<meta name="twitter:description" content="Beautiful, typographic email signatures that survive Gmail, Outlook and Apple Mail.">
+<meta name="twitter:image" content="https://konpo-signatures.vercel.app/og.svg">
+<meta name="twitter:image:alt" content="Konpo · Sweet & Simple Sigs — email signature maker">
+
+<!-- ===== Icons (favicon is an animated SVG) ===== -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="mask-icon" href="/favicon.svg" color="#9680FF">
+
+<!-- ===== Fonts ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ===== Lottie player (for animated brand mark in the rail) ===== -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
+
+<!-- ===== Structured data ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sweet & Simple Sigs",
+  "alternateName": "Konpo Email Signature Maker",
+  "url": "https://konpo-signatures.vercel.app/",
+  "description": "Beautiful, typographic email signatures that survive Gmail, Outlook and Apple Mail. Free, table-based, inline-styled, web-safe.",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Email Signature Generator",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires JavaScript and a modern browser.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "image": "https://konpo-signatures.vercel.app/og.svg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Konpo Studio",
+    "url": "https://konpo.studio",
+    "logo": "https://konpo-signatures.vercel.app/favicon.svg"
+  }
+}
+</script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:62.5%;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  :root{
+    --body-bg:#f2f0f8;--white:#fff;--black:#1d1d1d;
+    --txt-body:#2e2e2e;--txt-fade:#6c6c6c;--txt-dis:#c1c1c1;
+    --border-white:#d7d7d7;--border:#9b9b9b;--purple:#9680ff;--destructive:#d74843;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Courier New",monospace;
+    --sans:"Neue Haas Display Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  body{
+    background-color:var(--body-bg);
+    background-image:radial-gradient(var(--border-white) 1px,transparent 1px);
+    background-size:2rem 2rem;
+    color:var(--black);font-family:var(--sans);
+    font-size:1.6rem;line-height:1.4;letter-spacing:.01em;min-height:100vh;
+  }
+  .shell{display:grid;grid-template-columns:8rem 1fr;min-height:100vh}
+  .rail{border-right:1px solid var(--border-white);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3rem 0}
+  .rail-mark{font-family:var(--mono);font-size:1.3rem;font-weight:600;line-height:1.05;letter-spacing:.06em;color:var(--black);writing-mode:vertical-rl;transform:rotate(180deg)}
+  .rail-dot{width:.7rem;height:.7rem;border-radius:200rem;background:var(--purple)}
+  .main{display:flex;flex-direction:column;min-width:0}
+  header{padding:6rem 6rem 4rem;border-bottom:1px solid var(--border-white)}
+  header .lbl{font-family:var(--mono);font-size:1.1rem;text-transform:uppercase;letter-spacing:.18em;color:var(--txt-fade);margin-bottom:1.6rem}
+  h1{font-family:var(--sans);font-weight:400;font-size:6.4rem;line-height:1.05;letter-spacing:.01em}
+  h1 .reg{font-size:2rem;vertical-align:super;color:var(--purple)}
+  header p{margin-top:1.6rem;max-width:54rem;color:var(--txt-fade);font-size:1.6rem;line-height:1.5}
+  .work{display:grid;grid-template-columns:minmax(40rem,44rem) 1fr;flex:1;min-height:0}
+
+  /* ---- editor ---- */
+  .editor{padding:4rem 6rem 6rem;border-right:1px solid var(--border-white);display:flex;flex-direction:column;gap:3rem;overflow-y:auto}
+  .group{display:flex;flex-direction:column;gap:1.8rem}
+  .group-title{font-family:var(--mono);font-size:1.1rem;text-transform:uppercase;letter-spacing:.18em;color:var(--black);padding-bottom:1.1rem;border-bottom:1px solid var(--border-white);display:flex;justify-content:space-between;align-items:baseline}
+  .group-title span{color:var(--txt-dis);letter-spacing:.1em}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+  .field{display:flex;flex-direction:column;gap:.7rem;min-width:0}
+  .field label,.field-label{font-family:var(--mono);font-size:1.05rem;text-transform:uppercase;letter-spacing:.16em;color:var(--txt-fade);transition:color .2s}
+  .field:focus-within label{color:var(--black)}
+  .field input[type=text]{font-family:var(--sans);font-size:1.7rem;color:var(--black);background:transparent;border:none;border-bottom:1px solid var(--border);padding:.8rem 0;width:100%;transition:border-color .3s}
+  .field input::placeholder{color:var(--txt-dis)}
+  .field input:focus{outline:none;border-bottom-color:var(--purple)}
+  .field select{font-family:var(--sans);font-size:1.6rem;color:var(--black);background:var(--white);border:1px solid var(--border-white);border-radius:1rem;padding:1rem 1.2rem;width:100%;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%236c6c6c' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1.2rem center;padding-right:3.2rem}
+  .field select:focus{outline:none;border-color:var(--purple)}
+  .font-preview{font-size:1.8rem;color:var(--txt-fade);margin-top:.4rem;transition:font-family .3s}
+  .check{display:flex;align-items:center;gap:1rem;cursor:pointer;user-select:none}
+  .check input{width:1.6rem;height:1.6rem;accent-color:var(--purple);cursor:pointer}
+  .check span{font-size:1.5rem;color:var(--txt-body)}
+
+  /* layouts — 3×2 grid */
+  .layouts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .lay{background:var(--white);border:1px solid var(--border-white);border-radius:1rem;padding:1.4rem 1.2rem;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:.8rem;transition:border-color .25s,box-shadow .25s}
+  .lay:hover{border-color:var(--border)}
+  .lay.on{border-color:var(--black);box-shadow:0 0 0 1px var(--black)}
+  .lay-name{font-family:var(--mono);font-size:.9rem;text-transform:uppercase;letter-spacing:.18em;color:var(--txt-fade)}
+  .lay.on .lay-name{color:var(--black)}
+  .lay svg{display:block;width:100%;height:auto}
+
+  /* headshot */
+  .hs-preview-row{display:flex;align-items:center;gap:1.6rem}
+  .hs-thumb{width:6rem;height:6rem;border-radius:200rem;border:1px solid var(--border-white);background:var(--white);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hs-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .hs-thumb svg{opacity:.3}
+  .hs-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+  .hs-note{font-family:var(--mono);font-size:1.05rem;letter-spacing:.08em;color:var(--txt-fade)}
+  /* pill radios */
+  .pill-group{display:flex;flex-direction:column;gap:.8rem}
+  .pill-group .field-label{font-family:var(--mono);font-size:1.05rem;text-transform:uppercase;letter-spacing:.16em;color:var(--txt-fade)}
+  .pill-row{display:flex;gap:.6rem;flex-wrap:wrap}
+  .pill-radio{position:relative}
+  .pill-radio input[type=radio]{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
+  .pill-radio label{display:block;font-family:var(--mono);font-size:1.05rem;text-transform:uppercase;letter-spacing:.12em;padding:.8rem 1.4rem;border-radius:200rem;border:1px solid var(--border-white);cursor:pointer;color:var(--txt-fade);background:transparent;transition:background .25s,color .25s,border-color .25s}
+  .pill-radio input[type=radio]:checked + label{background:var(--black);color:var(--body-bg);border-color:var(--black)}
+
+  /* accent */
+  .accent-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+  .sw{width:2.6rem;height:2.6rem;border-radius:200rem;cursor:pointer;padding:0;border:1px solid var(--border-white);transition:transform .25s}
+  .sw:hover{transform:scale(1.15)}
+  .sw.on{box-shadow:0 0 0 2px var(--body-bg),0 0 0 3.5px var(--black)}
+  .accent-custom{display:flex;align-items:center;gap:1rem}
+  .accent-custom input[type=color]{width:3.8rem;height:3.8rem;border:1px solid var(--border-white);border-radius:1rem;background:none;cursor:pointer;padding:.3rem}
+  .accent-custom input[type=text]{font-family:var(--mono);font-size:1.4rem;text-transform:uppercase;letter-spacing:.08em;width:11rem;border:1px solid var(--border-white);border-radius:1rem;padding:1rem 1.2rem;background:var(--white);color:var(--black)}
+  .accent-custom input[type=text]:focus{outline:none;border-color:var(--purple)}
+  .accent-custom input.bad{border-color:var(--destructive);color:var(--destructive)}
+
+  /* ---- preview ---- */
+  .preview{padding:4rem 6rem 6rem;display:flex;flex-direction:column;gap:2.2rem;min-width:0;overflow-y:auto}
+  .preview-head{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  .preview-head-left{display:flex;align-items:center;gap:1.2rem}
+  .tabs{display:flex;border:1px solid var(--border-white);border-radius:200rem;overflow:hidden}
+  .tab{font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.16em;padding:.9rem 1.8rem;border:none;background:transparent;color:var(--txt-fade);cursor:pointer;transition:background-color .3s,color .3s}
+  .tab.on{background:var(--black);color:var(--body-bg)}
+  .dev-toggle{display:flex;border:1px solid var(--border-white);border-radius:1rem;overflow:hidden}
+  .dev-btn{display:flex;align-items:center;justify-content:center;width:3.6rem;height:3.4rem;border:none;background:transparent;cursor:pointer;color:var(--txt-dis);transition:background-color .25s,color .25s}
+  .dev-btn+.dev-btn{border-left:1px solid var(--border-white)}
+  .dev-btn:hover{color:var(--black)}
+  .dev-btn.on{background:var(--black);color:var(--body-bg)}
+  .dev-btn svg{display:block}
+  .mail-wrap{transition:max-width .4s cubic-bezier(.165,.84,.44,1);max-width:600px}
+  .mail-wrap.mobile{max-width:390px}
+  /* mobile: stack headshot above signature content — scope to direct children only */
+  .mail-wrap.mobile .hs-wrap,
+  .mail-wrap.mobile .hs-wrap>tbody,
+  .mail-wrap.mobile .hs-wrap>tbody>tr,
+  .mail-wrap.mobile .hs-wrap>tr{display:block}
+  .mail-wrap.mobile .hs-wrap>tbody>tr>td,
+  .mail-wrap.mobile .hs-wrap>tr>td{display:block;padding-right:0 !important;padding-bottom:16px}
+  /* mobile: stack Split layout vertically */
+  .mail-wrap.mobile .sig-split,.mail-wrap.mobile .sig-split>tbody,.mail-wrap.mobile .sig-split>tbody>tr,.mail-wrap.mobile .sig-split>tr{display:block}
+  .mail-wrap.mobile .sig-split .split-left{display:block;padding-right:0 !important;padding-bottom:14px}
+  .mail-wrap.mobile .sig-split .split-divider{display:none}
+  .mail-wrap.mobile .sig-split .split-right{display:block;padding-left:0 !important}
+  /* mobile: hide Card left bar so it doesn't render as a horizontal strip */
+  .mail-wrap.mobile .sig-card,.mail-wrap.mobile .sig-card>tbody,.mail-wrap.mobile .sig-card>tbody>tr,.mail-wrap.mobile .sig-card>tr{display:block}
+  .mail-wrap.mobile .sig-card .card-bar,.mail-wrap.mobile .sig-card .card-spacer{display:none}
+  .mail-wrap.mobile .sig-card .card-content{display:block}
+  .mail{background:var(--white);border:1px solid var(--border-white);border-radius:2rem;overflow:hidden}
+  .mail-head{padding:2.4rem 3.2rem 2rem;border-bottom:1px solid var(--border-white)}
+  .mail-from{display:flex;justify-content:space-between;align-items:baseline;gap:2rem}
+  .mail-from b{font-family:var(--sans);font-size:1.5rem;font-weight:500;color:var(--black)}
+  .mail-from time{font-family:var(--mono);font-size:1.1rem;color:var(--txt-dis)}
+  .mail-subj{font-family:var(--mono);font-size:1.1rem;color:var(--txt-fade);margin-top:.6rem;letter-spacing:.04em}
+  .mail-body{padding:3.2rem;background:var(--white)}
+  .mail-prose{font-family:Arial,Helvetica,sans-serif;font-size:1.4rem;color:var(--txt-body);line-height:1.7;margin-bottom:3rem}
+  .mail-rule{border:none;border-top:1px solid var(--border-white);margin:0 0 3rem}
+  .code{background:var(--white);border:1px solid var(--border-white);border-radius:2rem;overflow:hidden;max-width:760px}
+  .code-top{padding:1.6rem 2.4rem;border-bottom:1px solid var(--border-white);font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.16em;color:var(--txt-fade);display:flex;align-items:center;gap:1rem}
+  .code-top::before{content:"";width:.6rem;height:.6rem;border-radius:200rem;background:var(--purple)}
+  .code pre{padding:2.4rem;font-family:var(--mono);font-size:1.2rem;line-height:1.8;color:var(--txt-body);white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;margin:0}
+  .t-tag{color:#7c5cff}.t-attr{color:#1b998b}.t-val{color:#b06000}
+  .actions{display:flex;gap:1.2rem;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.8rem;font-family:var(--sans);font-size:1.4rem;font-weight:500;padding:1.4rem 2.6rem;border-radius:200rem;border:none;cursor:pointer;background:var(--black);color:var(--body-bg);transition:background-color .4s,color .4s,border-color .4s}
+  .btn:hover{background:var(--purple);color:var(--white)}
+  .btn .dot{width:.7rem;height:.7rem;border-radius:200rem;background:currentColor;opacity:.55}
+  .btn.ghost{background:transparent;color:var(--black);border:1px solid var(--border)}
+  .btn.ghost:hover{background:var(--black);color:var(--body-bg);border-color:var(--black)}
+  .btn.ok{background:#1b998b;color:#fff;border-color:#1b998b}
+  .btn.sm{padding:.9rem 1.6rem;font-size:1.3rem}
+  .hist{display:flex;flex-direction:column;gap:.6rem}
+  .hist-row{display:flex;align-items:center;background:var(--white);border:1px solid var(--border-white);border-radius:1rem;overflow:hidden;transition:border-color .2s}
+  .hist-row:hover{border-color:var(--border)}
+  .hist-info{flex:1;display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.6rem;cursor:pointer;min-width:0}
+  .hist-info:hover{background:var(--body-bg)}
+  .hist-name{font-size:1.4rem;color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .hist-tag{font-family:var(--mono);font-size:.95rem;text-transform:uppercase;letter-spacing:.14em;color:var(--txt-fade);border:1px solid var(--border-white);border-radius:.6rem;padding:.2rem .7rem;flex-shrink:0}
+  .hist-dot{width:1rem;height:1rem;border-radius:200rem;flex-shrink:0;border:1px solid var(--border-white)}
+  .hist-time{font-family:var(--mono);font-size:1rem;color:var(--txt-dis);margin-left:auto;flex-shrink:0}
+  .hist-del{width:4rem;align-self:stretch;background:transparent;border:none;border-left:1px solid var(--border-white);color:var(--txt-dis);cursor:pointer;font-size:1.8rem;transition:background-color .2s,color .2s}
+  .hist-del:hover{background:rgba(215,72,67,.1);color:var(--destructive)}
+  .toast{position:fixed;bottom:3rem;left:50%;transform:translateX(-50%) translateY(2rem);background:var(--black);color:var(--body-bg);font-family:var(--mono);font-size:1.2rem;text-transform:uppercase;letter-spacing:.14em;padding:1.4rem 2.4rem;border-radius:200rem;opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;z-index:50}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  /* share popup */
+  .share-pop{position:absolute;bottom:calc(100% + .8rem);right:0;z-index:40;background:var(--white);border:1px solid var(--border-white);border-radius:1.6rem;padding:1.6rem;box-shadow:0 8px 32px rgba(0,0,0,.1);min-width:32rem;display:none}
+  .share-pop.open{display:block}
+  .share-pop-label{font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.16em;color:var(--txt-fade);margin-bottom:1rem}
+  .share-pop-row{display:flex;gap:.8rem;align-items:center}
+  .share-pop-input{font-family:var(--mono);font-size:1.2rem;color:var(--black);background:var(--body-bg);border:1px solid var(--border-white);border-radius:.8rem;padding:.9rem 1.2rem;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .share-pop-wrap{position:relative}
+  .offscreen{position:fixed;left:-9999px;top:0;opacity:0;pointer-events:none}
+  .social-divider{padding-top:.6rem;border-top:1px dashed var(--border-white)}
+  .social-divider-label{font-family:var(--mono);font-size:1.05rem;text-transform:uppercase;letter-spacing:.16em;color:var(--txt-fade);margin-bottom:1.4rem}
+
+  @media(max-width:1100px){.work{grid-template-columns:1fr}.editor{border-right:none;border-bottom:1px solid var(--border-white)}}
+  @media(max-width:767px){
+    .shell{grid-template-columns:1fr}.rail{flex-direction:row;border-right:none;border-bottom:1px solid var(--border-white);padding:1.6rem 2.4rem}.rail-mark{writing-mode:horizontal-tb;transform:none}
+    header{padding:4rem 2.4rem 3rem}h1{font-size:3.6rem}.editor,.preview{padding:3.2rem 2.4rem}.mail-body,.mail-head{padding:2.4rem}
+  }
+
+  /* ============================================================
+     KONPO CONTROLS OVERLAY
+     Re-skins editor chrome to the konpo-controls UI kit.
+     Signature preview (.mail, .hs-wrap, .sig-*) is untouched.
+     ============================================================ */
+  :root{
+    --accent-h: 250;
+    --accent-s: 90%;
+    --accent-l: 73%;
+    --k-accent:        hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+    --k-accent-hover:  hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) - 6%));
+    --k-accent-press:  hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) - 12%));
+    --k-accent-ring:   hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.28);
+    --k-canvas:        #ececef;
+    --k-canvas-dot:    rgba(0,0,0,0.06);
+    --k-surface:       rgba(255,255,255,0.72);
+    --k-surface-solid: #ffffff;
+    --k-inset:         rgba(0,0,0,0.04);
+    --k-hairline:      rgba(0,0,0,0.06);
+    --k-hairline-strong: rgba(0,0,0,0.10);
+    --k-text:          #0e0e12;
+    --k-text-muted:    #6b6b76;
+    --k-text-faint:    #9a9aa3;
+    --k-hover:         rgba(0,0,0,0.04);
+    --k-r-input: 12px; --k-r-card: 20px; --k-r-pill: 999px;
+    --k-shadow-1: 0 1px 2px rgba(0,0,0,0.04);
+    --k-shadow-2: 0 4px 16px rgba(0,0,0,0.06);
+    --k-shadow-3: 0 8px 32px rgba(0,0,0,0.08);
+    --k-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --k-dur: 180ms; --k-dur-fast: 120ms;
+  }
+
+  /* Canvas — dotted grid */
+  body{
+    background-color: var(--k-canvas) !important;
+    background-image: radial-gradient(var(--k-canvas-dot) 1px, transparent 1px) !important;
+    background-size: 16px 16px !important;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Rail — dark Slack-style tools sidebar, sticky full-height */
+  .rail{
+    background: #16161c !important;
+    border-right: 1px solid rgba(255,255,255,0.04) !important;
+    box-shadow: 4px 0 24px -16px rgba(0,0,0,0.4) !important;
+    padding: 1.6rem .8rem !important;
+    justify-content: space-between !important;
+    gap: 2rem;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    align-self: start;
+    z-index: 10;
+  }
+  .rail-tools, .rail-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+  }
+  .rail-tile{
+    width: 4.4rem; height: 4.4rem;
+    display: grid;
+    place-items: center;
+    border-radius: 1.2rem;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.78);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    transition:
+      background var(--k-dur) var(--k-ease),
+      color var(--k-dur) var(--k-ease),
+      box-shadow var(--k-dur) var(--k-ease),
+      transform var(--k-dur-fast) var(--k-ease);
+  }
+  .rail-tile svg{ display: block; }
+  /* Konpo tile — keep the translucent white-hue background like other tiles;
+     the lottie sits inside with its own navy art rounded slightly. */
+  .rail-tile-konpo lottie-player{
+    border-radius: .6rem;
+    overflow: hidden;
+  }
+  .rail-tile:hover{
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .rail-tile:active{ transform: scale(.96); }
+  .rail-tile.is-active{
+    background: var(--k-accent);
+    color: #fff;
+    box-shadow: 0 4px 16px var(--k-accent-ring), 0 0 0 1px rgba(255,255,255,0.12);
+  }
+  .rail-tile.is-active:hover{ background: var(--k-accent-hover); }
+  .rail-tile.is-empty{
+    background: transparent;
+    border: 1px dashed rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.35);
+    cursor: default;
+  }
+  .rail-tile.is-empty:hover{ background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.45); }
+  .rail-social{
+    background: transparent;
+    color: var(--k-accent);
+  }
+  .rail-social:hover{
+    background: var(--k-accent);
+    color: #fff;
+    box-shadow: 0 4px 16px var(--k-accent-ring);
+  }
+
+  /* Right-side tooltip */
+  .rail-tile::after{
+    content: attr(data-tip);
+    position: absolute;
+    left: calc(100% + 1rem);
+    top: 50%;
+    transform: translateY(-50%) translateX(-.4rem);
+    padding: .55rem .95rem;
+    background: var(--k-text);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    font-weight: 500;
+    border-radius: .8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 60;
+    box-shadow: var(--k-shadow-2);
+    transition: opacity var(--k-dur) var(--k-ease), transform var(--k-dur) var(--k-ease);
+  }
+  .rail-tile:hover::after,
+  .rail-tile:focus-visible::after{
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  h1 .reg{ color: var(--k-accent); }
+
+  /* Header — sits highest in the hierarchy, almost full white */
+  header{
+    background: rgba(255,255,255,0.92);
+    border-bottom-color: var(--k-hairline);
+    box-shadow: 0 4px 24px -16px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Section hierarchy — light steps that paint the FULL column height
+     (preview was getting clipped when sticky + max-height). We paint the
+     tints on .work as two pseudo-columns so they extend the full container
+     regardless of which side is taller. */
+  .work{ position: relative; }
+  .work::before{
+    content:"";
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: clamp(40rem, 44rem, 44rem); /* editor column max-width */
+    background: rgba(255,255,255,0.45);
+    box-shadow: inset -8px 0 24px -20px rgba(0,0,0,0.05);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .work::after{
+    content:"";
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    left: clamp(40rem, 44rem, 44rem);
+    background: rgba(255,255,255,0.72);
+    box-shadow: inset 8px 0 32px -24px rgba(0,0,0,0.06);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .editor{
+    border-right: 1px solid var(--k-hairline);
+    background: transparent !important;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+  }
+  .preview{
+    background: transparent !important;
+    box-shadow: none;
+    position: sticky;
+    z-index: 1;
+  }
+  @media(max-width:1100px){
+    /* single column — collapse the column tints */
+    .work::before{ width: 100%; }
+    .work::after{ display: none; }
+  }
+
+  /* Macro-section labels — Content / Design / Settings.
+     Tiny, faint, all-caps mono badge with a hairline running through it
+     so the eye can chunk the editor into three scannable bands. */
+  .section-label{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 2.4rem 0 0 0;
+    color: var(--k-text-faint);
+    font-family: var(--mono);
+    font-size: .95rem;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    font-weight: 600;
+  }
+  .section-label:first-child{ margin-top: 0; }
+  .section-label span{ flex-shrink: 0; }
+  .section-label::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--k-hairline);
+  }
+
+  /* Group titles — bolder + crisper to dominate within each section */
+  .group-title{
+    border-bottom-color: var(--k-hairline);
+    color: var(--k-text);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: .14em;
+    padding-bottom: 1.2rem;
+  }
+  .group-title span{ color: var(--k-text-faint); font-weight: 400; }
+
+  /* ----- iOS-style toggle switches (replaces native checkboxes in .check) ----- */
+  .check{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem !important;
+    padding: .6rem 0;
+    cursor: pointer;
+  }
+  .check span{
+    flex: 1;
+    min-width: 0;
+    font-size: 1.45rem;
+    color: var(--k-text);
+    line-height: 1.4;
+  }
+  .check input[type=checkbox]{
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    position: relative;
+    flex-shrink: 0;
+    width: 4.4rem !important;
+    height: 2.6rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: rgba(0,0,0,0.14);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background var(--k-dur) var(--k-ease);
+    box-shadow: inset 0 0 0 1px var(--k-hairline);
+  }
+  .check input[type=checkbox]::after{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
+    transition: transform var(--k-dur) var(--k-ease);
+  }
+  .check input[type=checkbox]:checked{
+    background: var(--k-accent);
+    box-shadow: inset 0 0 0 1px transparent, 0 0 0 4px var(--k-accent-ring);
+  }
+  .check input[type=checkbox]:checked::after{
+    transform: translateX(1.8rem);
+  }
+  .check input[type=checkbox]:focus-visible{
+    outline: 2px solid var(--k-accent);
+    outline-offset: 2px;
+  }
+
+  /* Field labels */
+  .field label, .field-label{
+    color: var(--k-text-muted);
+    font-weight: 500;
+    letter-spacing: .12em;
+  }
+  .field:focus-within label{ color: var(--k-accent); }
+
+  /* Text inputs — filled, hairline, accent focus ring */
+  .field input[type=text]{
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-input);
+    padding: 1.1rem 1.3rem;
+    font-size: 1.5rem;
+    color: var(--k-text);
+    transition: border-color var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+  }
+  .field input[type=text]:focus{
+    outline: none;
+    border-bottom-color: var(--k-accent);
+    border-color: var(--k-accent);
+    box-shadow: 0 0 0 4px var(--k-accent-ring);
+  }
+  .field input[type=text]::placeholder{ color: var(--k-text-faint); }
+
+  /* Select */
+  .field select{
+    background-color: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-input);
+    color: var(--k-text);
+    font-size: 1.5rem;
+    padding: 1.1rem 1.3rem;
+    padding-right: 3.6rem;
+    transition: border-color var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+  }
+  .field select:focus{
+    outline: none;
+    border-color: var(--k-accent);
+    box-shadow: 0 0 0 4px var(--k-accent-ring);
+  }
+
+  /* Checkboxes */
+  .check input{ accent-color: var(--k-accent); }
+  .check span{ color: var(--k-text); }
+
+  /* Segmented pills (size / shape) — full-width */
+  .pill-row{
+    display: flex;
+    width: 100%;
+    gap: 2px;
+    padding: 3px;
+    background: var(--k-inset);
+    border-radius: var(--k-r-pill);
+  }
+  .pill-radio{ flex: 1 1 0; display: block; }
+  .pill-radio label{
+    display: block;
+    text-align: center;
+    padding: .9rem 1.6rem;
+    border: none;
+    border-radius: var(--k-r-pill);
+    background: transparent;
+    color: var(--k-text-muted);
+    font-weight: 500;
+    letter-spacing: .1em;
+    transition: background var(--k-dur) var(--k-ease), color var(--k-dur) var(--k-ease);
+  }
+  .pill-radio label:hover{ color: var(--k-text); }
+  .pill-radio input[type=radio]:checked + label{
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    border: none;
+    box-shadow: var(--k-shadow-1);
+  }
+
+  /* Layout cards — accent ring offset on selection */
+  .lay{
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-card);
+    padding: 1.4rem 1.4rem 1.2rem;
+    box-shadow: var(--k-shadow-1);
+    transition: border-color var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease), transform var(--k-dur-fast) var(--k-ease);
+  }
+  .lay:hover{ border-color: var(--k-hairline-strong); transform: translateY(-1px); }
+  .lay.on{
+    border-color: transparent;
+    box-shadow:
+      0 0 0 2px var(--k-surface-solid),
+      0 0 0 4px var(--k-accent),
+      var(--k-shadow-2);
+  }
+  .lay-name{ color: var(--k-text-muted); font-weight: 500; }
+  .lay.on .lay-name{ color: var(--k-accent); }
+
+  /* Headshot thumb */
+  .hs-thumb{
+    background: var(--k-surface-solid);
+    border-color: var(--k-hairline);
+    box-shadow: var(--k-shadow-2);
+  }
+
+  /* Swatches */
+  .sw{
+    width: 3rem; height: 3rem;
+    border-radius: 1rem;
+    border: 1px solid var(--k-hairline);
+    transition: transform var(--k-dur-fast) var(--k-ease);
+  }
+  .sw:hover{ transform: scale(1.08); }
+  .sw.on{
+    box-shadow: 0 0 0 2px var(--k-surface-solid), 0 0 0 4px var(--k-accent);
+    border-color: transparent;
+  }
+
+  /* Accent custom (color + hex) */
+  .accent-custom input[type=color]{
+    width: 4rem; height: 4rem;
+    border: 1px solid var(--k-hairline);
+    border-radius: 1rem;
+  }
+  .accent-custom input[type=text]{
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-input);
+    color: var(--k-text);
+  }
+  .accent-custom input[type=text]:focus{
+    outline: none;
+    border-color: var(--k-accent);
+    box-shadow: 0 0 0 4px var(--k-accent-ring);
+  }
+
+  /* Buttons */
+  .btn{
+    background: var(--k-accent);
+    color: #fff;
+    border-radius: var(--k-r-input);
+    box-shadow: 0 4px 16px var(--k-accent-ring);
+    padding: 1.2rem 2.2rem;
+    transition: background var(--k-dur) var(--k-ease), transform var(--k-dur-fast) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+  }
+  .btn:hover{ background: var(--k-accent-hover); color: #fff; }
+  .btn:active{ background: var(--k-accent-press); transform: scale(.98); }
+  .btn.ghost{
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    border: 1px solid var(--k-hairline);
+    box-shadow: var(--k-shadow-1);
+  }
+  .btn.ghost:hover{
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    border-color: var(--k-hairline-strong);
+    box-shadow: var(--k-shadow-2);
+    transform: none;
+  }
+  .btn.ok{ background: #1b998b; box-shadow: 0 4px 16px rgba(27,153,139,.28); border-color: transparent; }
+  .btn.ok:hover{ background: #168577; color:#fff; }
+  .btn.sm{ padding: .9rem 1.4rem; }
+
+  /* Tabs + device toggle — segmented pills */
+  .tabs{
+    border: none;
+    background: var(--k-inset);
+    padding: 3px;
+    border-radius: var(--k-r-pill);
+    gap: 2px;
+    display: inline-flex;
+  }
+  .tab{
+    border-radius: var(--k-r-pill);
+    color: var(--k-text-muted);
+    padding: .8rem 1.6rem;
+    letter-spacing: .14em;
+    font-weight: 500;
+  }
+  .tab:hover{ color: var(--k-text); }
+  .tab.on{
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    box-shadow: var(--k-shadow-1);
+  }
+  .dev-toggle{
+    border: none;
+    background: var(--k-inset);
+    padding: 3px;
+    border-radius: var(--k-r-pill);
+    gap: 2px;
+    display: inline-flex;
+  }
+  .dev-btn{
+    border: none !important;
+    border-radius: var(--k-r-pill);
+    color: var(--k-text-muted);
+    width: 3.6rem; height: 3rem;
+    background: transparent;
+  }
+  .dev-btn+.dev-btn{ border-left: none; }
+  .dev-btn:hover{ color: var(--k-text); background: transparent; }
+  .dev-btn.on{
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    box-shadow: var(--k-shadow-1);
+  }
+
+  /* History rows */
+  .hist-row{
+    background: var(--k-surface-solid);
+    border-color: var(--k-hairline);
+    border-radius: var(--k-r-card);
+  }
+  .hist-row:hover{ border-color: var(--k-hairline-strong); }
+  .hist-info:hover{ background: var(--k-hover); }
+  .hist-tag{ border-color: var(--k-hairline); color: var(--k-text-muted); }
+  .hist-del{ border-left-color: var(--k-hairline); }
+
+  /* Share popover — frosted surface */
+  .share-pop{
+    background: var(--k-surface);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-card);
+    box-shadow: var(--k-shadow-3);
+  }
+  .share-pop-label{ color: var(--k-text-muted); }
+  .share-pop-input{
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-input);
+    color: var(--k-text);
+  }
+
+  /* Helper captions — readable, not faded out */
+  .hs-note{ color: var(--k-text-muted) !important; }
+
+  /* Preview head — dice at left edge of email card, tabs at right edge of email card */
+  .preview-head{
+    justify-content: space-between !important;
+    gap: 1.2rem !important;
+    max-width: 390px;
+    width: 100%;
+  }
+
+  /* Sticky preview — the editor scrolls inside the window, preview stays glued to top */
+  .work{ align-items: start; min-height: auto; }
+  .editor{ overflow: visible !important; }
+  .preview{
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    z-index: 5;
+  }
+  /* hide the preview's scrollbar visually (we still scroll) */
+  .preview::-webkit-scrollbar{ width: 6px; }
+  .preview::-webkit-scrollbar-thumb{ background: var(--k-hairline-strong); border-radius: 999px; }
+
+  /* Icon-only action buttons with custom hover tooltip */
+  .btn-icon{
+    width: 4rem; height: 4rem;
+    padding: 0 !important;
+    display: inline-grid !important;
+    place-items: center;
+    gap: 0 !important;
+    position: relative;
+    overflow: visible;
+  }
+  .btn-icon svg{ display: block; }
+  .btn-icon::after{
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + .6rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(.4rem);
+    padding: .5rem .9rem;
+    background: var(--k-text);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    border-radius: .8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--k-dur) var(--k-ease), transform var(--k-dur) var(--k-ease);
+    z-index: 50;
+    box-shadow: var(--k-shadow-2);
+  }
+  .btn-icon:hover::after,
+  .btn-icon:focus-visible::after{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  /* Success flash — turn the icon green briefly, no text swap */
+  .btn-icon.ok{ background: #1b998b !important; color: #fff !important; border-color: transparent !important; box-shadow: 0 4px 16px rgba(27,153,139,.28) !important; }
+
+  /* Eyebrow link */
+  .lbl-link{
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    text-decoration: none;
+    color: var(--k-text-muted);
+    transition: color var(--k-dur) var(--k-ease);
+  }
+  .lbl-link:hover{ color: var(--k-accent); }
+  /* Lottie sits next to "Konpo" eyebrow — height matches the eyebrow line */
+  .lbl-lottie{
+    display: inline-block;
+    height: 2.4rem;
+    width: 2.4rem;
+    border-radius: .4rem;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Extra links UI — two-row layout so it never overflows the editor column */
+  .xlinks{ display: flex; flex-direction: column; gap: 1.8rem; }
+  .xlink-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "text url"
+      "icon del";
+    gap: .8rem;
+    align-items: stretch;
+    padding: 1rem;
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-card);
+  }
+  .xlink-row > [data-k="text"]{ grid-area: text; }
+  .xlink-row > [data-k="url"]{  grid-area: url; }
+  .xlink-row > [data-k="icon"]{ grid-area: icon; }
+  .xlink-row > .xlink-del{      grid-area: del; }
+  .xlink-row input[type=text],
+  .xlink-row select{
+    width: 100%;
+    min-width: 0;
+    height: 4rem;
+    padding: 0 1.1rem !important;
+    font-size: 1.4rem !important;
+    border-radius: var(--k-r-input);
+    background: var(--k-canvas);
+    border: 1px solid var(--k-hairline);
+    color: var(--k-text);
+  }
+  .xlink-row select{ padding-right: 3.2rem !important; }
+  .xlink-row input[type=text]:focus,
+  .xlink-row select:focus{
+    outline: none;
+    border-color: var(--k-accent);
+    box-shadow: 0 0 0 4px var(--k-accent-ring);
+  }
+  .xlink-del{
+    height: 4rem;
+    width: 100%;
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-input);
+    background: var(--k-canvas);
+    color: var(--k-text-muted);
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: color var(--k-dur), border-color var(--k-dur), background var(--k-dur);
+  }
+  .xlink-del:hover{ color: var(--destructive); border-color: var(--destructive); background: rgba(215,72,67,.06); }
+  .xlink-add{
+    align-self: flex-start;
+    padding: .9rem 1.6rem;
+    font-size: 1.3rem;
+    border-radius: var(--k-r-input);
+    border: 1px dashed var(--k-hairline-strong);
+    background: transparent;
+    color: var(--k-text-muted);
+    cursor: pointer;
+    transition: color var(--k-dur), border-color var(--k-dur), background var(--k-dur);
+  }
+  .xlink-add:hover{ color: var(--k-accent); border-color: var(--k-accent); background: var(--k-hover); }
+
+  /* Collapsible groups */
+  .group{ gap: 1.8rem; }
+  .group-toggle{
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    align-items: center;
+  }
+  .group-toggle .chev{
+    width: 1.4rem; height: 1.4rem;
+    margin-left: auto;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>") center / contain no-repeat;
+            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>") center / contain no-repeat;
+    transition: transform var(--k-dur) var(--k-ease), opacity var(--k-dur) var(--k-ease);
+    opacity: .55;
+    transform: rotate(0deg);
+  }
+  .group-toggle:hover .chev{ opacity: 1; }
+  .group.is-collapsed .chev{ transform: rotate(-90deg); }
+  .group.is-collapsed > *:not(.group-title){ display: none !important; }
+
+  /* Count badge in group titles */
+  .count-badge{
+    margin-left: .8rem;
+    color: var(--k-text-faint);
+    font-weight: 400;
+    letter-spacing: .08em;
+  }
+  /* Hint inside a check label (e.g. layout name list) */
+  .check-hint{
+    color: var(--k-text-faint);
+    font-weight: 400;
+    margin-left: .4rem;
+  }
+
+  /* Subgroup title — exactly matches group-title spacing */
+  .subgroup-title{
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-weight: 600;
+    color: var(--k-text);
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--k-hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .subgroup-title span{ color: var(--k-text-faint); letter-spacing: .1em; font-weight: 400; }
+
+  /* ====== Changelog sticky note ====== */
+  .changelog{
+    position: fixed;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    z-index: 80;
+    font-family: var(--sans);
+  }
+  /* Tiny collapsed tab — appears as a folded-edge label */
+  .changelog-tab{
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    height: 4rem;
+    padding: 0 1.6rem;
+    background: #fff6c4;
+    color: #1d1d1d;
+    border: none;
+    border-radius: 1.2rem;
+    box-shadow:
+      0 1px 0 rgba(0,0,0,0.04),
+      0 8px 24px -8px rgba(0,0,0,0.18),
+      0 12px 40px -16px rgba(0,0,0,0.20);
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: rotate(-1.5deg);
+    transition: transform var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+  }
+  .changelog-tab:hover{
+    transform: rotate(-1.5deg) translateY(-2px);
+    box-shadow:
+      0 1px 0 rgba(0,0,0,0.04),
+      0 12px 30px -8px rgba(0,0,0,0.22),
+      0 18px 48px -16px rgba(0,0,0,0.24);
+  }
+  .changelog-tab svg{ flex-shrink: 0; color: #b8861f; }
+
+  /* Expanded post-it card */
+  .changelog-card{
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 32rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 2.4rem 2rem 2rem 2rem;
+    background:
+      linear-gradient(180deg, #fff8d4 0%, #fff1a8 100%);
+    border-radius: .6rem;
+    color: #1d1d1d;
+    box-shadow:
+      0 1px 0 rgba(0,0,0,0.04),
+      0 18px 40px -12px rgba(0,0,0,0.30),
+      0 30px 70px -20px rgba(0,0,0,0.25);
+    transform: rotate(-1.5deg);
+    font-family: var(--sans);
+    /* slight paper grain */
+    background-image:
+      linear-gradient(180deg, #fff8d4 0%, #fff1a8 100%),
+      radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 100% 100%, 4px 4px;
+    background-blend-mode: multiply;
+  }
+  .changelog.open .changelog-tab{ display: none; }
+  .changelog.open .changelog-card{ display: block; }
+  /* The "tape" strip pinning the top of the note */
+  .changelog-tape{
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+    width: 9rem;
+    height: 2.2rem;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    backdrop-filter: blur(2px);
+  }
+  .changelog-close{
+    position: absolute;
+    top: .8rem;
+    right: 1rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: none;
+    background: transparent;
+    color: rgba(29,29,29,0.45);
+    cursor: pointer;
+    font-size: 2.4rem;
+    line-height: 1;
+    border-radius: .6rem;
+    transition: background var(--k-dur), color var(--k-dur);
+  }
+  .changelog-close:hover{
+    background: rgba(0,0,0,0.06);
+    color: #1d1d1d;
+  }
+  .changelog-title{
+    font-family: var(--mono);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #1d1d1d;
+    margin-bottom: .4rem;
+  }
+  .changelog-sub{
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    color: rgba(29,29,29,0.55);
+    margin-bottom: 1.6rem;
+    letter-spacing: .04em;
+  }
+  .changelog-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .changelog-list li{
+    padding: .9rem 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .changelog-list li:first-child{ border-top: none; padding-top: 0; }
+  .changelog-date{
+    font-family: var(--mono);
+    font-size: .95rem;
+    color: rgba(29,29,29,0.55);
+    letter-spacing: .14em;
+    margin-bottom: .4rem;
+  }
+  .changelog-text{
+    font-family: var(--sans);
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: #1d1d1d;
+  }
+  @media(max-width:767px){
+    .changelog{ right: 1.2rem; bottom: 1.2rem; }
+    .changelog-card{ width: calc(100vw - 2.4rem); max-width: 30rem; }
+  }
+
+  /* Toast */
+  .toast{
+    background: var(--k-text);
+    color: #fff;
+    border-radius: var(--k-r-pill);
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail">
+    <div class="rail-tools">
+      <a class="rail-tile rail-tile-konpo" href="https://konpo.studio" target="_blank" rel="noopener" data-tip="Konpo" aria-label="Konpo">
+        <lottie-player
+          src="https://cdn.prod.website-files.com/689eb59b898d833188934dd4/68ca3254a0c4677d495a5f96_konpo.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          aria-hidden="true"
+          style="width:30px;height:30px;display:block;"
+        ></lottie-player>
+      </a>
+      <button class="rail-tile is-active" type="button" data-tip="Sweet &amp; Simple Sigs" aria-label="Sweet &amp; Simple Sigs" aria-current="page">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 17.5V21h3.5L17 10.5 13.5 7 3 17.5z"/>
+          <path d="M14.5 6 17 8.5"/>
+          <path d="M20 21H8"/>
+        </svg>
+      </button>
+      <div class="rail-tile is-empty" data-tip="More tools coming soon" aria-label="More tools coming soon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+      </div>
+    </div>
+    <div class="rail-bottom">
+      <a class="rail-tile rail-social" href="https://instagram.com/konpo.studio" target="_blank" rel="noopener" data-tip="Instagram" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a class="rail-tile rail-social" href="https://www.linkedin.com/company/konpo" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a class="rail-tile rail-social" href="https://konpo.substack.com" target="_blank" rel="noopener" data-tip="Substack" aria-label="Substack">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+      </a>
+    </div>
+  </aside>
+  <div class="main">
+    <header>
+      <div class="lbl">Version 1.0</div>
+      <h1>Sweet &amp; Simple Sigs</h1>
+      <p>Beautiful, typographic email signatures that survive Gmail, Outlook and Apple Mail. Table-based, inline-styled, web-safe. Set your accent and go.</p>
+    </header>
+
+    <div class="work">
+      <!-- ===== EDITOR ===== -->
+      <section class="editor">
+
+        <!-- LAYOUT_BLOCK_START -->
+        <div class="group" id="layout-block">
+          <div class="group-title group-toggle">Layout<span class="chev" aria-hidden="true"></span></div>
+          <div class="layouts" id="layouts">
+
+            <button class="lay on" data-t="editorial">
+              <span class="lay-name">Editorial</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="9" width="2" height="50" fill="#1d1d1d"/><rect x="15" y="11" width="42" height="7" rx="1" fill="#1d1d1d"/>
+                <rect x="15" y="23" width="56" height="3" rx="1" fill="#9b9b9b"/><rect x="15" y="32" width="66" height="1.5" fill="#9680ff"/>
+                <rect x="15" y="40" width="52" height="3" rx="1" fill="#4a4a4a"/><rect x="15" y="48" width="38" height="3" rx="1" fill="#9680ff"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="manifest">
+              <span class="lay-name">Manifest</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="10" width="48" height="8" rx="1" fill="#1d1d1d"/><rect x="8" y="23" width="42" height="3" rx="1" fill="#9b9b9b"/>
+                <rect x="8" y="32" width="94" height="1" fill="#dcdcdc"/>
+                <rect x="8" y="38" width="13" height="3" rx="1" fill="#9b9b9b"/><rect x="28" y="38" width="46" height="3" rx="1" fill="#9680ff"/>
+                <rect x="8" y="47" width="13" height="3" rx="1" fill="#9b9b9b"/><rect x="28" y="47" width="38" height="3" rx="1" fill="#9680ff"/>
+                <rect x="8" y="56" width="13" height="3" rx="1" fill="#9b9b9b"/><rect x="28" y="56" width="42" height="3" rx="1" fill="#9680ff"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="split">
+              <span class="lay-name">Stacked</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="12" width="32" height="7" rx="1" fill="#1d1d1d"/><rect x="8" y="22" width="32" height="7" rx="1" fill="#1d1d1d"/>
+                <rect x="8" y="37" width="28" height="3" rx="1" fill="#9b9b9b"/>
+                <rect x="54" y="12" width="1.5" height="44" fill="#9680ff"/>
+                <rect x="63" y="14" width="38" height="3" rx="1" fill="#9680ff"/><rect x="63" y="24" width="32" height="3" rx="1" fill="#4a4a4a"/>
+                <rect x="63" y="34" width="36" height="3" rx="1" fill="#9680ff"/><rect x="63" y="44" width="28" height="3" rx="1" fill="#4a4a4a"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="bold">
+              <span class="lay-name">Headline</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="10" width="68" height="10" rx="1" fill="#1d1d1d"/>
+                <rect x="8" y="27" width="94" height="3" fill="#9680ff"/>
+                <rect x="8" y="36" width="56" height="3" rx="1" fill="#4a4a4a"/>
+                <rect x="8" y="46" width="78" height="3" rx="1" fill="#4a4a4a"/>
+                <rect x="8" y="55" width="44" height="3" rx="1" fill="#9680ff"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="compact">
+              <span class="lay-name">Compact</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="16" width="36" height="7" rx="1" fill="#1d1d1d"/><rect x="52" y="18" width="48" height="4" rx="1" fill="#9b9b9b"/>
+                <rect x="8" y="30" width="4" height="2" fill="#9680ff"/><rect x="15" y="30" width="82" height="1.5" rx=".5" fill="#dcdcdc"/>
+                <rect x="8" y="40" width="90" height="3" rx="1" fill="#4a4a4a"/>
+                <rect x="8" y="50" width="60" height="3" rx="1" fill="#9680ff"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="card">
+              <span class="lay-name">Banner</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="9" width="3" height="50" fill="#9680ff"/>
+                <rect x="15" y="11" width="44" height="7" rx="1" fill="#1d1d1d"/><rect x="15" y="23" width="52" height="3" rx="1" fill="#9b9b9b"/>
+                <rect x="15" y="32" width="88" height="1" fill="#dcdcdc"/>
+                <rect x="15" y="39" width="30" height="3" rx="1" fill="#4a4a4a"/><rect x="55" y="39" width="30" height="3" rx="1" fill="#4a4a4a"/>
+                <rect x="15" y="48" width="26" height="3" rx="1" fill="#9680ff"/><rect x="55" y="48" width="34" height="3" rx="1" fill="#9680ff"/>
+                <rect x="15" y="57" width="28" height="3" rx="1" fill="#4a4a4a"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="wildin">
+              <span class="lay-name">Wildin'&nbsp;Out</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="8" width="110" height="2" fill="#9680ff"/>
+                <rect x="0" y="10" width="110" height="20" fill="#0e0e12"/>
+                <text x="6" y="22" font-size="6" font-weight="800" fill="#ffffff" font-family="Helvetica" letter-spacing="-0.3">JEAN MASSAD</text>
+                <text x="6" y="28" font-size="2.4" fill="#9680ff" font-family="'JetBrains Mono', monospace" letter-spacing="0.3">FOUNDER · KONPO STUDIO®</text>
+                <rect x="0" y="30" width="110" height="2" fill="#9680ff"/>
+                <text x="6" y="40" font-size="3" fill="#9680ff" font-weight="700" font-family="'JetBrains Mono', monospace">»</text>
+                <text x="11" y="40" font-size="2.6" fill="#6c6c6c" font-family="'JetBrains Mono', monospace">EMAIL</text>
+                <text x="28" y="40" font-size="2.8" fill="#1d1d1d" font-family="'JetBrains Mono', monospace" font-weight="700">jean@konpo.studio</text>
+                <text x="6" y="46" font-size="3" fill="#9680ff" font-weight="700" font-family="'JetBrains Mono', monospace">»</text>
+                <text x="11" y="46" font-size="2.6" fill="#6c6c6c" font-family="'JetBrains Mono', monospace">WWW</text>
+                <text x="28" y="46" font-size="2.8" fill="#1d1d1d" font-family="'JetBrains Mono', monospace" font-weight="700">konpo.studio</text>
+                <circle cx="9" cy="54" r="2.6" fill="#9680ff"/>
+                <circle cx="16" cy="54" r="2.6" fill="#9680ff"/>
+                <circle cx="23" cy="54" r="2.6" fill="#9680ff"/>
+                <rect x="34" y="51.5" width="40" height="5" fill="#1d1d1d" rx="2.5"/>
+                <text x="38" y="55" font-size="2.4" fill="#ffffff" font-family="'JetBrains Mono', monospace" letter-spacing="0.4">NEW YORK</text>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="brutalist">
+              <span class="lay-name">Brutalist</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="9" width="98" height="50" stroke="#1d1d1d" stroke-width="0.6" fill="none"/>
+                <line x1="6" y1="17" x2="104" y2="17" stroke="#1d1d1d" stroke-width="0.4"/>
+                <line x1="6" y1="25" x2="104" y2="25" stroke="#1d1d1d" stroke-width="0.4"/>
+                <line x1="6" y1="33" x2="104" y2="33" stroke="#1d1d1d" stroke-width="0.4"/>
+                <line x1="6" y1="41" x2="104" y2="41" stroke="#1d1d1d" stroke-width="0.4"/>
+                <line x1="6" y1="49" x2="104" y2="49" stroke="#1d1d1d" stroke-width="0.4"/>
+                <line x1="55" y1="33" x2="55" y2="59" stroke="#1d1d1d" stroke-width="0.4"/>
+                <text x="9" y="14" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">name</text>
+                <text x="26" y="14" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#1d1d1d">Jean Massad</text>
+                <text x="9" y="22" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">title</text>
+                <text x="22" y="22" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#1d1d1d">Founder</text>
+                <text x="9" y="30" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">co.</text>
+                <text x="19" y="30" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#9680ff">Konpo Studio</text>
+                <text x="9" y="38" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">mail</text>
+                <text x="22" y="38" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#1d1d1d">jean@...</text>
+                <text x="58" y="38" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">tel</text>
+                <text x="67" y="38" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#1d1d1d">555.0000</text>
+                <text x="9" y="46" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">web</text>
+                <text x="22" y="46" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#1d1d1d">konpo.s</text>
+                <text x="58" y="46" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">loc</text>
+                <text x="67" y="46" font-size="3.4" font-family="Helvetica" font-weight="700" fill="#1d1d1d">NY</text>
+                <text x="9" y="55" font-size="2.6" font-family="'JetBrains Mono', monospace" fill="#6c6c6c">tag</text>
+                <text x="22" y="55" font-size="3.2" font-family="Helvetica" fill="#1d1d1d">tagline goes here</text>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="architect">
+              <span class="lay-name">Architect</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+                <text x="8" y="13" font-size="2.4" fill="#9b9b9b" letter-spacing="0.2">NAME</text>
+                <text x="8" y="18.5" font-size="4.2" fill="#1d1d1d" font-weight="700">Jean Massad</text>
+                <line x1="8" y1="22.5" x2="102" y2="22.5" stroke="#dcdcdc" stroke-width="0.4"/>
+                <text x="8" y="28" font-size="2.4" fill="#9b9b9b" letter-spacing="0.2">TITLE</text>
+                <text x="8" y="33.5" font-size="4.2" fill="#1d1d1d" font-weight="700">Founder</text>
+                <text x="8" y="40" font-size="2.4" fill="#9b9b9b" letter-spacing="0.2">COMPANY</text>
+                <text x="8" y="45.5" font-size="4.2" fill="#9680ff" font-weight="700">Konpo Studio</text>
+                <line x1="8" y1="49.5" x2="102" y2="49.5" stroke="#dcdcdc" stroke-width="0.4"/>
+                <text x="8" y="55" font-size="2.4" fill="#9b9b9b" letter-spacing="0.2">EMAIL</text>
+                <text x="8" y="60.5" font-size="4.2" fill="#1d1d1d" font-weight="700">jean@konpo.studio</text>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="minimal">
+              <span class="lay-name">Minimal&nbsp;AF</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+                <text x="8" y="14" font-size="4.4" fill="#1d1d1d">NAME</text>
+                <text x="8" y="20" font-size="4.4" fill="#1d1d1d">TITLE</text>
+                <text x="8" y="26" font-size="4.4" fill="#9680ff">COMPANY</text>
+                <text x="8" y="36" font-size="4.4" fill="#1d1d1d">E  EMAIL@X.COM</text>
+                <text x="8" y="42" font-size="4.4" fill="#1d1d1d">P  555.555.5555</text>
+                <text x="8" y="48" font-size="4.4" fill="#1d1d1d">W  SITE.COM</text>
+                <text x="8" y="58" font-size="4.4" fill="#1d1d1d">CITY, STATE</text>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="section-label"><span>Content</span></div>
+
+        <!-- IDENTITY -->
+        <div class="group">
+          <div class="group-title group-toggle">Identity<span class="chev" aria-hidden="true"></span></div>
+          <div class="row2">
+            <div class="field"><label>Name</label><input type="text" id="f-name" placeholder="Jean Massad"></div>
+            <div class="field"><label>Title</label><input type="text" id="f-title" placeholder="Founder"></div>
+          </div>
+          <div class="field"><label>Company</label><input type="text" id="f-company" placeholder="Konpo Studio"></div>
+        </div>
+
+        <!-- CONTACT (channels only) -->
+        <div class="group">
+          <div class="group-title group-toggle">Contact<span class="chev" aria-hidden="true"></span></div>
+          <div class="field"><label>Email</label><input type="text" id="f-email" placeholder="jean@konpo.studio"></div>
+          <div class="row2">
+            <div class="field"><label>Phone</label><input type="text" id="f-phone" placeholder="+1 000 000 0000"></div>
+            <div class="field"><label>Website</label><input type="text" id="f-website" placeholder="konpo.studio"></div>
+          </div>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="group">
+          <div class="group-title group-toggle">Social<span id="social-count" class="count-badge"></span><span class="chev" aria-hidden="true"></span></div>
+          <div class="field"><label>LinkedIn</label><input type="text" id="f-linkedin" placeholder="linkedin.com/in/…"></div>
+          <div class="row2">
+            <div class="field"><label>X / Twitter</label><input type="text" id="f-twitter" placeholder="@handle"></div>
+            <div class="field"><label>Instagram</label><input type="text" id="f-instagram" placeholder="@handle"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label>GitHub</label><input type="text" id="f-github" placeholder="username"></div>
+            <div class="field"><label>Dribbble</label><input type="text" id="f-dribbble" placeholder="username"></div>
+          </div>
+          <div class="field"><label>Substack</label><input type="text" id="f-substack" placeholder="username (becomes username.substack.com)"></div>
+
+          <div class="subgroup-title">Extra links <span id="xlinks-count">Custom rows</span></div>
+          <div class="xlinks" id="xlinks"></div>
+          <button type="button" class="xlink-add" id="xlinkAdd">+ Add link</button>
+        </div>
+
+        <!-- PHOTO & LOGO -->
+        <div class="group">
+          <div class="group-title group-toggle">Photo &amp; Logo<span class="chev" aria-hidden="true"></span></div>
+          <div class="hs-preview-row">
+            <div class="hs-thumb" id="hsThumbnail">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <div class="hs-btns">
+              <button class="btn ghost sm" id="hsUploadBtn">Upload photo</button>
+              <input type="file" id="hsFile" accept="image/*" style="display:none">
+              <button class="btn ghost sm" id="hsRemoveBtn" style="display:none">Remove</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Or paste image URL</label>
+            <input type="text" id="f-hsurl" placeholder="https://…">
+          </div>
+          <div class="pill-group">
+            <span class="field-label">Size</span>
+            <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="hssize" id="hssize-s" value="S"><label for="hssize-s">S</label></div>
+              <div class="pill-radio"><input type="radio" name="hssize" id="hssize-m" value="M" checked><label for="hssize-m">M</label></div>
+              <div class="pill-radio"><input type="radio" name="hssize" id="hssize-l" value="L"><label for="hssize-l">L</label></div>
+            </div>
+          </div>
+          <div class="pill-group">
+            <span class="field-label">Shape</span>
+            <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="hsshape" id="hsshape-circle" value="circle" checked><label for="hsshape-circle">Circle</label></div>
+              <div class="pill-radio"><input type="radio" name="hsshape" id="hsshape-rounded" value="rounded"><label for="hsshape-rounded">Soft</label></div>
+              <div class="pill-radio"><input type="radio" name="hsshape" id="hsshape-square" value="square"><label for="hsshape-square">Square</label></div>
+            </div>
+          </div>
+          <p class="hs-note">Image URL recommended. Data URIs work but make the HTML heavy.</p>
+
+          <div class="subgroup-title">Logo badge <span>Optional</span></div>
+          <div class="hs-preview-row">
+            <div class="hs-thumb" id="logoThumbnail" style="border-radius:200rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 9h6v6H9z"/></svg>
+            </div>
+            <div class="hs-btns">
+              <button class="btn ghost sm" id="logoUploadBtn">Upload logo</button>
+              <input type="file" id="logoFile" accept="image/*" style="display:none">
+              <button class="btn ghost sm" id="logoRemoveBtn" style="display:none">Remove</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Or paste logo URL</label>
+            <input type="text" id="f-logourl" placeholder="https://…">
+          </div>
+          <p class="hs-note">Sits as a small badge on the bottom-right of your headshot. Renders in Apple Mail and Gmail web; Outlook desktop falls back to a stacked block.</p>
+        </div>
+
+        <!-- PLACE & VOICE -->
+        <div class="group">
+          <div class="group-title group-toggle">Place &amp; Voice<span class="chev" aria-hidden="true"></span></div>
+          <div class="field"><label>Location</label><input type="text" id="f-loc" placeholder="New York"></div>
+          <div class="field"><label>Tagline (optional)</label><input type="text" id="f-tag" placeholder="Gain control. Feel control."></div>
+        </div>
+
+        <div class="section-label"><span>Design</span></div>
+
+        <!-- LAYOUT (moved here from top) -->
+        <div class="group" id="layout-group-moved">
+          <!-- placeholder; the real Layout block was already emitted earlier and is moved by JS at startup -->
+        </div>
+
+        <!-- STYLE (accent + typography combined) -->
+        <div class="group">
+          <div class="group-title group-toggle">Style<span class="chev" aria-hidden="true"></span></div>
+
+          <div class="subgroup-title">Accent</div>
+          <div class="accent-row" id="swatches"></div>
+          <div class="accent-custom">
+            <input type="color" id="f-color" value="#1d1d1d">
+            <input type="text" id="f-hex" value="#1D1D1D" maxlength="7" spellcheck="false">
+          </div>
+
+          <div class="subgroup-title">Display font</div>
+          <div class="field">
+            <select id="f-font">
+              <option value="system">System — Helvetica / Arial (email-safe)</option>
+              <option value="Inter">Inter — clean geometric</option>
+              <option value="Plus Jakarta Sans">Plus Jakarta Sans — editorial</option>
+              <option value="DM Sans">DM Sans — friendly grotesque</option>
+              <option value="Syne">Syne — display, bold presence</option>
+              <option value="Space Grotesk">Space Grotesk — slightly techy</option>
+              <option value="Fraunces">Fraunces — editorial serif</option>
+              <option value="Playfair Display">Playfair Display — elegant serif</option>
+              <option value="DM Mono">DM Mono — monospace</option>
+              <option value="IBM Plex Mono">IBM Plex Mono — technical mono</option>
+            </select>
+          </div>
+          <div class="font-preview" id="fontPreview">Jean Massad</div>
+
+          <div class="subgroup-title">Secondary font <span>role, contact, tagline</span></div>
+          <div class="field">
+            <select id="f-font2">
+              <option value="JetBrains Mono">JetBrains Mono — default mono</option>
+              <option value="DM Mono">DM Mono — soft mono</option>
+              <option value="IBM Plex Mono">IBM Plex Mono — technical mono</option>
+              <option value="Space Mono">Space Mono — geometric mono</option>
+              <option value="system-mono">System mono — SF Mono / Menlo (email-safe)</option>
+              <option value="Inter">Inter — sans, clean</option>
+              <option value="Space Grotesk">Space Grotesk — sans, techy</option>
+              <option value="DM Sans">DM Sans — sans, friendly</option>
+              <option value="system">System sans — Helvetica / Arial (email-safe)</option>
+            </select>
+          </div>
+          <div class="font-preview" id="fontPreview2" style="font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;">FOUNDER &middot; KONPO STUDIO</div>
+          <p style="font-family:var(--mono);font-size:1.05rem;letter-spacing:.08em;color:var(--k-text-muted);">Renders in Apple Mail &amp; iOS. Gmail &amp; Outlook fall back to system equivalents.</p>
+        </div>
+
+        <div class="section-label"><span>Settings</span></div>
+
+        <!-- DISPLAY OPTIONS (all toggles in one place) -->
+        <div class="group">
+          <div class="group-title group-toggle">Display options<span class="chev" aria-hidden="true"></span></div>
+          <label class="check"><input type="checkbox" id="f-reg"><span>Add &reg; mark after company</span></label>
+          <label class="check"><input type="checkbox" id="f-icons" checked><span>Show contact icons</span></label>
+          <label class="check"><input type="checkbox" id="f-labels" checked><span>Show field labels <span class="check-hint">(Manifest, Architect, Brutalist, Minimal AF)</span></span></label>
+          <label class="check"><input type="checkbox" id="f-socials-iconly"><span>Show socials as icons only</span></label>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="group" id="hist-group" style="display:none">
+          <div class="group-title group-toggle">History <span id="hist-count"></span><span class="chev" aria-hidden="true"></span></div>
+          <div class="hist" id="hist-list"></div>
+        </div>
+
+      </section>
+
+      <!-- ===== PREVIEW ===== -->
+      <section class="preview">
+        <div class="preview-head">
+          <button class="btn ghost btn-icon" id="randomizeBtn" type="button" data-tip="Randomize" aria-label="Randomize design">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8" cy="8" r="1.1" fill="currentColor"/>
+              <circle cx="16" cy="8" r="1.1" fill="currentColor"/>
+              <circle cx="8" cy="16" r="1.1" fill="currentColor"/>
+              <circle cx="16" cy="16" r="1.1" fill="currentColor"/>
+              <circle cx="12" cy="12" r="1.1" fill="currentColor"/>
+            </svg>
+          </button>
+          <div class="tabs">
+            <button class="tab on" data-v="email">Email</button>
+            <button class="tab" data-v="code">HTML</button>
+          </div>
+        </div>
+
+        <div id="mail-wrap" class="mail-wrap mobile">
+          <div id="v-email" class="mail">
+            <div class="mail-head">
+              <div class="mail-from"><b id="mockFrom">Your Name &lt;you@example.com&gt;</b><time>Today, 14:41</time></div>
+              <div class="mail-subj">Re: Project update</div>
+            </div>
+            <div class="mail-body">
+              <div class="mail-prose">Thanks for sending this over. Let's connect Thursday to walk through the final proposal.</div>
+              <hr class="mail-rule">
+              <div id="sigOut"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="v-code" class="code" style="display:none">
+          <div class="code-top">Paste into your signature settings</div>
+          <pre id="codeOut"></pre>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-icon" id="copyRich" data-tip="Copy signature" aria-label="Copy signature">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <button class="btn ghost btn-icon" id="copyHtml" data-tip="Copy HTML" aria-label="Copy HTML">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </button>
+          <button class="btn ghost btn-icon" id="download" data-tip="Download .html" aria-label="Download .html">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </button>
+          <button class="btn ghost btn-icon" id="saveBtn" data-tip="Save" aria-label="Save">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+          <div class="share-pop-wrap">
+            <button class="btn ghost btn-icon" id="shareBtn" data-tip="Share link" aria-label="Share link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+            <div class="share-pop" id="sharePop">
+              <div class="share-pop-label">Share this signature</div>
+              <div class="share-pop-row">
+                <input class="share-pop-input" id="shareUrl" type="text" readonly>
+                <button class="btn sm" id="shareCopyBtn">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<textarea class="offscreen" id="buf"></textarea>
+<div class="toast" id="toast"></div>
+
+<!-- ====== CHANGELOG STICKY NOTE ====== -->
+<div class="changelog open" id="changelog">
+  <button class="changelog-tab" id="changelogTab" type="button" aria-label="Open changelog">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span>Changelog</span>
+  </button>
+  <div class="changelog-card" id="changelogCard" role="dialog" aria-label="Changelog">
+    <div class="changelog-tape" aria-hidden="true"></div>
+    <button class="changelog-close" id="changelogClose" type="button" aria-label="Close changelog">&times;</button>
+    <div class="changelog-title">Changelog</div>
+    <div class="changelog-sub">What's new in Sweet &amp; Simple Sigs</div>
+    <ul class="changelog-list">
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Retina-sharp icons (48px natural size) and 2&times; DPR avatar composite — crisp paste into Gmail.</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Avatar + logo now baked into a single JPEG via canvas — no more position-absolute fallback in email clients.</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Added Substack to social links.</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Editor reorganized: Content / Design / Settings bands, iOS-style toggles, count badges.</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">New layouts: Wildin' Out, Brutalist, Architect, Minimal AF.</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Konpo rail with Lottie brand mark, Instagram / LinkedIn / Substack social links.</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Logo badge on avatar (bottom-right, white ring, soft shadow).</div>
+      </li>
+      <li>
+        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+        <div class="changelog-text">Share-link via URL + Vercel shortener (so long signatures don't bloat URLs).</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var PRESETS = ["#1D1D1D","#9680FF","#0F62FE","#E4572E","#1B998B","#B79100"];
+  var HIST_KEY = "sig-history-v3", MAX_HIST = 20;
+
+  var FONTS = {
+    "system":           {stack:"Helvetica, Arial, sans-serif",                        gfParam:null},
+    "Inter":            {stack:"'Inter', Helvetica, Arial, sans-serif",               gfParam:"Inter:wght@400;700"},
+    "Plus Jakarta Sans":{stack:"'Plus Jakarta Sans', Helvetica, Arial, sans-serif",   gfParam:"Plus+Jakarta+Sans:wght@400;700"},
+    "DM Sans":          {stack:"'DM Sans', Helvetica, Arial, sans-serif",             gfParam:"DM+Sans:wght@400;700"},
+    "Syne":             {stack:"'Syne', Helvetica, Arial, sans-serif",                gfParam:"Syne:wght@400;700"},
+    "Space Grotesk":    {stack:"'Space Grotesk', Helvetica, Arial, sans-serif",       gfParam:"Space+Grotesk:wght@400;700"},
+    "Fraunces":         {stack:"'Fraunces', Georgia, serif",                          gfParam:"Fraunces:wght@400;700"},
+    "Playfair Display": {stack:"'Playfair Display', Georgia, serif",                  gfParam:"Playfair+Display:wght@400;700"},
+    "DM Mono":          {stack:"'DM Mono', 'Courier New', monospace",                 gfParam:"DM+Mono:wght@400;500"},
+    "IBM Plex Mono":    {stack:"'IBM Plex Mono', 'Courier New', monospace",           gfParam:"IBM+Plex+Mono:wght@400;600"},
+    "JetBrains Mono":   {stack:"'JetBrains Mono', 'Courier New', monospace",          gfParam:"JetBrains+Mono:wght@400;500"},
+    "Space Mono":       {stack:"'Space Mono', 'Courier New', monospace",              gfParam:"Space+Mono:wght@400;700"},
+    "system-mono":      {stack:"ui-monospace, 'SF Mono', Menlo, 'Courier New', monospace", gfParam:null}
+  };
+
+  var S = {
+    t:"editorial", accent:"#1D1D1D", reg:false, icons:true, socialsIconOnly:false, showLabels:true, font:"system", font2:"JetBrains Mono",
+    hsUrl:"", hsSize:"M", hsShape:"circle", logoUrl:"",
+    name:"", title:"", company:"",
+    email:"", phone:"", website:"", linkedin:"", loc:"", tag:"",
+    twitter:"", instagram:"", github:"", dribbble:"", substack:"",
+    links:[] /* extra rows: {text, url, iconSet, iconName} */
+  };
+
+  /* Curated icon set for extra links — Lucide UI + Simple Icons brand */
+  var ICON_CHOICES = [
+    { key:"",          label:"No icon",   set:null,           name:null },
+    { key:"link",      label:"Link",      set:"lucide",       name:"link" },
+    { key:"calendar",  label:"Calendar",  set:"lucide",       name:"calendar" },
+    { key:"briefcase", label:"Work",      set:"lucide",       name:"briefcase" },
+    { key:"file-text", label:"Document",  set:"lucide",       name:"file-text" },
+    { key:"book-open", label:"Reading",   set:"lucide",       name:"book-open" },
+    { key:"music",     label:"Music",     set:"lucide",       name:"music" },
+    { key:"video",     label:"Video",     set:"lucide",       name:"video" },
+    { key:"camera",    label:"Photo",     set:"lucide",       name:"camera" },
+    { key:"download",  label:"Download",  set:"lucide",       name:"download" },
+    { key:"youtube",   label:"YouTube",   set:"simple-icons", name:"youtube" },
+    { key:"figma",     label:"Figma",     set:"simple-icons", name:"figma" },
+    { key:"behance",   label:"Behance",   set:"simple-icons", name:"behance" },
+    { key:"substack",  label:"Substack",  set:"simple-icons", name:"substack" },
+    { key:"tiktok",    label:"TikTok",    set:"simple-icons", name:"tiktok" },
+    { key:"threads",   label:"Threads",   set:"simple-icons", name:"threads" },
+    { key:"bluesky",   label:"Bluesky",   set:"simple-icons", name:"bluesky" },
+    { key:"mastodon",  label:"Mastodon",  set:"simple-icons", name:"mastodon" },
+    { key:"spotify",   label:"Spotify",   set:"simple-icons", name:"spotify" },
+    { key:"notion",    label:"Notion",    set:"simple-icons", name:"notion" },
+    { key:"medium",    label:"Medium",    set:"simple-icons", name:"medium" }
+  ];
+  function findIcon(key){ for(var i=0;i<ICON_CHOICES.length;i++){ if(ICON_CHOICES[i].key===key) return ICON_CHOICES[i]; } return ICON_CHOICES[0]; }
+
+  var FIELDS = [
+    ["name","f-name"],["title","f-title"],["company","f-company"],
+    ["email","f-email"],["phone","f-phone"],["website","f-website"],
+    ["linkedin","f-linkedin"],["loc","f-loc"],["tag","f-tag"],
+    ["twitter","f-twitter"],["instagram","f-instagram"],
+    ["github","f-github"],["dribbble","f-dribbble"],["substack","f-substack"],
+    ["hsUrl","f-hsurl"],
+    ["logoUrl","f-logourl"]
+  ];
+
+  function gid(i){ return document.getElementById(i); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+  function http(u){ u=String(u||"").trim(); return /^https?:\/\//i.test(u)?u:"https://"+u; }
+  function bare(u){ return String(u||"").replace(/^https?:\/\//i,"").replace(/\/+$/,""); }
+
+  /* ======= ICONS =======
+     Hosted via Iconify CDN so they actually render in Gmail / Apple Mail.
+     UI icons: Lucide (ISC).  Brand icons: Simple Icons (CC0).
+     Color is baked into the URL via Iconify's ?color= param. */
+  function iurl(set, name, c){
+    var hex = String(c||"#1d1d1d").replace("#","");
+    /* Request natural SVG size at 48×48 (~4× our 12px contact icons, ~2.7× our 18px social pills).
+       When Gmail's image proxy rasterizes the SVG it does so at this natural size, then HTML
+       width/height attrs scale it down — giving us crisp retina rendering at small display sizes. */
+    return "https://api.iconify.design/"+set+"/"+name+".svg?color=%23"+hex+"&width=48&height=48";
+  }
+  function icMail(c){      return iurl("lucide","mail",c); }
+  function icPhone(c){     return iurl("lucide","phone",c); }
+  function icGlobe(c){     return iurl("lucide","globe",c); }
+  function icPin(c){       return iurl("lucide","map-pin",c); }
+  function icLinkedIn(c){  return iurl("simple-icons","linkedin",c); }
+  function icX(c){         return iurl("simple-icons","x",c); }
+  function icInstagram(c){ return iurl("simple-icons","instagram",c); }
+  function icGitHub(c){    return iurl("simple-icons","github",c); }
+  function icDribbble(c){  return iurl("simple-icons","dribbble",c); }
+  function icSubstack(c){  return iurl("simple-icons","substack",c); }
+
+  function iconImg(url){ return '<img src="'+url+'" width="12" height="12" alt="" border="0" style="display:inline-block;vertical-align:middle;margin-right:5px;">'; }
+  function iconImgLg(url){ return '<img src="'+url+'" width="18" height="18" alt="" border="0" style="display:inline-block;vertical-align:middle;">'; }
+  function socialsIconLine(){
+    /* horizontal inline row of social icons — used when S.socialsIconOnly is true */
+    var sx = socials();
+    if(!sx.length) return "";
+    return sx.map(function(s){
+      return '<a href="'+esc(s.href)+'" style="display:inline-block;margin-right:12px;text-decoration:none;line-height:0;vertical-align:middle;" title="'+esc(s.v)+'">'+iconImgLg(s.ic)+'</a>';
+    }).join('');
+  }
+
+  /* ======= CONSTANTS ======= */
+  var JM  = "'JetBrains Mono','Courier New',Courier,monospace"; /* recomputed per render from S.font2 */
+  var INK = "#1d1d1d", SUB = "#1d1d1d", FAINT = "#2e2e2e", HAIR = "#dcdcdc";
+
+  function nFont(){ return S.font&&S.font!=="system"?FONTS[S.font].stack:"Helvetica,Arial,sans-serif"; }
+  function secFont(){
+    var k=S.font2||"JetBrains Mono";
+    if(k==="system") return "Helvetica,Arial,sans-serif";
+    if(FONTS[k]) return FONTS[k].stack;
+    return "'JetBrains Mono','Courier New',Courier,monospace";
+  }
+  function regMk(a){ return S.reg&&S.company?'<span style="color:'+a+';font-size:9px;vertical-align:super;">&reg;</span>':''; }
+
+  /* company name gets accent; title stays INK */
+  function roleInline(a){
+    var p=[];
+    if(S.title) p.push(esc(S.title));
+    if(S.company) p.push('<span style="color:'+a+';">'+esc(S.company)+regMk(a)+'</span>');
+    return p.join('&nbsp;&nbsp;&middot;&nbsp;&nbsp;');
+  }
+  function roleBlock(a){
+    var p=[];
+    if(S.title) p.push(esc(S.title));
+    if(S.company) p.push('<span style="color:'+a+';">'+esc(S.company)+regMk(a)+'</span>');
+    return p.join('<br>');
+  }
+  function roleComma(a){
+    var p=[];
+    if(S.title) p.push(esc(S.title));
+    if(S.company) p.push('<span style="color:'+a+';">'+esc(S.company)+regMk(a)+'</span>');
+    return p.join(', ');
+  }
+
+  function contacts(){
+    var o=[];
+    if(S.email)    o.push({k:"MAIL",v:esc(S.email),         h:"mailto:"+esc(S.email),    ic:icMail(INK)});
+    if(S.phone)    o.push({k:"TEL", v:esc(S.phone),         h:null,                       ic:icPhone(INK)});
+    if(S.website)  o.push({k:"WEB", v:esc(bare(S.website)), h:esc(http(S.website)),       ic:icGlobe(INK)});
+    return o;
+  }
+  function socials(){
+    var o=[], h;
+    if(S.linkedin) o.push({k:"IN", v:"LinkedIn", href:esc(http(S.linkedin)), ic:icLinkedIn(INK)});
+    h=S.twitter?S.twitter.replace(/^@/,""):""; if(h) o.push({k:"X",  v:"@"+h, href:"https://x.com/"+h,              ic:icX(INK)});
+    h=S.instagram?S.instagram.replace(/^@/,""):""; if(h) o.push({k:"IG", v:"@"+h, href:"https://instagram.com/"+h, ic:icInstagram(INK)});
+    h=S.github?S.github.replace(/^@/,""):""; if(h) o.push({k:"GH", v:h,     href:"https://github.com/"+h,          ic:icGitHub(INK)});
+    h=S.dribbble?S.dribbble.replace(/^@/,""):""; if(h) o.push({k:"DB", v:h,  href:"https://dribbble.com/"+h,        ic:icDribbble(INK)});
+    h=S.substack?S.substack.replace(/^@/,""):""; if(h) o.push({k:"SB", v:h,  href:/^https?:\/\//i.test(S.substack)?S.substack:(/\./.test(h)?"https://"+h:"https://"+h+".substack.com"), ic:icSubstack(INK)});
+    return o;
+  }
+  function extras(){
+    /* user-defined custom links — text + url + optional icon */
+    var o=[]; if(!S.links||!S.links.length) return o;
+    S.links.forEach(function(l){
+      if(!l || !l.text || !l.url) return;
+      var ic = (l.iconSet && l.iconName) ? iurl(l.iconSet, l.iconName, INK) : "";
+      o.push({ k:(l.text||"").toUpperCase().slice(0,3), v:esc(l.text), h:esc(http(l.url)), ic:ic });
+    });
+    return o;
+  }
+  function allContacts(){
+    var cx=contacts(), sx=socials(), ex=extras();
+    var out = cx.concat(sx.map(function(s){ return {k:s.k,v:s.v,h:esc(s.href),ic:s.ic}; }));
+    return out.concat(ex);
+  }
+  function fontLink(){
+    if(!S.font||S.font==="system") return "";
+    var gf=FONTS[S.font]&&FONTS[S.font].gfParam; if(!gf) return "";
+    return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family='+gf+'&display=swap">\n';
+  }
+
+  function dot(){ return '<span style="color:'+FAINT+';">&nbsp;&nbsp;&middot;&nbsp;&nbsp;</span>'; }
+
+  /* per-row contact block — used by every template */
+  function contactRows(){
+    var rows="";
+    contacts().forEach(function(c){
+      var ic=S.icons&&c.ic?iconImg(c.ic):"";
+      var val=c.h?ic+'<a href="'+c.h+'" style="color:'+INK+';text-decoration:none;">'+c.v+'</a>':ic+'<span style="color:'+FAINT+';">'+c.v+'</span>';
+      rows+='<tr><td style="font-family:'+JM+';font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:2px 0 2px 0;line-height:1.6;white-space:nowrap;">'+val+'</td></tr>';
+    });
+    if(S.socialsIconOnly){
+      var line = socialsIconLine();
+      if(line) rows += '<tr><td style="padding:8px 0 2px 0;line-height:0;">'+line+'</td></tr>';
+    } else {
+      socials().forEach(function(s){
+        var ic=S.icons&&s.ic?iconImg(s.ic):"";
+        var val=ic+'<a href="'+esc(s.href)+'" style="color:'+INK+';text-decoration:none;">'+s.v+'</a>';
+        rows+='<tr><td style="font-family:'+JM+';font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:2px 0 2px 0;line-height:1.6;white-space:nowrap;">'+val+'</td></tr>';
+      });
+    }
+    extras().forEach(function(e){
+      var ic=S.icons&&e.ic?iconImg(e.ic):"";
+      var val=ic+'<a href="'+e.h+'" style="color:'+INK+';text-decoration:none;">'+e.v+'</a>';
+      rows+='<tr><td style="font-family:'+JM+';font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:2px 0 2px 0;line-height:1.6;white-space:nowrap;">'+val+'</td></tr>';
+    });
+    return rows;
+  }
+
+  /* ======= HEADSHOT WRAPPER =======
+     Image stacked ABOVE content (single column) so every email client
+     renders the same way the preview shows. */
+  /* ======= AVATAR PROCESSING =======
+     Composite avatar + (optional) logo badge into a SINGLE small PNG via canvas.
+     Why: Gmail compose strips position:absolute, mis-sizes large data-URI imgs,
+     and re-handles pasted images unpredictably. A single right-sized PNG kills
+     all three problems — one img tag, exact display size, no positioning.
+     Async; cached by a key of the inputs. wrapHS uses the composite when ready
+     and falls back to the live overlay version for the preview while pending. */
+  var procImg = { url:"", key:"", busy:false };
+  function avatarSizePx(){ return S.hsSize==="L"?80:S.hsSize==="M"?60:44; }
+  function procKey(){ return [S.hsUrl, S.logoUrl, S.hsSize, S.hsShape].join("|"); }
+  function roundedRect(ctx, x, y, w, h, r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.lineTo(x+w-r,y);  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+  }
+  function processAvatar(){
+    var key = procKey();
+    if(procImg.key===key || procImg.busy) return;
+    if(!S.hsUrl && !S.logoUrl){ procImg.url=""; procImg.key=key; return; }
+    procImg.busy = true;
+
+    var sz   = avatarSizePx();
+    /* 3× source resolution. Gmail's image proxy re-encodes pasted images,
+       so we need extra pixels in the source to survive that pass and still
+       look crisp at the displayed size on retina screens. */
+    var dpr  = 3;
+    var pad  = S.logoUrl ? 4 : 0;
+    var outerSz = sz + pad;
+    var canvas = document.createElement('canvas');
+    canvas.width  = Math.round(outerSz * dpr);
+    canvas.height = Math.round(outerSz * dpr);
+    var ctx = canvas.getContext('2d');
+    /* Best-quality image resampling — softens the bilinear default the browser
+       uses by default for drawImage(). Critical for photo downscaling. */
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.scale(dpr, dpr);
+    /* White background so JPEG (no alpha) blends cleanly on white email canvases */
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, outerSz, outerSz);
+
+    function drawShape(){
+      if(S.hsShape === 'circle'){
+        ctx.beginPath();
+        ctx.arc(sz/2, sz/2, sz/2, 0, Math.PI*2);
+        ctx.clip();
+      } else if(S.hsShape === 'rounded'){
+        roundedRect(ctx, 0, 0, sz, sz, 10);
+        ctx.clip();
+      }
+    }
+    function drawLogo(loImg, done){
+      if(!loImg){ done(); return; }
+      var lsz = Math.max(18, Math.round(sz * 0.38));
+      var lx = sz - lsz + pad;
+      var ly = sz - lsz + pad;
+      var cx = lx + lsz/2, cy = ly + lsz/2;
+      /* white ring */
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(cx, cy, lsz/2 + 2, 0, Math.PI*2);
+      ctx.fill();
+      /* clip and draw logo */
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, lsz/2, 0, Math.PI*2);
+      ctx.clip();
+      try{ ctx.drawImage(loImg, lx, ly, lsz, lsz); }catch(e){}
+      ctx.restore();
+      done();
+    }
+    function finish(){
+      try{
+        /* JPEG q=0.92 at 3× DPR — high headroom for Gmail's re-encoding.
+           ~8–14 KB for a 60×60 display; pasted into Gmail compose this still
+           renders crisp on retina even after the proxy round-trip. */
+        procImg.url = canvas.toDataURL('image/jpeg', 0.92);
+        procImg.key = key;
+      }catch(e){
+        procImg.url = "";
+        procImg.key = key;
+      }
+      procImg.busy = false;
+      render();
+    }
+
+    /* avatar present? */
+    if(S.hsUrl){
+      var av = new Image();
+      av.crossOrigin = "anonymous";
+      av.onload = function(){
+        ctx.save();
+        drawShape();
+        try{ ctx.drawImage(av, 0, 0, sz, sz); }catch(e){}
+        ctx.restore();
+        if(S.logoUrl){
+          var lo = new Image();
+          lo.crossOrigin = "anonymous";
+          lo.onload = function(){ drawLogo(lo, finish); };
+          lo.onerror = function(){ finish(); };
+          lo.src = S.logoUrl;
+        } else finish();
+      };
+      av.onerror = function(){ procImg.busy = false; };
+      av.src = S.hsUrl;
+    } else {
+      /* logo only — draw it as the main image */
+      var lo2 = new Image();
+      lo2.crossOrigin = "anonymous";
+      lo2.onload = function(){
+        ctx.save();
+        drawShape();
+        try{ ctx.drawImage(lo2, 0, 0, sz, sz); }catch(e){}
+        ctx.restore();
+        finish();
+      };
+      lo2.onerror = function(){ procImg.busy = false; };
+      lo2.src = S.logoUrl;
+    }
+  }
+
+  function wrapHS(html){
+    if(!S.hsUrl && !S.logoUrl) return html;
+    var sz = avatarSizePx();
+    var pad = S.logoUrl ? 4 : 0;
+    var br = S.hsShape==="circle"?"50%":S.hsShape==="rounded"?"10px":"0";
+    var topBlock;
+
+    /* If a composited PNG is ready for the current state, use it. One img,
+       exact size, no absolute positioning — bulletproof for paste. */
+    if(procImg.url && procImg.key === procKey()){
+      var w = sz + pad;
+      topBlock = '<img src="'+procImg.url+'" width="'+w+'" height="'+w+'" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">';
+    } else {
+      /* Live preview / pending fallback — still shows the overlap */
+      if(S.hsUrl){
+        var imgSt = "display:block;width:"+sz+"px;height:"+sz+"px;object-fit:cover;"+(S.hsShape!=="square"?"border-radius:"+br+";":"");
+        var avatar = '<img src="'+esc(S.hsUrl)+'" width="'+sz+'" height="'+sz+'" alt="" border="0" style="'+imgSt+'border:0;outline:none;">';
+        var badge = '';
+        if(S.logoUrl){
+          var lsz = Math.max(18, Math.round(sz * 0.38));
+          var logoSt = "display:block;width:"+lsz+"px;height:"+lsz+"px;object-fit:cover;border-radius:50%;border:2px solid #ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.18);";
+          badge = '<img src="'+esc(S.logoUrl)+'" width="'+lsz+'" height="'+lsz+'" alt="" border="0" style="position:absolute;right:-4px;bottom:-4px;'+logoSt+'">';
+        }
+        topBlock = badge
+          ? '<div style="position:relative;display:inline-block;line-height:0;">'+avatar+badge+'</div>'
+          : avatar;
+      } else {
+        var loSt = "display:block;width:"+sz+"px;height:"+sz+"px;object-fit:cover;"+(S.hsShape!=="square"?"border-radius:"+br+";":"");
+        topBlock = '<img src="'+esc(S.logoUrl)+'" width="'+sz+'" height="'+sz+'" alt="" border="0" style="'+loSt+'border:0;outline:none;">';
+      }
+      /* Kick off the composite for next render */
+      setTimeout(processAvatar, 0);
+    }
+
+    return '<table class="hs-wrap" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td style="padding:0 0 16px 0;">'+ topBlock +'</td></tr>'+
+      '<tr><td>'+html+'</td></tr></table>';
+  }
+
+  /* ======= TEMPLATES ======= */
+
+  /* 1 — Editorial */
+  function tEditorial(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var role=roleInline(a);
+    var cr=contactRows();
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td style="font-family:'+nf+';font-size:19px;font-weight:bold;color:'+INK+';letter-spacing:.3px;line-height:1.2;">'+nm+'</td></tr>'+
+      (role?'<tr><td style="padding:6px 0 0;font-family:'+JM+';font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:'+SUB+';">'+role+'</td></tr>':'')+
+      '<tr><td style="padding:12px 0 8px;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:240px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+      '</td></tr>'+
+      (cr?cr:'')+
+      (S.loc?'<tr><td style="padding:6px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</td></tr>':'')+
+      (S.tag?'<tr><td style="padding:12px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';">'+esc(S.tag)+'</td></tr>':'')+
+    '</table>';
+  }
+
+  /* 2 — Manifest */
+  function tManifest(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var role=roleInline(a);
+    var cx=contacts();
+    if(S.tag) cx.push({k:"",v:esc(S.tag),h:null,ic:"",tag:true});
+    if(S.loc) cx.push({k:"AT",v:esc(S.loc),h:null,ic:icPin(FAINT)});
+    if(!S.socialsIconOnly){
+      socials().forEach(function(s){ cx.push({k:s.k,v:s.v,h:esc(s.href),ic:s.ic}); });
+    }
+    extras().forEach(function(e){ cx.push({k:e.k,v:e.v,h:e.h,ic:e.ic}); });
+
+    var rows=cx.map(function(c){
+      var ic=S.icons&&c.ic?iconImg(c.ic):"";
+      var vCol = c.tag ? FAINT : INK;
+      var val = c.h
+        ? ic+'<a href="'+c.h+'" style="font-family:'+JM+';font-size:12px;color:'+INK+';text-decoration:none;">'+c.v+'</a>'
+        : ic+'<span style="font-family:'+JM+';font-size:12px;color:'+vCol+';">'+c.v+'</span>';
+      if(S.showLabels===false){
+        return '<tr><td style="vertical-align:middle;line-height:2.2;">'+val+'</td></tr>';
+      }
+      return '<tr><td style="font-family:'+JM+';font-size:9px;font-weight:bold;letter-spacing:2px;color:'+FAINT+';text-transform:uppercase;padding:0 18px 0 0;vertical-align:middle;line-height:2.2;width:30px;">'+(c.k||'')+'</td><td style="vertical-align:middle;line-height:2.2;">'+val+'</td></tr>';
+    }).join('');
+
+    var socLine = S.socialsIconOnly ? socialsIconLine() : "";
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td style="padding-bottom:12px;">'+
+        '<div style="font-family:'+nf+';font-size:18px;font-weight:bold;color:'+INK+';line-height:1.2;">'+nm+'</div>'+
+        (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:5px;">'+role+'</div>':'')+
+      '</td></tr>'+
+      (rows?'<tr><td style="border-top:1px solid '+HAIR+';padding-top:11px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+rows+'</table></td></tr>':'')+
+      (socLine?'<tr><td style="padding-top:12px;line-height:0;">'+socLine+'</td></tr>':'')+
+    '</table>';
+  }
+
+  /* 3 — Split */
+  function tSplit(a){
+    var raw=S.name||"Your Name", nf=nFont();
+    var nmH=esc(raw);
+    var role=roleBlock(a);
+    /* contacts + extras as text rows; socials as icon row only when toggle on */
+    var contactItems = contacts().concat(extras().map(function(e){return {k:e.k,v:e.v,h:e.h,ic:e.ic};}));
+    if(!S.socialsIconOnly){
+      contactItems = contactItems.concat(socials().map(function(s){return {k:s.k,v:s.v,h:esc(s.href),ic:s.ic};}));
+    }
+    var rows=contactItems.map(function(c){
+      var ic=S.icons&&c.ic?iconImg(c.ic):"";
+      var val=c.h?ic+'<a href="'+c.h+'" style="color:'+INK+';text-decoration:none;white-space:nowrap;">'+c.v+'</a>':ic+'<span style="color:'+INK+';white-space:nowrap;">'+c.v+'</span>';
+      return '<div style="font-family:'+JM+';font-size:11px;letter-spacing:1px;text-transform:uppercase;line-height:1.9;">'+val+'</div>';
+    }).join('');
+    var socLine = S.socialsIconOnly ? socialsIconLine() : "";
+
+    return '<table class="sig-split" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td class="split-left" style="vertical-align:top;padding:0 0 14px 0;">'+
+        '<div style="font-family:'+nf+';font-size:20px;font-weight:bold;color:'+INK+';line-height:1.15;">'+nmH+'</div>'+
+        (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:8px;line-height:1.9;">'+role+'</div>':'')+
+      '</td></tr>'+
+      '<tr><td class="split-right" style="vertical-align:top;">'+
+        rows+
+        (S.loc?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';margin-top:6px;white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</div>':'')+
+        (S.tag?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';margin-top:8px;">'+esc(S.tag)+'</div>':'')+
+        (socLine?'<div style="margin-top:10px;line-height:0;">'+socLine+'</div>':'')+
+      '</td></tr></table>';
+  }
+
+  /* 4 — Bold */
+  function tBold(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var role=roleInline(a);
+    var cr=contactRows();
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td>'+
+        '<div style="font-family:'+nf+';font-size:28px;font-weight:bold;color:'+INK+';letter-spacing:-.3px;line-height:1.05;">'+nm+'</div>'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:10px 0;"><tr><td style="height:3px;width:240px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+        (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-bottom:8px;">'+role+'</div>':'')+
+        (cr?'<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+cr+'</table>':'')+
+        (S.loc?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';margin-top:6px;white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</div>':'')+
+        (S.tag?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';margin-top:10px;">'+esc(S.tag)+'</div>':'')+
+      '</td></tr></table>';
+  }
+
+  /* 5 — Compact */
+  function tCompact(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var sub=roleComma(a);
+    var cr=contactRows();
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td>'+
+        '<div style="font-family:'+nf+';font-size:16px;font-weight:bold;color:'+INK+';line-height:1.2;">'+nm+'</div>'+
+        (sub?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:'+FAINT+';margin-top:4px;line-height:1.4;">'+sub+'</div>':'')+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:9px 0;">'+
+          '<tr><td style="height:1px;width:240px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr>'+
+        '</table>'+
+        (cr?'<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+cr+'</table>':'')+
+        (S.loc?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';margin-top:6px;white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</div>':'')+
+        (S.tag?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';margin-top:8px;">'+esc(S.tag)+'</div>':'')+
+      '</td></tr></table>';
+  }
+
+  /* 6 — Card */
+  function tCard(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var role=roleInline(a);
+    var cr=contactRows();
+
+    return '<table class="sig-card" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td class="card-content" style="vertical-align:top;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+          '<tr><td style="padding-bottom:10px;">'+
+            '<div style="font-family:'+nf+';font-size:20px;font-weight:bold;color:'+INK+';line-height:1.1;">'+nm+'</div>'+
+            (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:5px;">'+role+'</div>':'')+
+          '</td></tr>'+
+          '<tr><td style="padding:0 0 8px;">'+
+            '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:200px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+          '</td></tr>'+
+          (cr?cr:'')+
+          (S.loc?'<tr><td style="padding:6px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</td></tr>':'')+
+          (S.tag?'<tr><td style="padding:10px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';">'+esc(S.tag)+'</td></tr>':'')+
+        '</table>'+
+      '</td></tr></table>';
+  }
+
+  /* 7 — Wildin' Out — pushed-as-far-as-email-safe:
+        accent stripes top + bottom, inverted black name-plate with HUGE
+        uppercase name, chevron-prefixed contacts, accent-pill social icons,
+        quote-wrapped serif tagline, ink-pill location badge. */
+  function tWildin(a){
+    var nm   = S.name||"Your Name";
+    var nf   = nFont();
+    var mono = JM;
+    var BLACK = "#0e0e12";
+
+    /* Role parts joined with a punk slash separator — don't uppercase in JS
+       (that corrupts HTML entities); the CSS text-transform handles casing. */
+    var roleP = [];
+    if(S.title)   roleP.push(esc(S.title));
+    if(S.company) roleP.push(esc(S.company)+(S.reg?'<span style="font-size:9px;vertical-align:super;color:'+a+';">&reg;</span>':''));
+    var roleLine = roleP.join(' //// ');
+
+    var rows = "";
+
+    /* Top accent stripe — bgcolor attribute + style for Outlook bulletproofing */
+    rows += '<tr><td bgcolor="'+a+'" style="height:4px;background-color:'+a+';font-size:1px;line-height:1px;">&nbsp;</td></tr>';
+
+    /* Inverted name plate */
+    rows += '<tr><td bgcolor="'+BLACK+'" style="background-color:'+BLACK+';padding:22px 24px;color:#ffffff;">'+
+      '<div style="font-family:'+nf+';font-size:34px;font-weight:bold;line-height:1.0;letter-spacing:-1px;color:#ffffff;text-transform:uppercase;">'+esc(nm)+'</div>'+
+      (roleLine?'<div style="font-family:'+mono+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+a+';margin-top:10px;line-height:1.4;">'+roleLine+'</div>':'')+
+    '</td></tr>';
+
+    /* Single 4px accent stripe to match the top exactly */
+    rows += '<tr><td bgcolor="'+a+'" style="height:4px;background-color:'+a+';font-size:1px;line-height:1px;">&nbsp;</td></tr>';
+
+    /* Contacts — »» chevron + faint mono label + bold value */
+    function cRow(label, value, href){
+      var v = href
+        ? '<a href="'+href+'" style="color:'+INK+';text-decoration:none;font-weight:bold;">'+value+'</a>'
+        : '<span style="color:'+INK+';font-weight:bold;">'+value+'</span>';
+      return '<tr>'+
+        '<td style="font-family:'+mono+';font-size:16px;color:'+a+';padding:5px 10px 5px 0;vertical-align:middle;width:22px;font-weight:bold;line-height:1;">&raquo;</td>'+
+        '<td style="font-family:'+mono+';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:'+FAINT+';padding:5px 14px 5px 0;vertical-align:middle;width:64px;">'+label+'</td>'+
+        '<td style="font-family:'+mono+';font-size:12px;color:'+INK+';padding:5px 0;vertical-align:middle;">'+v+'</td>'+
+      '</tr>';
+    }
+    var cBody = "";
+    if(S.email)   cBody += cRow('EMAIL', esc(S.email),         'mailto:'+esc(S.email));
+    if(S.phone)   cBody += cRow('PHONE', esc(S.phone),         null);
+    if(S.website) cBody += cRow('WWW',   esc(bare(S.website)), esc(http(S.website)));
+    if(cBody){
+      rows += '<tr><td style="padding:18px 0 4px 0;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+cBody+'</table></td></tr>';
+    }
+
+    /* Extras as same-style rows */
+    var ext = extras();
+    if(ext.length){
+      var eBody = "";
+      ext.forEach(function(e){
+        eBody += cRow((e.k||'LINK').toUpperCase(), e.v, e.h);
+      });
+      rows += '<tr><td style="padding:0 0 4px 0;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+eBody+'</table></td></tr>';
+    }
+
+    /* Socials — accent-filled circular pills with white icons */
+    var soc = socials();
+    if(soc.length){
+      var icMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', SB:'substack' };
+      var pills = soc.map(function(s){
+        var iconWhite = iurl("simple-icons", icMap[s.k]||s.k.toLowerCase(), "#ffffff");
+        return '<a href="'+esc(s.href)+'" title="'+esc(s.v)+'" style="display:inline-block;background-color:'+a+';padding:8px;margin:0 6px 6px 0;border-radius:50%;line-height:0;text-decoration:none;vertical-align:middle;"><img src="'+iconWhite+'" width="14" height="14" alt="" style="display:block;border:0;"></a>';
+      }).join('');
+      rows += '<tr><td style="padding:14px 0 0 0;line-height:0;">'+pills+'</td></tr>';
+    }
+
+    /* Tagline — boxed by 2px ink rules, italic serif, centered */
+    if(S.tag){
+      rows += '<tr><td style="padding:22px 0 6px 0;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+
+          '<tr><td style="height:2px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr>'+
+          '<tr><td style="padding:16px 8px;font-family:Georgia,\'Times New Roman\',serif;font-style:italic;font-size:18px;color:'+INK+';line-height:1.35;text-align:center;">&ldquo;'+esc(S.tag)+'&rdquo;</td></tr>'+
+          '<tr><td style="height:2px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr>'+
+        '</table>'+
+      '</td></tr>';
+    }
+
+    /* Location pill — ink chip with pin icon */
+    if(S.loc){
+      var pin = S.icons ? '<img src="'+iurl("lucide","map-pin","#ffffff")+'" width="10" height="10" alt="" style="display:inline-block;vertical-align:-1px;margin-right:6px;border:0;">' : '';
+      rows += '<tr><td style="padding:16px 0 0 0;">'+
+        '<span style="display:inline-block;background-color:'+INK+';color:#ffffff;padding:7px 14px;font-family:'+mono+';font-size:10px;letter-spacing:2px;text-transform:uppercase;border-radius:999px;line-height:1;">'+
+          pin+esc(S.loc)+
+        '</span>'+
+      '</td></tr>';
+    }
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+rows+'</table>';
+  }
+
+  /* 8 — Brutalist — German architect title-block. Grid of bordered cells,
+        lowercase mono labels paired with bold values, mix of wide rows
+        (name/title/company/tagline) and 2-col rows (email/phone, web/loc). */
+  function tBrutalist(a){
+    var nf   = nFont();
+    var mono = JM;
+    var bd   = '1px solid '+INK;
+    var cellSt = 'border:'+bd+';padding:9px 12px;vertical-align:middle;';
+    var lblSt  = 'font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:.3px;';
+    var valBase= 'font-family:'+nf+';font-size:13px;font-weight:bold;line-height:1.3;';
+    var aSt    = 'color:'+INK+';text-decoration:none;';
+
+    function cellHTML(label, value, color){
+      var c = color || INK;
+      if(S.showLabels===false){
+        return '<span style="'+valBase+'color:'+c+';">'+value+'</span>';
+      }
+      return '<span style="'+lblSt+'">'+label+'</span>'+
+             '&nbsp;&nbsp;'+
+             '<span style="'+valBase+'color:'+c+';">'+value+'</span>';
+    }
+    function full(label, value, color){
+      return '<tr><td colspan="2" style="'+cellSt+'">'+cellHTML(label, value, color)+'</td></tr>';
+    }
+    function pair(l1, v1, l2, v2, c1, c2){
+      var left  = l1 ? cellHTML(l1, v1, c1) : '&nbsp;';
+      var right = l2 ? cellHTML(l2, v2, c2) : '&nbsp;';
+      return '<tr><td style="'+cellSt+'width:50%;">'+left+'</td><td style="'+cellSt+'width:50%;">'+right+'</td></tr>';
+    }
+
+    var rows = "";
+
+    /* Identity */
+    if(S.name)  rows += full('name',  esc(S.name));
+    if(S.title) rows += full('title', esc(S.title));
+    if(S.company){
+      var reg = S.reg ? '<span style="font-size:9px;vertical-align:super;color:'+a+';">&reg;</span>' : '';
+      rows += full('co.', esc(S.company)+reg, a);
+    }
+
+    /* Contacts — pair them up */
+    var pairs = [];
+    if(S.email)   pairs.push(['mail',  '<a href="mailto:'+esc(S.email)+'" style="'+aSt+'">'+esc(S.email)+'</a>']);
+    if(S.phone)   pairs.push(['tel',   esc(S.phone)]);
+    if(S.website) pairs.push(['web',   '<a href="'+esc(http(S.website))+'" style="'+aSt+'">'+esc(bare(S.website))+'</a>']);
+    if(S.loc)     pairs.push(['loc',   esc(S.loc)]);
+    for(var i=0; i<pairs.length; i+=2){
+      var p1 = pairs[i], p2 = pairs[i+1];
+      rows += pair(p1[0], p1[1], p2?p2[0]:null, p2?p2[1]:null);
+    }
+
+    /* Socials */
+    var soc = socials();
+    if(soc.length){
+      if(S.socialsIconOnly){
+        rows += '<tr><td colspan="2" style="'+cellSt+'line-height:0;padding:11px 12px;">'+socialsIconLine()+'</td></tr>';
+      } else {
+        var labelMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', SB:'substack' };
+        for(var j=0; j<soc.length; j+=2){
+          var s1 = soc[j], s2 = soc[j+1];
+          var l1 = labelMap[s1.k]||s1.k.toLowerCase();
+          var v1 = '<a href="'+esc(s1.href)+'" style="'+aSt+'">'+s1.v+'</a>';
+          var l2 = s2 ? (labelMap[s2.k]||s2.k.toLowerCase()) : null;
+          var v2 = s2 ? '<a href="'+esc(s2.href)+'" style="'+aSt+'">'+s2.v+'</a>' : null;
+          rows += pair(l1, v1, l2, v2);
+        }
+      }
+    }
+
+    /* Extras — pair up too */
+    var ext = extras();
+    for(var k=0; k<ext.length; k+=2){
+      var e1 = ext[k], e2 = ext[k+1];
+      var el1 = (e1.k||'link').toLowerCase();
+      var ev1 = '<a href="'+e1.h+'" style="'+aSt+'">'+e1.v+'</a>';
+      var el2 = e2 ? (e2.k||'link').toLowerCase() : null;
+      var ev2 = e2 ? '<a href="'+e2.h+'" style="'+aSt+'">'+e2.v+'</a>' : null;
+      rows += pair(el1, ev1, el2, ev2);
+    }
+
+    /* Tagline as full-width footer row */
+    if(S.tag) rows += full('tag', esc(S.tag));
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+rows+'</table>';
+  }
+
+  /* 8 — Architect — title-block / blueprint style.
+        Tiny mono caps label above each value, hairline rules between sections.
+        Strictly one item per line. */
+  function tArchitect(a){
+    var nf   = nFont();
+    var mono = JM;
+    var labelSt = 'font-family:'+mono+';font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:'+FAINT+';line-height:1.4;';
+    var cellSt  = 'border:1px solid '+HAIR+';padding:11px 14px;vertical-align:top;';
+    var aSt     = 'color:'+INK+';text-decoration:none;';
+
+    function row(label, value, valColor){
+      var c = valColor || INK;
+      var lbl = (S.showLabels===false) ? '' : '<div style="'+labelSt+'">'+label+'</div>';
+      var mt  = (S.showLabels===false) ? '0' : '4px';
+      return '<tr><td style="'+cellSt+'">'+
+        lbl+
+        '<div style="font-family:'+nf+';font-size:14px;font-weight:bold;color:'+c+';margin-top:'+mt+';line-height:1.3;">'+value+'</div>'+
+      '</td></tr>';
+    }
+    /* legacy hairline rule replaced by per-cell borders */
+    function rule(){ return ''; }
+
+    var out = "";
+
+    /* Identity */
+    out += row('Name', esc(S.name||'Your Name'));
+    if(S.title || S.company){
+      out += rule();
+      if(S.title) out += row('Title', esc(S.title));
+      if(S.company){
+        var reg = S.reg ? '<span style="font-size:9px;vertical-align:super;color:'+a+';">&reg;</span>' : '';
+        out += row('Company', esc(S.company)+reg, a);
+      }
+    }
+
+    /* Contacts */
+    var hasContact = S.email||S.phone||S.website;
+    if(hasContact){
+      out += rule();
+      if(S.email)   out += row('Email',   '<a href="mailto:'+esc(S.email)+'" style="'+aSt+'">'+esc(S.email)+'</a>');
+      if(S.phone)   out += row('Phone',   esc(S.phone));
+      if(S.website) out += row('Website', '<a href="'+esc(http(S.website))+'" style="'+aSt+'">'+esc(bare(S.website))+'</a>');
+    }
+
+    /* Socials (LinkedIn lives here too now) */
+    var soc = socials();
+    if(soc.length){
+      out += rule();
+      if(S.socialsIconOnly){
+        var line = socialsIconLine();
+        out += '<tr><td style="border:1px solid '+HAIR+';padding:14px;line-height:0;">'+line+'</td></tr>';
+      } else {
+        var labelMap = { IN:'LinkedIn', X:'X / Twitter', IG:'Instagram', GH:'GitHub', DB:'Dribbble', SB:'Substack' };
+        soc.forEach(function(s){
+          var lbl = labelMap[s.k] || s.k;
+          out += row(lbl, '<a href="'+esc(s.href)+'" style="'+aSt+'">'+s.v+'</a>');
+        });
+      }
+    }
+
+    /* Extras */
+    var ext = extras();
+    if(ext.length){
+      if(!soc.length) out += rule();
+      ext.forEach(function(e){
+        out += row(e.k||'Link', '<a href="'+e.h+'" style="'+aSt+'">'+e.v+'</a>');
+      });
+    }
+
+    /* Location / Tagline */
+    if(S.loc || S.tag){
+      out += rule();
+      if(S.loc) out += row('Location', esc(S.loc));
+      if(S.tag) out += row('Tagline',  esc(S.tag));
+    }
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+out+'</table>';
+  }
+
+  /* 8 — Minimal AF — pure monospace block, one font, prefixed contacts */
+  function tMinimal(a){
+    var mono = JM;
+    var sz   = "13px";
+    var lh   = "1.6";
+    var caps     = 'text-transform:uppercase;letter-spacing:.5px;';
+    var rowSt    = 'font-family:'+mono+';font-size:'+sz+';color:'+INK+';padding:2px 0;line-height:'+lh+';'+caps;
+    var prefixSt = 'font-family:'+mono+';font-size:'+sz+';color:'+INK+';padding:2px 12px 2px 0;vertical-align:top;line-height:'+lh+';white-space:nowrap;'+caps;
+    var valueSt  = 'font-family:'+mono+';font-size:'+sz+';color:'+INK+';padding:2px 0;vertical-align:top;line-height:'+lh+';'+caps;
+    var aSt   = 'color:'+INK+';text-decoration:none;';
+    var spcSt = 'height:14px;font-size:1px;line-height:1px;';
+
+    var out = "";
+
+    /* Block 1 — identity */
+    if(S.name)    out += '<tr><td colspan="2" style="'+rowSt+'">'+esc(S.name)+'</td></tr>';
+    if(S.title)   out += '<tr><td colspan="2" style="'+rowSt+'">'+esc(S.title)+'</td></tr>';
+    if(S.company){
+      var reg = S.reg ? '<span style="font-size:9px;vertical-align:super;color:'+a+';">&reg;</span>' : '';
+      out += '<tr><td colspan="2" style="'+rowSt+'"><span style="color:'+a+';">'+esc(S.company)+reg+'</span></td></tr>';
+    }
+
+    /* Block 2 — contacts (single-letter prefix) */
+    var hasContact = S.email || S.phone || S.website || S.linkedin;
+    if((S.name||S.title||S.company) && hasContact) out += '<tr><td colspan="2" style="'+spcSt+'">&nbsp;</td></tr>';
+
+    function line(p, v, h){
+      var val = h ? '<a href="'+h+'" style="'+aSt+'">'+v+'</a>' : v;
+      if(S.showLabels===false){
+        out += '<tr><td colspan="2" style="'+valueSt+'">'+val+'</td></tr>';
+      } else {
+        out += '<tr><td style="'+prefixSt+'">'+p+'</td><td style="'+valueSt+'">'+val+'</td></tr>';
+      }
+    }
+    if(S.email)   line('E', esc(S.email),         'mailto:'+esc(S.email));
+    if(S.phone)   line('P', esc(S.phone),         null);
+    if(S.website) line('W', esc(bare(S.website)), esc(http(S.website)));
+
+    /* Socials + extras — prefix = first char of the short key */
+    var soc = socials();
+    var ext = extras();
+    if(soc.length || ext.length){
+      if(hasContact) out += '<tr><td colspan="2" style="'+spcSt+'">&nbsp;</td></tr>';
+      if(!S.socialsIconOnly){
+        var pfxMap = { IN:'L', X:'X', IG:'I', GH:'G', DB:'D', SB:'S' };
+        soc.forEach(function(s){ line(esc(pfxMap[s.k]||s.k.charAt(0)), s.v, esc(s.href)); });
+      }
+      ext.forEach(function(e){ var p=(e.k||'').charAt(0)||'·'; line(esc(p), e.v, e.h); });
+    }
+
+    /* Block 3 — location + tagline */
+    if(S.loc || S.tag) out += '<tr><td colspan="2" style="'+spcSt+'">&nbsp;</td></tr>';
+    if(S.loc) out += '<tr><td colspan="2" style="'+rowSt+'">'+esc(S.loc)+'</td></tr>';
+    if(S.tag) out += '<tr><td colspan="2" style="'+rowSt+'">'+esc(S.tag)+'</td></tr>';
+
+    /* socials-as-icons line at the end */
+    if(S.socialsIconOnly){
+      var socLine = socialsIconLine();
+      if(socLine){
+        out += '<tr><td colspan="2" style="'+spcSt+'">&nbsp;</td></tr>';
+        out += '<tr><td colspan="2" style="padding-top:0;line-height:0;">'+socLine+'</td></tr>';
+      }
+    }
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+out+'</table>';
+  }
+
+  /* ======= BUILD ======= */
+  function buildSig(){
+    var a=S.accent, inner;
+    if(S.t==="manifest") inner=tManifest(a);
+    else if(S.t==="split")    inner=tSplit(a);
+    else if(S.t==="bold")     inner=tBold(a);
+    else if(S.t==="compact")  inner=tCompact(a);
+    else if(S.t==="card")      inner=tCard(a);
+    else if(S.t==="wildin")    inner=tWildin(a);
+    else if(S.t==="brutalist") inner=tBrutalist(a);
+    else if(S.t==="architect") inner=tArchitect(a);
+    else if(S.t==="minimal")   inner=tMinimal(a);
+    else inner=tEditorial(a);
+    return fontLink()+wrapHS(inner);
+  }
+
+  /* ======= RENDER ======= */
+  function hl(html){
+    return html.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/(&lt;\/?[a-zA-Z][\w-]*)/g,'<span class="t-tag">$1</span>')
+      .replace(/([\w-]+=)(&quot;[^&]*&quot;)/g,'<span class="t-attr">$1</span><span class="t-val">$2</span>');
+  }
+  function render(){
+    /* recompute secondary font stack for this render */
+    JM = secFont();
+    var html=buildSig();
+    gid("sigOut").innerHTML=html;
+    gid("codeOut").innerHTML=hl(html);
+    gid("mockFrom").textContent=(S.name||"Your Name")+" <"+(S.email||"you@example.com")+">";
+    var fp=gid("fontPreview");
+    fp.textContent=S.name||"Morten Kamp Schubert";
+    fp.style.fontFamily=S.font&&S.font!=="system"?FONTS[S.font].stack:"Helvetica,Arial,sans-serif";
+    var fp2=gid("fontPreview2");
+    if(fp2){
+      var role=[(S.title||"Founder"),(S.company||"Konpo Studio")].join(" · ");
+      fp2.textContent=role.toUpperCase();
+      fp2.style.fontFamily=secFont();
+    }
+  }
+
+  /* ======= INPUTS ======= */
+  FIELDS.forEach(function(p){
+    var el=gid(p[1]); if(!el) return;
+    el.addEventListener("input",function(e){
+      S[p[0]]=e.target.value;
+      if(p[0]==="hsUrl") updateHsThumb();
+      if(p[0]==="logoUrl") updateLogoThumb();
+      render();
+    });
+  });
+  gid("f-reg").addEventListener("change",function(e){ S.reg=e.target.checked; render(); });
+  gid("f-icons").addEventListener("change",function(e){ S.icons=e.target.checked; render(); });
+  gid("f-socials-iconly").addEventListener("change",function(e){ S.socialsIconOnly=e.target.checked; render(); });
+  gid("f-labels").addEventListener("change",function(e){ S.showLabels=e.target.checked; render(); });
+
+  /* font */
+  var loadedFonts={};
+  function ensureFont(key){
+    var gf=FONTS[key]&&FONTS[key].gfParam;
+    if(gf&&!loadedFonts[key]){
+      var lk=document.createElement("link"); lk.rel="stylesheet";
+      lk.href="https://fonts.googleapis.com/css2?family="+gf+"&display=swap";
+      document.head.appendChild(lk); loadedFonts[key]=true;
+    }
+  }
+  gid("f-font").addEventListener("change",function(e){
+    S.font=e.target.value; ensureFont(S.font); render();
+  });
+  gid("f-font2").addEventListener("change",function(e){
+    S.font2=e.target.value; ensureFont(S.font2); render();
+  });
+
+  /* ======= EXTRA LINKS ======= */
+  function buildIconSelect(selectedKey){
+    var html='';
+    ICON_CHOICES.forEach(function(c){
+      html+='<option value="'+c.key+'"'+(c.key===selectedKey?' selected':'')+'>'+c.label+'</option>';
+    });
+    return html;
+  }
+  function renderXLinks(){
+    var box=gid("xlinks"); box.innerHTML="";
+    (S.links||[]).forEach(function(l,i){
+      var row=document.createElement("div");
+      row.className="xlink-row";
+      row.innerHTML=
+        '<input type="text" placeholder="Label (e.g. Booking)" value="'+esc(l.text||"")+'" data-i="'+i+'" data-k="text">'+
+        '<input type="text" placeholder="https://…" value="'+esc(l.url||"")+'" data-i="'+i+'" data-k="url">'+
+        '<select data-i="'+i+'" data-k="icon">'+buildIconSelect(iconKeyFor(l))+'</select>'+
+        '<button class="xlink-del" data-i="'+i+'" title="Remove">&times;</button>';
+      box.appendChild(row);
+    });
+    /* wire inputs */
+    box.querySelectorAll("input[type=text]").forEach(function(inp){
+      inp.addEventListener("input",function(){
+        var i=+inp.getAttribute("data-i"), k=inp.getAttribute("data-k");
+        S.links[i][k]=inp.value; render();
+      });
+    });
+    box.querySelectorAll("select").forEach(function(sel){
+      sel.addEventListener("change",function(){
+        var i=+sel.getAttribute("data-i"), choice=findIcon(sel.value);
+        S.links[i].iconSet=choice.set; S.links[i].iconName=choice.name;
+        render();
+      });
+    });
+    box.querySelectorAll(".xlink-del").forEach(function(btn){
+      btn.addEventListener("click",function(){
+        var i=+btn.getAttribute("data-i");
+        S.links.splice(i,1); renderXLinks(); render();
+      });
+    });
+  }
+  function iconKeyFor(l){
+    if(!l || !l.iconName) return "";
+    for(var i=0;i<ICON_CHOICES.length;i++){
+      if(ICON_CHOICES[i].name===l.iconName && ICON_CHOICES[i].set===l.iconSet) return ICON_CHOICES[i].key;
+    }
+    return "";
+  }
+  gid("xlinkAdd").addEventListener("click",function(){
+    if(!S.links) S.links=[];
+    S.links.push({text:"",url:"",iconSet:null,iconName:null});
+    renderXLinks(); render();
+  });
+
+  /* layouts */
+  Array.prototype.forEach.call(document.querySelectorAll(".lay"),function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll(".lay").forEach(function(x){x.classList.remove("on");});
+      b.classList.add("on"); S.t=b.getAttribute("data-t"); render();
+    });
+  });
+
+  /* tabs */
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(t){
+    t.addEventListener("click",function(){
+      document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on");});
+      t.classList.add("on");
+      var isE=t.getAttribute("data-v")==="email";
+      gid("mail-wrap").style.display=isE?"":"none";
+      gid("v-code").style.display=isE?"none":"";
+    });
+  });
+
+  /* device toggle removed — preview is always mobile-stacked */
+
+  /* ======= HEADSHOT ======= */
+  function updateHsThumb(){
+    var th=gid("hsThumbnail");
+    if(S.hsUrl){
+      th.innerHTML='<img src="'+esc(S.hsUrl)+'" style="width:100%;height:100%;object-fit:cover;display:block;">';
+      gid("hsRemoveBtn").style.display="";
+    } else {
+      th.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>';
+      gid("hsRemoveBtn").style.display="none";
+    }
+  }
+  function updateLogoThumb(){
+    var th=gid("logoThumbnail");
+    if(S.logoUrl){
+      th.innerHTML='<img src="'+esc(S.logoUrl)+'" style="width:100%;height:100%;object-fit:cover;display:block;">';
+      gid("logoRemoveBtn").style.display="";
+    } else {
+      th.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 9h6v6H9z"/></svg>';
+      gid("logoRemoveBtn").style.display="none";
+    }
+  }
+  gid("hsUploadBtn").addEventListener("click",function(){ gid("hsFile").click(); });
+  gid("hsFile").addEventListener("change",function(e){
+    var f=e.target.files&&e.target.files[0]; if(!f) return;
+    var r=new FileReader();
+    r.onload=function(ev){ S.hsUrl=ev.target.result; gid("f-hsurl").value="(uploaded)"; updateHsThumb(); render(); };
+    r.readAsDataURL(f);
+  });
+  gid("hsRemoveBtn").addEventListener("click",function(){ S.hsUrl=""; gid("f-hsurl").value=""; gid("hsFile").value=""; updateHsThumb(); render(); });
+
+  /* logo badge */
+  gid("logoUploadBtn").addEventListener("click",function(){ gid("logoFile").click(); });
+  gid("logoFile").addEventListener("change",function(e){
+    var f=e.target.files&&e.target.files[0]; if(!f) return;
+    var r=new FileReader();
+    r.onload=function(ev){ S.logoUrl=ev.target.result; gid("f-logourl").value="(uploaded)"; updateLogoThumb(); render(); };
+    r.readAsDataURL(f);
+  });
+  gid("logoRemoveBtn").addEventListener("click",function(){ S.logoUrl=""; gid("f-logourl").value=""; gid("logoFile").value=""; updateLogoThumb(); render(); });
+
+  Array.prototype.forEach.call(document.querySelectorAll("input[name=hssize]"),function(r){
+    r.addEventListener("change",function(){ S.hsSize=this.value; render(); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("input[name=hsshape]"),function(r){
+    r.addEventListener("change",function(){ S.hsShape=this.value;
+      var th=gid("hsThumbnail");
+      th.style.borderRadius=this.value==="circle"?"200rem":this.value==="rounded"?"1rem":"0";
+      render();
+    });
+  });
+
+  /* ======= ACCENT ======= */
+  var colorEl=gid("f-color"), hexEl=gid("f-hex");
+  function isHex(v){ return /^#([0-9a-f]{6})$/i.test(v); }
+  function hexToHsl(hex){
+    hex=hex.replace("#","");
+    var r=parseInt(hex.substr(0,2),16)/255, g=parseInt(hex.substr(2,2),16)/255, b=parseInt(hex.substr(4,2),16)/255;
+    var mx=Math.max(r,g,b), mn=Math.min(r,g,b), h=0, s=0, l=(mx+mn)/2;
+    if(mx!==mn){
+      var d=mx-mn;
+      s = l>0.5 ? d/(2-mx-mn) : d/(mx+mn);
+      if(mx===r) h=(g-b)/d+(g<b?6:0);
+      else if(mx===g) h=(b-r)/d+2;
+      else h=(r-g)/d+4;
+      h*=60;
+    }
+    return {h:Math.round(h), s:Math.round(s*100), l:Math.round(l*100)};
+  }
+  function applyAccent(hex,src){
+    hex=hex.toUpperCase(); if(!isHex(hex)) return;
+    S.accent=hex;
+    if(src!=="picker") colorEl.value=hex;
+    if(src!=="hex") hexEl.value=hex;
+    hexEl.classList.remove("bad");
+    Array.prototype.forEach.call(document.querySelectorAll(".sw"),function(s){ s.classList.toggle("on",s.getAttribute("data-c").toUpperCase()===hex); });
+    // Drive the Konpo UI accent from the same hex (one accent does all the work).
+    // Clamp lightness so very dark/near-black accents still produce a visible chrome accent.
+    var hsl=hexToHsl(hex);
+    var uiL = Math.max(46, Math.min(78, hsl.l));
+    var uiS = hsl.s < 8 ? 0 : hsl.s; // near-grey stays grey
+    document.documentElement.style.setProperty('--accent-h', hsl.h);
+    document.documentElement.style.setProperty('--accent-s', uiS+'%');
+    document.documentElement.style.setProperty('--accent-l', uiL+'%');
+    render();
+  }
+  colorEl.addEventListener("input",function(){ applyAccent(colorEl.value,"picker"); });
+  hexEl.addEventListener("input",function(){
+    var v=hexEl.value.trim(); if(v&&v[0]!=="#") v="#"+v;
+    if(isHex(v)) applyAccent(v,"hex"); else hexEl.classList.add("bad");
+  });
+  hexEl.addEventListener("blur",function(){ if(hexEl.classList.contains("bad")){ hexEl.value=S.accent; hexEl.classList.remove("bad"); } });
+  PRESETS.forEach(function(c){
+    var b=document.createElement("button");
+    b.className="sw"; b.style.background=c; b.setAttribute("data-c",c); b.title=c;
+    b.addEventListener("click",function(){ applyAccent(c,"preset"); });
+    gid("swatches").appendChild(b);
+  });
+
+  /* ======= TOAST / COPY / DL ======= */
+  var toast=gid("toast"), tT;
+  function ping(m){ toast.textContent=m; toast.classList.add("show"); clearTimeout(tT); tT=setTimeout(function(){ toast.classList.remove("show"); },2200); }
+  function btnOk(btn,lbl){
+    if(btn.classList.contains("btn-icon")){
+      btn.classList.add("ok");
+      setTimeout(function(){ btn.classList.remove("ok"); }, 1400);
+      return;
+    }
+    var o=btn.textContent; btn.textContent=lbl; btn.classList.add("ok");
+    setTimeout(function(){ btn.textContent=o; btn.classList.remove("ok"); },1800);
+  }
+
+  /* Build a plaintext version of the current signature so that pasting into
+     a plaintext field gives a readable signature instead of raw HTML. */
+  function buildPlainSig(){
+    var lines = [];
+    if(S.name) lines.push(S.name);
+    var role = [];
+    if(S.title) role.push(S.title);
+    if(S.company) role.push(S.company + (S.reg?" ®":""));
+    if(role.length) lines.push(role.join(" · "));
+    if(S.email)   lines.push(S.email);
+    if(S.phone)   lines.push(S.phone);
+    if(S.website) lines.push(bare(S.website));
+    if(S.linkedin)lines.push(http(S.linkedin));
+    var ig=S.instagram?S.instagram.replace(/^@/,""):"";
+    var tw=S.twitter?S.twitter.replace(/^@/,""):"";
+    var gh=S.github?S.github.replace(/^@/,""):"";
+    var db=S.dribbble?S.dribbble.replace(/^@/,""):"";
+    var sb=S.substack?S.substack.replace(/^@/,""):"";
+    if(tw) lines.push("X: @"+tw);
+    if(ig) lines.push("Instagram: @"+ig);
+    if(gh) lines.push("GitHub: "+gh);
+    if(db) lines.push("Dribbble: "+db);
+    if(sb) lines.push("Substack: "+(/\./.test(sb)?sb:sb+".substack.com"));
+    (S.links||[]).forEach(function(l){ if(l&&l.text&&l.url) lines.push(l.text+": "+http(l.url)); });
+    if(S.loc) lines.push(S.loc);
+    if(S.tag) lines.push(S.tag);
+    return lines.join("\n");
+  }
+
+  gid("copyRich").addEventListener("click",function(){
+    var html=buildSig(), plain=buildPlainSig(), btn=this;
+    function selFb(){ var r=document.createRange(); r.selectNodeContents(gid("sigOut")); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); try{ document.execCommand("copy"); btnOk(btn,"Copied"); ping("Signature copied — paste into email client"); }catch(e){ ping("Press Cmd/Ctrl+C"); } s.removeAllRanges(); }
+    if(navigator.clipboard&&window.ClipboardItem){
+      navigator.clipboard.write([new ClipboardItem({"text/html":new Blob([html],{type:"text/html"}),"text/plain":new Blob([plain],{type:"text/plain"})})]).then(function(){ btnOk(btn,"Copied"); ping("Paste into Gmail / Apple Mail / Outlook"); },selFb);
+    } else selFb();
+  });
+  gid("copyHtml").addEventListener("click",function(){
+    var buf=gid("buf"); buf.value=buildSig(); buf.select();
+    try{ if(navigator.clipboard) navigator.clipboard.writeText(buf.value); else document.execCommand("copy"); }catch(e){ document.execCommand("copy"); }
+    btnOk(this,"Copied"); ping("HTML copied");
+  });
+  gid("download").addEventListener("click",function(){
+    var doc='<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>'+buildSig()+'</body></html>';
+    var a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([doc],{type:"text/html"})); a.download="email-signature.html";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); },1000); ping("Downloaded");
+  });
+
+  /* ======= HISTORY ======= */
+  function hLoad(){ try{ return JSON.parse(localStorage.getItem(HIST_KEY)||"[]"); }catch(e){ return []; } }
+  function hSave(x){ try{ localStorage.setItem(HIST_KEY,JSON.stringify(x)); }catch(e){} }
+  function ago(iso){ var m=Math.floor((Date.now()-new Date(iso).getTime())/60000); if(m<1) return "now"; if(m<60) return m+"m"; var h=Math.floor(m/60); return h<24?h+"h":Math.floor(h/24)+"d"; }
+  function renderHist(){
+    var e=hLoad(), g=gid("hist-group"); if(!e.length){ g.style.display="none"; return; }
+    g.style.display=""; gid("hist-count").textContent="("+e.length+")";
+    gid("hist-list").innerHTML=e.map(function(x){
+      return '<div class="hist-row"><div class="hist-info" data-load="'+x.id+'"><span class="hist-name">'+esc(x.label)+'</span><span class="hist-tag">'+esc(x.state.t)+'</span><span class="hist-dot" style="background:'+esc(x.state.accent)+'"></span><span class="hist-time">'+ago(x.at)+'</span></div><button class="hist-del" data-del="'+x.id+'">&times;</button></div>';
+    }).join("");
+  }
+  gid("saveBtn").addEventListener("click",function(){
+    var e=hLoad(); e.unshift({id:Date.now(),label:S.name||"Untitled",at:new Date().toISOString(),state:JSON.parse(JSON.stringify(S))});
+    if(e.length>MAX_HIST) e.length=MAX_HIST; hSave(e); renderHist(); btnOk(this,"Saved");
+  });
+  gid("hist-list").addEventListener("click",function(ev){
+    var ld=ev.target.closest("[data-load]"), dl=ev.target.closest("[data-del]");
+    if(dl){ hSave(hLoad().filter(function(x){ return x.id!=dl.getAttribute("data-del"); })); renderHist(); return; }
+    if(ld){
+      var rec=hLoad().filter(function(x){ return ""+x.id===ld.getAttribute("data-load"); })[0]; if(!rec) return;
+      S=JSON.parse(JSON.stringify(rec.state));
+      if(!Array.isArray(S.links)) S.links=[];
+      FIELDS.forEach(function(p){ var el=gid(p[1]); if(el) el.value=S[p[0]]||""; });
+      gid("f-reg").checked=!!S.reg; gid("f-icons").checked=S.icons!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly; gid("f-labels").checked=S.showLabels!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly;
+      if(S.font) gid("f-font").value=S.font;
+      if(S.font2) gid("f-font2").value=S.font2;
+      ensureFont(S.font); ensureFont(S.font2);
+      document.querySelectorAll(".lay").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-t")===S.t); });
+      renderXLinks();
+      applyAccent(S.accent,"load"); updateHsThumb(); updateLogoThumb(); render();
+    }
+  });
+
+  /* ======= SHARE LINK ======= */
+  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:""};
+
+  /* strip empty strings + fields that match their default → smaller payload */
+  function minifyState(st){
+    var out={};
+    Object.keys(st).forEach(function(k){
+      var v=st[k];
+      if(v===""||v===null||v===undefined) return;
+      if(Array.isArray(v) && v.length===0) return; // skip empty arrays
+      if(SDEF[k]!==undefined&&SDEF[k]===v) return;
+      // never encode base64 data URIs — they make the URL enormous
+      if((k==="hsUrl"||k==="logoUrl")&&String(v).startsWith("data:")) return;
+      out[k]=v;
+    });
+    if(!out.t) out.t=st.t; // always keep layout
+    return out;
+  }
+  /* merge decoded partial state back onto full defaults */
+  function expandState(st){
+    var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",
+      hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",name:"",title:"",company:"",
+      email:"",phone:"",website:"",linkedin:"",loc:"",tag:"",
+      twitter:"",instagram:"",github:"",dribbble:"",substack:"",links:[]};
+    Object.keys(st).forEach(function(k){ full[k]=st[k]; });
+    return full;
+  }
+  function encodeState(st){
+    try{ return btoa(unescape(encodeURIComponent(JSON.stringify(minifyState(st))))); }catch(e){ return ""; }
+  }
+  function decodeState(b64){
+    try{ return expandState(JSON.parse(decodeURIComponent(escape(atob(b64))))); }catch(e){ return null; }
+  }
+  function loadState(st){
+    S=JSON.parse(JSON.stringify(st));
+    if(!Array.isArray(S.links)) S.links=[];
+    FIELDS.forEach(function(p){ var el=gid(p[1]); if(el) el.value=S[p[0]]||""; });
+    gid("f-reg").checked=!!S.reg; gid("f-icons").checked=S.icons!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly; gid("f-labels").checked=S.showLabels!==false;
+    if(S.font) gid("f-font").value=S.font;
+    if(S.font2) gid("f-font2").value=S.font2;
+    ensureFont(S.font); ensureFont(S.font2);
+    var sizeEl=document.querySelector("input[name=hssize][value='"+(S.hsSize||"M")+"']");
+    if(sizeEl) sizeEl.checked=true;
+    var shapeEl=document.querySelector("input[name=hsshape][value='"+(S.hsShape||"circle")+"']");
+    if(shapeEl) shapeEl.checked=true;
+    document.querySelectorAll(".lay").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-t")===S.t); });
+    renderXLinks();
+    applyAccent(S.accent,"load"); updateHsThumb(); render();
+  }
+
+  var sharePop=gid("sharePop"), shareUrlEl=gid("shareUrl"), shareCopyBtn=gid("shareCopyBtn");
+  function closeSharePop(){ sharePop.classList.remove("open"); }
+
+  function copyShareUrl(){
+    var url=shareUrlEl.value; if(!url||shareUrlEl.disabled) return;
+    shareUrlEl.select();
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(url).then(function(){ btnOk(shareCopyBtn,"Copied!"); ping("Link copied — open on any device"); closeSharePop(); },function(){ document.execCommand("copy"); btnOk(shareCopyBtn,"Copied!"); closeSharePop(); });
+    } else { document.execCommand("copy"); btnOk(shareCopyBtn,"Copied!"); ping("Link copied — open on any device"); closeSharePop(); }
+  }
+
+  gid("shareBtn").addEventListener("click",function(e){
+    e.stopPropagation();
+    var encoded=encodeState(S);
+    if(!encoded){ ping("Could not encode state"); return; }
+    var longUrl=location.origin+location.pathname+"?s="+encoded;
+    // show popup immediately with long URL while shortening
+    shareUrlEl.value="Shortening…";
+    shareUrlEl.disabled=true;
+    shareCopyBtn.disabled=true;
+    sharePop.classList.add("open");
+    fetch("/api/shorten?url="+encodeURIComponent(longUrl))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        shareUrlEl.value=d.short||longUrl;
+        shareUrlEl.disabled=false;
+        shareCopyBtn.disabled=false;
+      })
+      .catch(function(){
+        shareUrlEl.value=longUrl;
+        shareUrlEl.disabled=false;
+        shareCopyBtn.disabled=false;
+      });
+  });
+
+  shareCopyBtn.addEventListener("click",function(e){ e.stopPropagation(); copyShareUrl(); });
+  document.addEventListener("click",function(){ closeSharePop(); });
+
+  /* ======= INIT ======= */
+  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",
+    name:"Jean Massad",title:"Founder",company:"Konpo Studio",email:"jean@konpo.studio",
+    phone:"",website:"konpo.studio",linkedin:"",loc:"",tag:"",
+    twitter:"",instagram:"",github:"",dribbble:"",substack:"",links:[]};
+
+  /* load from URL ?s= param if present, otherwise SEED */
+  var urlParam=new URLSearchParams(location.search).get("s");
+  var initState=urlParam?decodeState(urlParam):null;
+  S=JSON.parse(JSON.stringify(initState||SEED));
+  if(!Array.isArray(S.links)) S.links=[];
+  FIELDS.forEach(function(p){ var el=gid(p[1]); if(el) el.value=S[p[0]]||""; });
+  gid("f-reg").checked=S.reg; gid("f-icons").checked=S.icons!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly; gid("f-labels").checked=S.showLabels!==false;
+  gid("f-font").value=S.font||"system";
+  gid("f-font2").value=S.font2||"JetBrains Mono";
+  ensureFont(S.font); ensureFont(S.font2);
+  var initSizeEl=document.querySelector("input[name=hssize][value='"+(S.hsSize||"M")+"']");
+  if(initSizeEl) initSizeEl.checked=true;
+  var initShapeEl=document.querySelector("input[name=hsshape][value='"+(S.hsShape||"circle")+"']");
+  if(initShapeEl) initShapeEl.checked=true;
+  renderXLinks();
+  updateHsThumb(); updateLogoThumb();
+  applyAccent(S.accent||"#1D1D1D","init"); renderHist(); render();
+  if(initState) ping("Signature loaded from link");
+
+  /* ======= STRIP NAVY BG FROM KONPO LOTTIE =======
+     The hosted lottie has a solid navy backplate + a navy center circle.
+     We pierce the lottie-player shadow DOM and hide every navy fill so
+     only the four white shapes animate. */
+  (function stripLottieBg(){
+    var lp = document.querySelector(".rail-tile-konpo lottie-player");
+    if(!lp) return;
+    function hide(){
+      try{
+        var root = lp.shadowRoot || lp;
+        var svg = root.querySelector("svg");
+        if(!svg) return;
+        var nodes = svg.querySelectorAll('path[fill="rgb(0,51,87)"]');
+        nodes.forEach(function(n){ n.style.display = "none"; });
+        // Hide the wrapping clipPath rect background as well (some renderers)
+        var bgGroup = svg.querySelector("g[clip-path] > g:first-child");
+        if(bgGroup){
+          var hasNavy = bgGroup.querySelector('path[fill="rgb(0,51,87)"]');
+          if(hasNavy) bgGroup.style.display = "none";
+        }
+      }catch(e){}
+    }
+    lp.addEventListener("ready", hide);
+    lp.addEventListener("load", hide);
+    /* fallback in case events fire before listener attached */
+    [120, 400, 1200].forEach(function(t){ setTimeout(hide, t); });
+  })();
+
+  /* ======= RANDOMIZE — re-roll the visual design (not the data) ======= */
+  var R_LAYOUTS  = ["editorial","manifest","split","bold","compact","card","wildin","brutalist","architect","minimal"];
+  var R_FONT_PRIMARY = ["Inter","Plus Jakarta Sans","DM Sans","Syne","Space Grotesk","Fraunces","Playfair Display","DM Mono","IBM Plex Mono","JetBrains Mono","Space Mono"];
+  var R_FONT_SECOND  = ["JetBrains Mono","DM Mono","IBM Plex Mono","Space Mono","Inter","Space Grotesk","DM Sans"];
+  var R_ACCENTS  = ["#9680FF","#0F62FE","#1B998B","#E4572E","#B79100","#D74843","#7C5CFF","#FF6B9D","#22C55E","#1D1D1D"];
+  var R_SHAPES   = ["circle","rounded","square"];
+  var R_SIZES    = ["S","M","L"];
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  function randomizeDesign(){
+    S.t      = pick(R_LAYOUTS);
+    S.font   = pick(R_FONT_PRIMARY);
+    S.font2  = pick(R_FONT_SECOND);
+    S.hsSize = pick(R_SIZES);
+    S.hsShape= pick(R_SHAPES);
+    var ac   = pick(R_ACCENTS);
+    /* sync UI */
+    document.querySelectorAll(".lay").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-t")===S.t); });
+    gid("f-font").value  = S.font;  ensureFont(S.font);
+    gid("f-font2").value = S.font2; ensureFont(S.font2);
+    var szEl = document.querySelector("input[name=hssize][value='"+S.hsSize+"']");
+    if(szEl) szEl.checked = true;
+    var shEl = document.querySelector("input[name=hsshape][value='"+S.hsShape+"']");
+    if(shEl) shEl.checked = true;
+    var th = gid("hsThumbnail");
+    if(th) th.style.borderRadius = S.hsShape==="circle"?"200rem":S.hsShape==="rounded"?"1rem":"0";
+    applyAccent(ac, "preset");
+  }
+  var rBtn = gid("randomizeBtn");
+  if(rBtn) rBtn.addEventListener("click", randomizeDesign);
+
+  /* ======= CHANGELOG STICKY NOTE ======= */
+  var cl = gid("changelog");
+  if(cl){
+    gid("changelogTab").addEventListener("click", function(){ cl.classList.add("open"); });
+    gid("changelogClose").addEventListener("click", function(){ cl.classList.remove("open"); });
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && cl.classList.contains("open")) cl.classList.remove("open");
+    });
+  }
+
+  /* ======= MOVE LAYOUT BLOCK INTO ITS NEW SLOT =======
+     The Layout block is authored at the top of the editor (to keep it as
+     a single source of truth), then physically relocated to the "How it
+     looks" section at startup. */
+  (function relocateLayout(){
+    var src = gid("layout-block");
+    var dst = gid("layout-group-moved");
+    if(src && dst && dst.parentNode){
+      dst.parentNode.replaceChild(src, dst);
+    }
+  })();
+
+  /* ======= SOCIAL / EXTRA COUNT BADGES =======
+     Show a tiny "· N" beside the Social group title and the Extras subgroup
+     title so the user sees how many are populated without expanding. */
+  function updateCountBadges(){
+    var n = 0;
+    if(S.linkedin) n++;
+    if(S.twitter)  n++;
+    if(S.instagram)n++;
+    if(S.github)   n++;
+    if(S.dribbble) n++;
+    if(S.substack) n++;
+    (S.links||[]).forEach(function(l){ if(l && l.text && l.url) n++; });
+    var b = gid("social-count");
+    if(b) b.textContent = n ? "· "+n : "";
+    var xn = (S.links||[]).filter(function(l){ return l && l.text && l.url; }).length;
+    var xb = gid("xlinks-count");
+    if(xb) xb.textContent = xn ? xn+" custom" : "Custom rows";
+  }
+  /* hook into existing render flow */
+  var _renderOrig = render;
+  render = function(){ _renderOrig(); updateCountBadges(); };
+  updateCountBadges();
+
+  /* ======= COLLAPSIBLE GROUPS — first non-Layout section open by default
+     (Identity), rest collapsed. Layout stays collapsed too so users land in
+     "fill in your info" mode. */
+  var groups = document.querySelectorAll(".editor .group");
+  groups.forEach(function(g, i){
+    if(i > 0) g.classList.add("is-collapsed");
+    var toggle = g.querySelector(".group-toggle");
+    if(!toggle) return;
+    toggle.addEventListener("click", function(){
+      g.classList.toggle("is-collapsed");
+    });
+  });
+})();
+</script>
+</body>
+</html>

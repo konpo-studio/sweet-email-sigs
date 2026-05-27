@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="18" fill="#003357"/>
+  <g>
+    <circle cx="30" cy="30" r="11" fill="#ffffff"/>
+    <circle cx="70" cy="30" r="11" fill="#ffffff"/>
+    <circle cx="70" cy="70" r="11" fill="#ffffff"/>
+    <circle cx="30" cy="70" r="11" fill="#ffffff"/>
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0 50 50" to="360 50 50"
+                      dur="6s" repeatCount="indefinite"/>
+  </g>
+  <circle cx="50" cy="50" r="14" fill="#003357"/>
+</svg>
