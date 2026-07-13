@@ -69,6 +69,23 @@ function validSlug(s) {
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   try {
+    /* TEMP diagnostics — no secrets, just presence + shape */
+    if (req.method === 'GET' && req.query.debug === '1') {
+      function shape(v){ if(!v) return null; try{ return { len:v.length, proto:new URL(v).protocol, host:new URL(v).host }; }catch(e){ return { len:v.length, proto:'(unparseable)' }; } }
+      let fetchTest = null;
+      try {
+        const r = await fetch(KV_URL, { method:'POST', headers:{ Authorization:`Bearer ${KV_TOKEN}`, 'Content-Type':'application/json' }, body: JSON.stringify(['PING']) });
+        fetchTest = { ok:r.ok, status:r.status };
+      } catch(e){ fetchTest = { error: e.message, cause: (e.cause && (e.cause.code||e.cause.message)) || null }; }
+      return res.status(200).json({
+        node: process.version,
+        KV_REST_API_URL: shape(process.env.KV_REST_API_URL),
+        KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN ? { len: process.env.KV_REST_API_TOKEN.length } : null,
+        UPSTASH_REDIS_REST_URL: shape(process.env.UPSTASH_REDIS_REST_URL),
+        resolvedKV: shape(KV_URL),
+        fetchTest,
+      });
+    }
     if (req.method === 'GET') {
       const slug = String(req.query.slug || '').toLowerCase();
       if (!validSlug(slug)) return res.status(400).json({ error: 'invalid slug' });
