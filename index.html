@@ -232,6 +232,91 @@
   .share-pop-input{font-family:var(--mono);font-size:1.2rem;color:var(--black);background:var(--body-bg);border:1px solid var(--border-white);border-radius:.8rem;padding:.9rem 1.2rem;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .share-pop-wrap{position:relative}
   .offscreen{position:fixed;left:-9999px;top:0;opacity:0;pointer-events:none}
+
+  /* ===== Team workspace banner + drawer ===== */
+  .ws-banner{
+    display:flex;align-items:center;justify-content:space-between;gap:1.6rem;
+    background:#16161c;color:#fff;
+    border-radius:1.4rem;
+    padding:1.2rem 1.4rem 1.2rem 1.8rem;
+    margin-bottom:1.6rem;
+    box-shadow:0 4px 16px rgba(0,0,0,.18);
+    flex-shrink:0; /* never let the sticky flex-column crush it */
+  }
+  .ws-banner-main{display:flex;align-items:center;gap:1.2rem;min-width:0}
+  .ws-dot{width:.9rem;height:.9rem;border-radius:50%;background:#9680ff;flex-shrink:0;box-shadow:0 0 0 4px rgba(150,128,255,.25)}
+  .ws-banner-text{display:flex;flex-direction:column;gap:.1rem;min-width:0}
+  .ws-name{font-family:var(--sans);font-size:1.45rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ws-meta{font-family:var(--mono);font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .ws-banner-actions{display:flex;gap:.8rem;flex-shrink:0}
+  .ws-banner .btn.sm{padding:.8rem 1.4rem;font-size:1.25rem;border-radius:.9rem}
+  .ws-banner .btn.sm.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14);box-shadow:none}
+  .ws-banner .btn.sm.ghost:hover{background:rgba(255,255,255,.16)}
+  .ws-banner .btn.sm:not(.ghost){background:#9680ff;color:#fff;border:none;box-shadow:0 2px 10px rgba(150,128,255,.4)}
+  .ws-banner .btn.sm:not(.ghost):hover{background:#8067ff}
+
+  /* Create-workspace CTA (root page) */
+  .ws-cta{
+    display:flex;align-items:center;justify-content:space-between;gap:1.6rem;
+    text-decoration:none;
+    background:linear-gradient(135deg, #f4f0ff 0%, #ece6ff 100%);
+    border:1px solid #d6c9ff;
+    border-radius:1.4rem;
+    padding:1.4rem 1.6rem;
+    margin-bottom:1.6rem;
+    flex-shrink:0;
+    transition:transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease);
+  }
+  .ws-cta:hover{
+    transform:translateY(-1px);
+    border-color:#9680ff;
+    box-shadow:0 8px 28px -10px rgba(150,128,255,.5);
+  }
+  .ws-cta-main{display:flex;align-items:center;gap:1.2rem;min-width:0}
+  .ws-cta-icon{
+    width:3.6rem;height:3.6rem;flex-shrink:0;
+    display:grid;place-items:center;border-radius:1rem;
+    background:#9680ff;color:#fff;
+    box-shadow:0 2px 10px rgba(150,128,255,.4);
+  }
+  .ws-cta-text{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+  .ws-cta-title{font-family:var(--sans);font-size:1.5rem;font-weight:600;color:var(--black)}
+  .ws-cta-sub{font-family:var(--sans);font-size:1.25rem;color:var(--txt-fade);line-height:1.4}
+  .ws-cta-btn{
+    flex-shrink:0;
+    font-family:var(--sans);font-size:1.35rem;font-weight:600;color:#fff;
+    background:#9680ff;border-radius:1rem;padding:1rem 1.6rem;white-space:nowrap;
+    box-shadow:0 2px 10px rgba(150,128,255,.4);
+    transition:background .18s var(--ease);
+  }
+  .ws-cta:hover .ws-cta-btn{background:#8067ff}
+  @media(max-width:540px){
+    .ws-cta{flex-direction:column;align-items:flex-start;gap:1.2rem}
+    .ws-cta-btn{align-self:stretch;text-align:center}
+  }
+
+  .ws-drawer{
+    background:var(--white);border:1px solid var(--border-white);
+    border-radius:1.4rem;margin-bottom:1.6rem;overflow:hidden;
+    box-shadow:0 8px 32px rgba(0,0,0,.08);
+    flex-shrink:0; /* don't get crushed in the sticky flex-column */
+  }
+  .ws-drawer-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.4rem 1.6rem;border-bottom:1px solid var(--border-white);
+    font-family:var(--mono);font-size:1.1rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-fade);
+  }
+  .ws-drawer-close{background:none;border:none;font-size:2.2rem;line-height:1;color:var(--txt-dis);cursor:pointer;padding:0 .4rem;border-radius:.4rem}
+  .ws-drawer-close:hover{color:var(--black)}
+  .ws-drawer-list{max-height:32rem;overflow-y:auto;padding:.8rem}
+  .ws-row{display:flex;align-items:center;gap:1.2rem;padding:1rem 1.2rem;border-radius:1rem;cursor:pointer;transition:background .15s}
+  .ws-row:hover{background:var(--body-bg)}
+  .ws-row-info{flex:1;min-width:0}
+  .ws-row-label{font-family:var(--sans);font-size:1.4rem;color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ws-row-meta{font-family:var(--mono);font-size:1rem;color:var(--txt-dis);letter-spacing:.06em;margin-top:.2rem}
+  .ws-row-del{background:none;border:none;color:var(--txt-dis);cursor:pointer;font-size:1.6rem;padding:.4rem .6rem;border-radius:.5rem;flex-shrink:0}
+  .ws-row-del:hover{color:var(--destructive);background:rgba(215,72,67,.08)}
+  .ws-empty{padding:2.4rem 1.6rem;text-align:center;font-family:var(--mono);font-size:1.2rem;color:var(--txt-dis);letter-spacing:.06em}
   .social-divider{padding-top:.6rem;border-top:1px dashed var(--border-white)}
   .social-divider-label{font-family:var(--mono);font-size:1.05rem;text-transform:uppercase;letter-spacing:.16em;color:var(--txt-fade);margin-bottom:1.4rem}
 
@@ -605,6 +690,58 @@
     box-shadow: var(--k-shadow-1);
   }
 
+  /* ====== Experimental subgroup ====== */
+  .exp-divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-top: 2.6rem;
+    padding: 1.2rem 1.4rem;
+    border: 1px dashed var(--k-hairline-strong);
+    border-radius: 1rem;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.02) 0,
+        rgba(0,0,0,0.02) 6px,
+        transparent 6px,
+        transparent 14px
+      );
+    font-family: var(--mono);
+    font-size: 1.15rem;
+    letter-spacing: .28em;
+    color: var(--k-text);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+  }
+  .exp-label{
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .exp-glyph{
+    flex: 0 0 auto;
+    color: var(--k-accent);
+    letter-spacing: .15em;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .layouts-exp{
+    margin-top: 1.4rem;
+  }
+  /* Slight off-kilter feel on the experimental tiles */
+  .lay-exp{
+    border-style: dashed !important;
+    background:
+      linear-gradient(180deg, var(--k-surface-solid) 0%, var(--k-surface-solid) 100%) !important;
+  }
+  .lay-exp .lay-name{
+    font-family: var(--mono);
+    letter-spacing: .15em;
+    font-weight: 600;
+  }
+
   /* Layout cards — accent ring offset on selection */
   .lay{
     background: var(--k-surface-solid);
@@ -964,6 +1101,264 @@
   }
   .subgroup-title span{ color: var(--k-text-faint); letter-spacing: .1em; font-weight: 400; }
 
+  /* ====== Inline edit in preview ====== */
+  #sigOut [data-edit]{
+    cursor: text;
+    border-radius: 3px;
+    padding: 0 1px;
+    transition: background var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+    outline: none;
+  }
+  #sigOut [data-edit]:hover{
+    background: var(--k-accent-ring);
+    box-shadow: 0 0 0 2px var(--k-accent-ring);
+  }
+  #sigOut [data-edit][contenteditable="true"]{
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 0 0 2px var(--k-accent);
+  }
+  /* Social affordance — pointer + soft ring on hover */
+  #sigOut [data-social]{
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+  }
+  #sigOut [data-social]:hover{
+    background: var(--k-accent-ring);
+    box-shadow: 0 0 0 3px var(--k-accent-ring);
+  }
+  /* Avatar/logo image — click-to-manage hover ring */
+  #sigOut [data-edit-image]{
+    cursor: pointer;
+    transition: opacity var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+  }
+  #sigOut [data-edit-image]:hover{
+    box-shadow: 0 0 0 3px var(--k-accent-ring);
+  }
+
+  /* + add another (social etc) — appears on hover */
+  .inline-add-social{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background: var(--k-accent);
+    color: #fff;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity var(--k-dur) var(--k-ease), transform var(--k-dur) var(--k-ease), box-shadow var(--k-dur) var(--k-ease);
+    user-select: none;
+  }
+  #sigOut:hover .inline-add-social{ opacity: .55; transform: scale(1); }
+  #sigOut .inline-add-social:hover{
+    opacity: 1 !important;
+    box-shadow: 0 0 0 4px var(--k-accent-ring);
+  }
+
+  /* Inline popover (social manage) */
+  .inline-pop{
+    position: absolute;
+    z-index: 100;
+    min-width: 26rem;
+    max-width: 32rem;
+    padding: 1.2rem;
+    background: #ffffff;
+    border: 1px solid var(--k-hairline);
+    border-radius: var(--k-r-card);
+    box-shadow: var(--k-shadow-3);
+    font-family: var(--sans);
+  }
+  .inline-pop-title{
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--k-text);
+    font-weight: 700;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--k-hairline);
+    margin-bottom: 1rem;
+  }
+  .inline-pop-btn{
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: .8rem 1rem;
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    border-radius: .8rem;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 1.3rem;
+    color: var(--k-text);
+    transition: background var(--k-dur), border-color var(--k-dur), color var(--k-dur);
+  }
+  .inline-pop-btn:hover{ background: var(--k-hover); }
+  .inline-pop-btn.danger{ color: var(--destructive); }
+  .inline-pop-btn.danger:hover{ background: rgba(215,72,67,.06); border-color: var(--destructive); }
+  .inline-pop-sep{
+    margin: 1.4rem 0 .6rem 0;
+    font-family: var(--mono);
+    font-size: .95rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--k-text-faint);
+  }
+  .inline-pop-add{
+    margin-bottom: .8rem;
+  }
+  .inline-pop-add label{
+    display: block;
+    font-family: var(--mono);
+    font-size: .95rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--k-text-muted);
+    margin-bottom: .3rem;
+  }
+  .inline-pop-add input{
+    width: 100%;
+    height: 3.4rem;
+    padding: 0 1rem;
+    border: 1px solid var(--k-hairline);
+    border-radius: .8rem;
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    font-size: 1.25rem;
+    font-family: var(--sans);
+    transition: border-color var(--k-dur), box-shadow var(--k-dur);
+  }
+  .inline-pop-add input:focus{
+    outline: none;
+    border-color: var(--k-accent);
+    box-shadow: 0 0 0 4px var(--k-accent-ring);
+  }
+  .inline-pop-row{
+    display: flex;
+    gap: .6rem;
+    margin-top: .4rem;
+  }
+  .inline-pop-row .inline-pop-btn{
+    flex: 1;
+    text-align: center;
+    padding: .7rem .8rem;
+    font-size: 1.2rem;
+  }
+  .inline-pop-pills{
+    display: flex;
+    gap: 4px;
+    padding: 3px;
+    background: var(--k-inset);
+    border-radius: 999px;
+    width: 100%;
+  }
+  .inline-pop-pill{
+    flex: 1 1 0;
+    padding: .7rem 1rem;
+    border: none;
+    background: transparent;
+    color: var(--k-text-muted);
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    border-radius: 999px;
+    cursor: pointer;
+    text-align: center;
+    transition: background var(--k-dur), color var(--k-dur);
+  }
+  .inline-pop-pill.on{
+    background: var(--k-surface-solid);
+    color: var(--k-text);
+    box-shadow: var(--k-shadow-1);
+  }
+  .inline-pop-pill:hover:not(.on){ color: var(--k-text); }
+
+  .inline-pop-foot{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--k-hairline);
+  }
+  .inline-pop-check{
+    display: flex !important;
+    align-items: center;
+    gap: .8rem !important;
+    font-family: var(--sans);
+    font-size: 1.2rem;
+    color: var(--k-text);
+    cursor: pointer;
+  }
+  .inline-pop-check input[type=checkbox]{
+    appearance: auto;
+    -webkit-appearance: auto;
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+    accent-color: var(--k-accent);
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+  }
+  .inline-pop-check input[type=checkbox]::after{ content: none !important; }
+
+  /* ====== Action button how-to notes ======
+     Tight, low-contrast, feels like margin annotations under the toolbar. */
+  .action-notes{
+    list-style: none;
+    padding: 1.6rem 0 0 0;
+    margin: 1.4rem 0 0 0;
+    border-top: 1px dashed var(--k-hairline-strong);
+    max-width: 56rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .action-notes li{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: var(--sans);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--k-text-muted);
+    letter-spacing: .005em;
+  }
+  .action-notes li strong{
+    color: var(--k-text);
+    font-weight: 600;
+  }
+  .action-notes li em{
+    font-style: italic;
+    color: var(--k-text);
+  }
+  .action-notes-icon{
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: inline-grid;
+    place-items: center;
+    border-radius: .6rem;
+    background: var(--k-surface-solid);
+    border: 1px solid var(--k-hairline);
+    color: var(--k-text-muted);
+    box-shadow: var(--k-shadow-1);
+    margin-top: .1rem;
+  }
+  .action-notes-icon svg{ display: block; }
+
   /* ====== Changelog sticky note ====== */
   .changelog{
     position: fixed;
@@ -1081,22 +1476,27 @@
     margin-bottom: 1.6rem;
     letter-spacing: .04em;
   }
+  .changelog-day{
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(0,0,0,0.12);
+  }
+  .changelog-day:first-of-type{ padding-top: 0; border-top: none; }
   .changelog-list{
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: .8rem 0 1.4rem 0;
   }
   .changelog-list li{
-    padding: .9rem 0;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    padding: .7rem 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
   }
   .changelog-list li:first-child{ border-top: none; padding-top: 0; }
   .changelog-date{
     font-family: var(--mono);
-    font-size: .95rem;
-    color: rgba(29,29,29,0.55);
-    letter-spacing: .14em;
-    margin-bottom: .4rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(29,29,29,0.85);
+    letter-spacing: .18em;
   }
   .changelog-text{
     font-family: var(--sans);
@@ -1319,6 +1719,170 @@
             </button>
 
           </div>
+
+          <!-- Experimental subgroup divider -->
+          <div class="exp-divider">
+            <span class="exp-glyph">◐&nbsp;◆&nbsp;▣</span>
+            <span class="exp-label">EXPERIMENTAL</span>
+            <span class="exp-glyph">◐&nbsp;◆&nbsp;▣</span>
+          </div>
+
+          <div class="layouts layouts-exp" id="layouts-exp">
+
+            <button class="lay lay-exp" data-t="field">
+              <span class="lay-name">Field&nbsp;01</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+                <text x="8" y="11" font-size="2.4" fill="#1d1d1d" letter-spacing="0.3">FOUNDER ─── KONPO</text>
+                <text x="90" y="11" font-size="2.4" fill="#1d1d1d" letter-spacing="0.3">01</text>
+                <text x="8" y="16" font-size="2.4" fill="#9b9b9b" letter-spacing="0.3">STUDIO    MINIMALISM</text>
+                <path d="M14 24 A4 4 0 0 1 14 32 L14 24 Z" fill="#1d1d1d"/>
+                <circle cx="14" cy="28" r="4" stroke="#1d1d1d" stroke-width="0.4" fill="none"/>
+                <text x="8" y="44" font-size="6" font-weight="700" fill="#1d1d1d" font-family="Helvetica">JEAN MASSAD</text>
+                <text x="8" y="52" font-size="2.6" fill="#4a4a4a" letter-spacing="0.2">A FOUNDER OPERATES AT</text>
+                <text x="8" y="56" font-size="2.6" fill="#4a4a4a" letter-spacing="0.2">THE INTERSECTION OF</text>
+                <text x="8" y="62" font-size="2.6" fill="#9680ff" letter-spacing="0.2">jean@konpo.studio</text>
+              </svg>
+            </button>
+
+            <button class="lay lay-exp" data-t="specimen">
+              <span class="lay-name">Specimen&nbsp;02</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="8" y="11" font-size="2.4" fill="#1d1d1d" font-family="'JetBrains Mono', monospace" letter-spacing="0.3">SPEC ── 02</text>
+                <line x1="8" y1="14" x2="40" y2="14" stroke="#1d1d1d" stroke-width="0.5"/>
+                <text x="40" y="36" font-size="22" font-weight="700" fill="#1d1d1d" font-family="Helvetica" text-anchor="middle">印</text>
+                <text x="8" y="50" font-size="4" font-weight="700" fill="#1d1d1d" font-family="Helvetica">Jean Massad</text>
+                <text x="8" y="55" font-size="2.4" fill="#4a4a4a" font-family="'JetBrains Mono', monospace">FOUNDER · KONPO</text>
+                <text x="8" y="62" font-size="3" fill="#9680ff" font-family="'JetBrains Mono', monospace">◆ ◇ ◆</text>
+              </svg>
+            </button>
+
+            <button class="lay lay-exp" data-t="cargo">
+              <span class="lay-name">Cargo&nbsp;03</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+                <rect x="6" y="9" width="98" height="50" stroke="#1d1d1d" stroke-width="0.4" fill="none" stroke-dasharray="1 1"/>
+                <text x="9" y="14" font-size="2.4" fill="#1d1d1d" letter-spacing="0.3">MINIMAL  STUDIO  17</text>
+                <rect x="78" y="11" width="6" height="4" stroke="#1d1d1d" stroke-width="0.3" fill="none"/>
+                <rect x="79" y="12" width="4" height="2" fill="#9680ff"/>
+                <line x1="9" y1="18" x2="42" y2="18" stroke="#1d1d1d" stroke-width="0.4"/>
+                <text x="9" y="26" font-size="4.2" font-weight="700" fill="#1d1d1d" font-family="Helvetica">JEAN MASSAD</text>
+                <text x="9" y="31" font-size="2.4" fill="#4a4a4a" letter-spacing="0.2">FOUNDER · KONPO STUDIO</text>
+                <text x="9" y="40" font-size="2.4" fill="#4a4a4a" letter-spacing="0.1">A BOUTIQUE PRACTICE</text>
+                <text x="9" y="44" font-size="2.4" fill="#4a4a4a" letter-spacing="0.1">OPERATING AT INTERSECT.</text>
+                <line x1="9" y1="48" x2="42" y2="48" stroke="#1d1d1d" stroke-width="0.4"/>
+                <text x="9" y="54" font-size="2.4" fill="#9680ff" letter-spacing="0.2">↳ jean@konpo.studio</text>
+                <text x="9" y="59" font-size="2.4" fill="#9680ff" letter-spacing="0.2">↳ konpo.studio</text>
+              </svg>
+            </button>
+
+            <button class="lay lay-exp" data-t="terminal">
+              <span class="lay-name">Terminal&nbsp;04</span>
+              <svg viewBox="0 0 110 68" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+                <rect x="0" y="0" width="110" height="68" fill="#0e0e12"/>
+                <text x="6" y="14" font-size="3" fill="#9680ff">$ sig --user=jean</text>
+                <text x="6" y="22" font-size="2.8" fill="#9680ff">&gt;</text>
+                <text x="11" y="22" font-size="2.8" fill="#ffffff">name: Jean Massad</text>
+                <text x="6" y="28" font-size="2.8" fill="#9680ff">&gt;</text>
+                <text x="11" y="28" font-size="2.8" fill="#ffffff">role: Founder</text>
+                <text x="6" y="34" font-size="2.8" fill="#9680ff">&gt;</text>
+                <text x="11" y="34" font-size="2.8" fill="#ffffff">co:   Konpo Studio</text>
+                <text x="6" y="42" font-size="2.8" fill="#9680ff">&gt;</text>
+                <text x="11" y="42" font-size="2.8" fill="#ffffff">mail: jean@konpo</text>
+                <text x="6" y="48" font-size="2.8" fill="#9680ff">&gt;</text>
+                <text x="11" y="48" font-size="2.8" fill="#ffffff">www:  konpo.studio</text>
+                <text x="6" y="56" font-size="2.6" fill="#9680ff">$ _</text>
+                <rect x="11" y="53.5" width="1.5" height="3" fill="#9680ff"/>
+              </svg>
+            </button>
+
+            <button class="lay lay-exp" data-t="manifesto">
+              <span class="lay-name">Manifesto&nbsp;05</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="6" y1="8" x2="104" y2="8" stroke="#1d1d1d" stroke-width="0.5"/>
+                <line x1="6" y1="11" x2="104" y2="11" stroke="#1d1d1d" stroke-width="0.5"/>
+                <text x="8" y="16" font-size="2.4" font-family="'JetBrains Mono', monospace" fill="#1d1d1d" letter-spacing="0.4">VOL. I    NO. 07    2026</text>
+                <line x1="6" y1="20" x2="104" y2="20" stroke="#1d1d1d" stroke-width="0.5"/>
+                <text x="55" y="38" font-size="9" font-family="Georgia,serif" font-weight="700" fill="#1d1d1d" text-anchor="middle">Jean Massad</text>
+                <line x1="35" y1="42" x2="75" y2="42" stroke="#9680ff" stroke-width="0.8"/>
+                <text x="55" y="48" font-size="2.4" font-family="'JetBrains Mono', monospace" fill="#1d1d1d" text-anchor="middle" letter-spacing="0.3">FOUNDER · KONPO STUDIO</text>
+                <text x="55" y="54" font-size="2.6" font-family="Georgia,serif" font-style="italic" fill="#4a4a4a" text-anchor="middle">"Operating at the intersection"</text>
+                <line x1="6" y1="60" x2="104" y2="60" stroke="#1d1d1d" stroke-width="0.5"/>
+                <text x="55" y="64" font-size="2.2" font-family="'JetBrains Mono', monospace" fill="#9680ff" text-anchor="middle" letter-spacing="0.4">● jean@konpo.studio</text>
+              </svg>
+            </button>
+
+            <button class="lay lay-exp" data-t="receipt">
+              <span class="lay-name">Receipt&nbsp;06</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+                <rect x="20" y="6" width="70" height="58" fill="#ffffff" stroke="#dcdcdc" stroke-width="0.3"/>
+                <text x="55" y="14" font-size="2.4" fill="#1d1d1d" text-anchor="middle" letter-spacing="0.5">════ KONPO ════</text>
+                <text x="55" y="20" font-size="2.2" fill="#9b9b9b" text-anchor="middle" letter-spacing="0.4">* SPECIMEN RECEIPT *</text>
+                <text x="55" y="28" font-size="3.2" fill="#1d1d1d" text-anchor="middle" font-weight="700">JEAN MASSAD</text>
+                <text x="55" y="32" font-size="2.2" fill="#9b9b9b" text-anchor="middle">Founder</text>
+                <text x="24" y="40" font-size="2.4" fill="#1d1d1d">EMAIL ....... jean@</text>
+                <text x="24" y="44" font-size="2.4" fill="#1d1d1d">WWW ....... konpo.s</text>
+                <text x="24" y="48" font-size="2.4" fill="#1d1d1d">TEL ....... +1.0000</text>
+                <text x="55" y="55" font-size="2.4" fill="#9680ff" text-anchor="middle">══════════════</text>
+                <text x="55" y="60" font-size="2" fill="#1d1d1d" text-anchor="middle" letter-spacing="0.3">▌▌ ▌ ▌▌▌▌ ▌▌▌ ▌▌</text>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="section-label"><span>Design</span></div>
+
+        <!-- ACCENT (own group at top — quickest re-skin) -->
+        <div class="group">
+          <div class="group-title group-toggle">Accent<span class="chev" aria-hidden="true"></span></div>
+          <div class="accent-row" id="swatches"></div>
+          <div class="accent-custom">
+            <input type="color" id="f-color" value="#1d1d1d">
+            <input type="text" id="f-hex" value="#1D1D1D" maxlength="7" spellcheck="false">
+          </div>
+        </div>
+
+        <!-- LAYOUT (placeholder — real Layout block relocated here at startup) -->
+        <div class="group" id="layout-group-moved-top">
+          <!-- replaced at runtime -->
+        </div>
+
+        <!-- TYPOGRAPHY -->
+        <div class="group">
+          <div class="group-title group-toggle">Typography<span class="chev" aria-hidden="true"></span></div>
+
+          <div class="subgroup-title">Display font</div>
+          <div class="field">
+            <select id="f-font">
+              <option value="system">System — Helvetica / Arial (email-safe)</option>
+              <option value="Inter">Inter — clean geometric</option>
+              <option value="Plus Jakarta Sans">Plus Jakarta Sans — editorial</option>
+              <option value="DM Sans">DM Sans — friendly grotesque</option>
+              <option value="Syne">Syne — display, bold presence</option>
+              <option value="Space Grotesk">Space Grotesk — slightly techy</option>
+              <option value="Fraunces">Fraunces — editorial serif</option>
+              <option value="Playfair Display">Playfair Display — elegant serif</option>
+              <option value="DM Mono">DM Mono — monospace</option>
+              <option value="IBM Plex Mono">IBM Plex Mono — technical mono</option>
+            </select>
+          </div>
+          <div class="font-preview" id="fontPreview">Jean Massad</div>
+
+          <div class="subgroup-title">Secondary font <span>role, contact, tagline</span></div>
+          <div class="field">
+            <select id="f-font2">
+              <option value="JetBrains Mono">JetBrains Mono — default mono</option>
+              <option value="DM Mono">DM Mono — soft mono</option>
+              <option value="IBM Plex Mono">IBM Plex Mono — technical mono</option>
+              <option value="Space Mono">Space Mono — geometric mono</option>
+              <option value="system-mono">System mono — SF Mono / Menlo (email-safe)</option>
+              <option value="Inter">Inter — sans, clean</option>
+              <option value="Space Grotesk">Space Grotesk — sans, techy</option>
+              <option value="DM Sans">DM Sans — sans, friendly</option>
+              <option value="system">System sans — Helvetica / Arial (email-safe)</option>
+            </select>
+          </div>
+          <div class="font-preview" id="fontPreview2" style="font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;">FOUNDER &middot; KONPO STUDIO</div>
+          <p style="font-family:var(--mono);font-size:1.05rem;letter-spacing:.08em;color:var(--k-text-muted);">Renders in Apple Mail &amp; iOS. Gmail &amp; Outlook fall back to system equivalents.</p>
         </div>
 
         <div class="section-label"><span>Content</span></div>
@@ -1412,7 +1976,24 @@
             <label>Or paste logo URL</label>
             <input type="text" id="f-logourl" placeholder="https://…">
           </div>
-          <p class="hs-note">Sits as a small badge on the bottom-right of your headshot. Renders in Apple Mail and Gmail web; Outlook desktop falls back to a stacked block.</p>
+          <div class="pill-group">
+            <span class="field-label">Logo display <span style="color:var(--k-text-faint);text-transform:none;letter-spacing:0;">(when no photo)</span></span>
+            <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="logoshape" id="logoshape-circle" value="circle" checked><label for="logoshape-circle">Circle</label></div>
+              <div class="pill-radio"><input type="radio" name="logoshape" id="logoshape-rounded" value="soft"><label for="logoshape-rounded">Soft</label></div>
+              <div class="pill-radio"><input type="radio" name="logoshape" id="logoshape-rect" value="rect"><label for="logoshape-rect">Rectangle</label></div>
+            </div>
+          </div>
+          <div class="pill-group">
+            <span class="field-label">Logo size</span>
+            <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="logosize" id="logosize-s" value="S"><label for="logosize-s">S</label></div>
+              <div class="pill-radio"><input type="radio" name="logosize" id="logosize-m" value="M" checked><label for="logosize-m">M</label></div>
+              <div class="pill-radio"><input type="radio" name="logosize" id="logosize-l" value="L"><label for="logosize-l">L</label></div>
+              <div class="pill-radio"><input type="radio" name="logosize" id="logosize-xl" value="XL"><label for="logosize-xl">XL</label></div>
+            </div>
+          </div>
+          <p class="hs-note">With a photo: the logo sits as a small circular badge on the bottom-right. Logo only: <strong>Soft</strong> &amp; <strong>Rectangle</strong> keep the logo's natural shape (great for wordmarks like “Nebo”); <strong>Circle</strong> fits it into a round badge.</p>
         </div>
 
         <!-- PLACE & VOICE -->
@@ -1420,59 +2001,6 @@
           <div class="group-title group-toggle">Place &amp; Voice<span class="chev" aria-hidden="true"></span></div>
           <div class="field"><label>Location</label><input type="text" id="f-loc" placeholder="New York"></div>
           <div class="field"><label>Tagline (optional)</label><input type="text" id="f-tag" placeholder="Gain control. Feel control."></div>
-        </div>
-
-        <div class="section-label"><span>Design</span></div>
-
-        <!-- LAYOUT (moved here from top) -->
-        <div class="group" id="layout-group-moved">
-          <!-- placeholder; the real Layout block was already emitted earlier and is moved by JS at startup -->
-        </div>
-
-        <!-- STYLE (accent + typography combined) -->
-        <div class="group">
-          <div class="group-title group-toggle">Style<span class="chev" aria-hidden="true"></span></div>
-
-          <div class="subgroup-title">Accent</div>
-          <div class="accent-row" id="swatches"></div>
-          <div class="accent-custom">
-            <input type="color" id="f-color" value="#1d1d1d">
-            <input type="text" id="f-hex" value="#1D1D1D" maxlength="7" spellcheck="false">
-          </div>
-
-          <div class="subgroup-title">Display font</div>
-          <div class="field">
-            <select id="f-font">
-              <option value="system">System — Helvetica / Arial (email-safe)</option>
-              <option value="Inter">Inter — clean geometric</option>
-              <option value="Plus Jakarta Sans">Plus Jakarta Sans — editorial</option>
-              <option value="DM Sans">DM Sans — friendly grotesque</option>
-              <option value="Syne">Syne — display, bold presence</option>
-              <option value="Space Grotesk">Space Grotesk — slightly techy</option>
-              <option value="Fraunces">Fraunces — editorial serif</option>
-              <option value="Playfair Display">Playfair Display — elegant serif</option>
-              <option value="DM Mono">DM Mono — monospace</option>
-              <option value="IBM Plex Mono">IBM Plex Mono — technical mono</option>
-            </select>
-          </div>
-          <div class="font-preview" id="fontPreview">Jean Massad</div>
-
-          <div class="subgroup-title">Secondary font <span>role, contact, tagline</span></div>
-          <div class="field">
-            <select id="f-font2">
-              <option value="JetBrains Mono">JetBrains Mono — default mono</option>
-              <option value="DM Mono">DM Mono — soft mono</option>
-              <option value="IBM Plex Mono">IBM Plex Mono — technical mono</option>
-              <option value="Space Mono">Space Mono — geometric mono</option>
-              <option value="system-mono">System mono — SF Mono / Menlo (email-safe)</option>
-              <option value="Inter">Inter — sans, clean</option>
-              <option value="Space Grotesk">Space Grotesk — sans, techy</option>
-              <option value="DM Sans">DM Sans — sans, friendly</option>
-              <option value="system">System sans — Helvetica / Arial (email-safe)</option>
-            </select>
-          </div>
-          <div class="font-preview" id="fontPreview2" style="font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;">FOUNDER &middot; KONPO STUDIO</div>
-          <p style="font-family:var(--mono);font-size:1.05rem;letter-spacing:.08em;color:var(--k-text-muted);">Renders in Apple Mail &amp; iOS. Gmail &amp; Outlook fall back to system equivalents.</p>
         </div>
 
         <div class="section-label"><span>Settings</span></div>
@@ -1496,6 +2024,45 @@
 
       <!-- ===== PREVIEW ===== -->
       <section class="preview">
+
+        <!-- Team workspace banner (shown only on /w/<slug>) -->
+        <div class="ws-banner" id="wsBanner" style="display:none;">
+          <div class="ws-banner-main">
+            <span class="ws-dot"></span>
+            <div class="ws-banner-text">
+              <span class="ws-name" id="wsName">Workspace</span>
+              <span class="ws-meta" id="wsMeta">0 saved</span>
+            </div>
+          </div>
+          <div class="ws-banner-actions">
+            <button class="btn sm ghost" id="wsBrowseBtn" type="button">Browse</button>
+            <button class="btn sm" id="wsSaveBtn" type="button">Save to team</button>
+          </div>
+        </div>
+
+        <!-- Create-workspace CTA (shown when NOT inside a /w/ workspace) -->
+        <a class="ws-cta" id="wsCta" href="/new">
+          <div class="ws-cta-main">
+            <span class="ws-cta-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div class="ws-cta-text">
+              <span class="ws-cta-title">Working with a team?</span>
+              <span class="ws-cta-sub">Create a shared workspace to save &amp; reuse signatures together</span>
+            </div>
+          </div>
+          <span class="ws-cta-btn">Create workspace →</span>
+        </a>
+
+        <!-- Team browse drawer -->
+        <div class="ws-drawer" id="wsDrawer" style="display:none;">
+          <div class="ws-drawer-head">
+            <span id="wsDrawerTitle">Team signatures</span>
+            <button class="ws-drawer-close" id="wsDrawerClose" aria-label="Close">&times;</button>
+          </div>
+          <div class="ws-drawer-list" id="wsDrawerList"></div>
+        </div>
+
         <div class="preview-head">
           <button class="btn ghost btn-icon" id="randomizeBtn" type="button" data-tip="Randomize" aria-label="Randomize design">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1558,6 +2125,40 @@
             </div>
           </div>
         </div>
+
+        <!-- Notes — how-to for the action buttons -->
+        <ul class="action-notes" aria-label="How to use the action buttons">
+          <li>
+            <span class="action-notes-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </span>
+            <span><strong>Copy signature →</strong> click it, then paste (⌘V) into Gmail / Apple Mail / Outlook compose. For Gmail signature <em>settings</em>: paste into the signature field, hit Save.</span>
+          </li>
+          <li>
+            <span class="action-notes-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </span>
+            <span><strong>Share link →</strong> encodes your whole signature into a short URL (no account, no DB). Open it anywhere and the editor re-hydrates exactly what you sent.</span>
+          </li>
+          <li>
+            <span class="action-notes-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
+            <span><strong>Copy HTML / Download .html →</strong> for hand-pasting into HTML-only fields, or saving a backup.</span>
+          </li>
+          <li>
+            <span class="action-notes-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            <span><strong>Save →</strong> stashes the current sig in your browser. Reload anytime from the History section in the editor.</span>
+          </li>
+          <li>
+            <span class="action-notes-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span><strong>Team workspace →</strong> share saved signatures with your team. <a href="/new" style="color:var(--k-accent);text-decoration:none;font-weight:600;">Create a workspace →</a> — pick a URL, then anyone with the link can browse and save the team's sigs. No accounts.</span>
+          </li>
+        </ul>
       </section>
     </div>
   </div>
@@ -1578,40 +2179,37 @@
     <button class="changelog-close" id="changelogClose" type="button" aria-label="Close changelog">&times;</button>
     <div class="changelog-title">Changelog</div>
     <div class="changelog-sub">What's new in Sweet &amp; Simple Sigs</div>
-    <ul class="changelog-list">
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Retina-sharp icons (48px natural size) and 2&times; DPR avatar composite — crisp paste into Gmail.</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Avatar + logo now baked into a single JPEG via canvas — no more position-absolute fallback in email clients.</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Added Substack to social links.</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Editor reorganized: Content / Design / Settings bands, iOS-style toggles, count badges.</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">New layouts: Wildin' Out, Brutalist, Architect, Minimal AF.</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Konpo rail with Lottie brand mark, Instagram / LinkedIn / Substack social links.</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Logo badge on avatar (bottom-right, white ring, soft shadow).</div>
-      </li>
-      <li>
-        <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
-        <div class="changelog-text">Share-link via URL + Vercel shortener (so long signatures don't bloat URLs).</div>
-      </li>
-    </ul>
+    <div class="changelog-day">
+      <div class="changelog-date">2026 &middot; 05 &middot; 28</div>
+      <ul class="changelog-list">
+        <li><div class="changelog-text"><strong>Workspaces simplified.</strong> Dropped the passcode — anyone with the <code>/w/&lt;slug&gt;</code> link can browse <em>and</em> save. A prominent “Create workspace” card now greets you on the main editor when you're not in a team.</div></li>
+        <li><div class="changelog-text"><strong>Logo size + better shapes.</strong> Logo-only signatures get a dedicated <strong>size</strong> (S / M / L / XL) and three display modes: <strong>Circle</strong> (round badge), <strong>Soft</strong> (natural aspect, rounded corners), <strong>Rectangle</strong> (natural aspect, sharp). Soft no longer crushes wide wordmarks into a tiny rounded square. (With a photo, the logo still shows as a small circular badge.)</div></li>
+        <li><div class="changelog-text"><strong>Team workspaces.</strong> Create one at <a href="/new" style="color:#8067ff;text-decoration:none;font-weight:600;">/new</a> — pick a URL slug. Anyone with the <code>/w/&lt;slug&gt;</code> link can browse and save the team's signatures. No accounts.</div></li>
+        <li><div class="changelog-text"><strong>Fix:</strong> non-square logos no longer offset to the top-left in the composite (pad-for-badge only applies when both avatar + logo are present).</div></li>
+        <li><div class="changelog-text"><strong>Fix:</strong> Manifesto accent rule centers via <code>align</code> attr (Outlook-safe); Wildin' Out icons carry the <code>border</code> HTML attr.</div></li>
+        <li><div class="changelog-text"><strong>Fix:</strong> avatar/logo could appear side-by-side with content in Gmail (some pipelines collapse adjacent <code>&lt;tr&gt;</code> rows). Switched the header wrapper to two independent tables — they can't be flattened and always stack.</div></li>
+        <li><div class="changelog-text"><strong>Click the avatar/logo in the preview</strong> to upload, paste a URL, switch size/shape, or remove. <strong>Hover any social</strong> to reveal a <code>+</code> that adds another inline.</div></li>
+        <li><div class="changelog-text"><strong>Inline edit in the preview.</strong> Click any text (name, title, company, email, website, etc.) to edit in place. Click a social icon/link to remove it or add another. Layout selection stays editor-only.</div></li>
+        <li><div class="changelog-text">Single-character <strong>K</strong> placeholder logo (was the 4-dot mark). Cleaner default before users upload their own.</div></li>
+        <li><div class="changelog-text">Editor reordered: <strong>Accent</strong> + <strong>Layout</strong> + <strong>Typography</strong> at the top under a Design band — fastest path to re-skin. Default seed populated with Konpo Studio (Instagram, LinkedIn, Substack) and socials shown as icons by default.</div></li>
+        <li><div class="changelog-text">3 more Experimental layouts: <strong>Terminal 04</strong> (CLI prompt with window chrome), <strong>Manifesto 05</strong> (newspaper masthead, huge serif), <strong>Receipt 06</strong> (thermal-printer with ASCII rules and faux barcode).</div></li>
+        <li><div class="changelog-text">New <strong>Experimental</strong> category in the Layout picker. First three: Field 01 (justified mono prose), Specimen 02 (giant CJK glyph anchor), Cargo 03 (dashed shipping tag).</div></li>
+      </ul>
+    </div>
+
+    <div class="changelog-day">
+      <div class="changelog-date">2026 &middot; 05 &middot; 21</div>
+      <ul class="changelog-list">
+        <li><div class="changelog-text">Retina-sharp icons (48px natural size) and 3&times; DPR avatar composite — crisp paste into Gmail.</div></li>
+        <li><div class="changelog-text">Avatar + logo baked into a single JPEG via canvas — no more position-absolute fallback in email clients.</div></li>
+        <li><div class="changelog-text">Substack added to social links.</div></li>
+        <li><div class="changelog-text">Editor reorganized: Content / Design / Settings bands, iOS-style toggles, count badges.</div></li>
+        <li><div class="changelog-text">New layouts: Wildin' Out, Brutalist, Architect, Minimal AF.</div></li>
+        <li><div class="changelog-text">Konpo rail with Lottie brand mark, Instagram / LinkedIn / Substack social links.</div></li>
+        <li><div class="changelog-text">Logo badge on avatar (bottom-right, white ring, soft shadow).</div></li>
+        <li><div class="changelog-text">Share-link via URL + Vercel shortener (so long signatures don't bloat URLs).</div></li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -1640,7 +2238,7 @@
 
   var S = {
     t:"editorial", accent:"#1D1D1D", reg:false, icons:true, socialsIconOnly:false, showLabels:true, font:"system", font2:"JetBrains Mono",
-    hsUrl:"", hsSize:"M", hsShape:"circle", logoUrl:"",
+    hsUrl:"", hsSize:"M", hsShape:"circle", logoUrl:"", logoShape:"circle", logoSize:"M",
     name:"", title:"", company:"",
     email:"", phone:"", website:"", linkedin:"", loc:"", tag:"",
     twitter:"", instagram:"", github:"", dribbble:"", substack:"",
@@ -1830,9 +2428,30 @@
      all three problems — one img tag, exact display size, no positioning.
      Async; cached by a key of the inputs. wrapHS uses the composite when ready
      and falls back to the live overlay version for the preview while pending. */
-  var procImg = { url:"", key:"", busy:false };
+  var procImg = { url:"", key:"", busy:false, w:0, h:0 };
   function avatarSizePx(){ return S.hsSize==="L"?80:S.hsSize==="M"?60:44; }
-  function procKey(){ return [S.hsUrl, S.logoUrl, S.hsSize, S.hsShape].join("|"); }
+  /* Logo-only signatures get their own size scale (wordmarks often want to be
+     bigger than a headshot would be). Falls back to M. */
+  function logoSizePx(){ return S.logoSize==="XL"?110:S.logoSize==="L"?84:S.logoSize==="M"?60:44; }
+  function procKey(){ return [S.hsUrl, S.logoUrl, S.hsSize, S.hsShape, S.logoShape, S.logoSize].join("|"); }
+  /* Aspect-preserving canvas helpers — avoid stretching non-square logos. */
+  function drawCovered(ctx, img, dx, dy, dw, dh){
+    var iw = img.naturalWidth  || img.width  || dw;
+    var ih = img.naturalHeight || img.height || dh;
+    var scale = Math.max(dw/iw, dh/ih);
+    var sw = dw / scale, sh = dh / scale;
+    var sx = (iw - sw) / 2, sy = (ih - sh) / 2;
+    try { ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh); }
+    catch(e){ try{ ctx.drawImage(img, dx, dy, dw, dh); }catch(e2){} }
+  }
+  function drawContained(ctx, img, dx, dy, dw, dh){
+    var iw = img.naturalWidth  || img.width  || dw;
+    var ih = img.naturalHeight || img.height || dh;
+    var scale = Math.min(dw/iw, dh/ih);
+    var nw = iw * scale, nh = ih * scale;
+    var nx = dx + (dw - nw)/2, ny = dy + (dh - nh)/2;
+    try { ctx.drawImage(img, nx, ny, nw, nh); }catch(e){}
+  }
   function roundedRect(ctx, x, y, w, h, r){
     ctx.beginPath();
     ctx.moveTo(x+r,y);
@@ -1853,20 +2472,31 @@
        so we need extra pixels in the source to survive that pass and still
        look crisp at the displayed size on retina screens. */
     var dpr  = 3;
-    var pad  = S.logoUrl ? 4 : 0;
+    /* Only the avatar+logo combo needs extra room for the badge overhang.
+       Avatar-only or logo-only: no badge, so no pad → no asymmetric placement. */
+    var pad  = (S.hsUrl && S.logoUrl) ? 4 : 0;
+    /* Logo-only natural-aspect modes (rect = sharp corners, soft = rounded).
+       Circle mode stays square. Sized later, once the image's aspect is known. */
+    var logoOnly = (!S.hsUrl && S.logoUrl);
+    var aspectMode = logoOnly && (S.logoShape === 'rect' || S.logoShape === 'soft');
+
+    /* Square canvas is the default; rect mode replaces it below once we know
+       the logo's aspect ratio. Shared helpers reference `ctx`. */
+    var canvas, ctx, cw, ch;
+    function setupCanvas(displayW, displayH){
+      cw = displayW; ch = displayH;
+      canvas = document.createElement('canvas');
+      canvas.width  = Math.round(displayW * dpr);
+      canvas.height = Math.round(displayH * dpr);
+      ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.scale(dpr, dpr);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, displayW, displayH);
+    }
     var outerSz = sz + pad;
-    var canvas = document.createElement('canvas');
-    canvas.width  = Math.round(outerSz * dpr);
-    canvas.height = Math.round(outerSz * dpr);
-    var ctx = canvas.getContext('2d');
-    /* Best-quality image resampling — softens the bilinear default the browser
-       uses by default for drawImage(). Critical for photo downscaling. */
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
-    ctx.scale(dpr, dpr);
-    /* White background so JPEG (no alpha) blends cleanly on white email canvases */
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, outerSz, outerSz);
+    setupCanvas(outerSz, outerSz);
 
     function drawShape(){
       if(S.hsShape === 'circle'){
@@ -1889,22 +2519,22 @@
       ctx.beginPath();
       ctx.arc(cx, cy, lsz/2 + 2, 0, Math.PI*2);
       ctx.fill();
-      /* clip and draw logo */
+      /* clip and draw logo — contain so non-square logos don't stretch */
       ctx.save();
       ctx.beginPath();
       ctx.arc(cx, cy, lsz/2, 0, Math.PI*2);
       ctx.clip();
-      try{ ctx.drawImage(loImg, lx, ly, lsz, lsz); }catch(e){}
+      drawContained(ctx, loImg, lx, ly, lsz, lsz);
       ctx.restore();
       done();
     }
     function finish(){
       try{
-        /* JPEG q=0.92 at 3× DPR — high headroom for Gmail's re-encoding.
-           ~8–14 KB for a 60×60 display; pasted into Gmail compose this still
-           renders crisp on retina even after the proxy round-trip. */
+        /* JPEG q=0.92 at 3× DPR — high headroom for Gmail's re-encoding. */
         procImg.url = canvas.toDataURL('image/jpeg', 0.92);
         procImg.key = key;
+        procImg.w = Math.round(cw);
+        procImg.h = Math.round(ch);
       }catch(e){
         procImg.url = "";
         procImg.key = key;
@@ -1920,7 +2550,8 @@
       av.onload = function(){
         ctx.save();
         drawShape();
-        try{ ctx.drawImage(av, 0, 0, sz, sz); }catch(e){}
+        /* Avatars are photos — cover is the right fit (crop to fill) */
+        drawCovered(ctx, av, 0, 0, sz, sz);
         ctx.restore();
         if(S.logoUrl){
           var lo = new Image();
@@ -1933,15 +2564,45 @@
       av.onerror = function(){ procImg.busy = false; };
       av.src = S.hsUrl;
     } else {
-      /* logo only — draw it as the main image */
+      /* logo only — draw it as the main image, sized by the logo size scale */
+      var lsz = logoSizePx();
       var lo2 = new Image();
       lo2.crossOrigin = "anonymous";
       lo2.onload = function(){
-        ctx.save();
-        drawShape();
-        try{ ctx.drawImage(lo2, 0, 0, sz, sz); }catch(e){}
-        ctx.restore();
-        finish();
+        if(aspectMode){
+          /* Canvas sized to the logo's natural aspect ratio: height locked to
+             the chosen logo size, width scales (capped at 5× so absurdly wide
+             logos don't run off). Canvas matches aspect → no letterbox, no
+             distortion. "soft" rounds the corners; "rect" keeps them sharp. */
+          var iw = lo2.naturalWidth || lo2.width || lsz;
+          var ih = lo2.naturalHeight || lo2.height || lsz;
+          var aspect = iw / ih;
+          var h = lsz;
+          var w = Math.round(h * aspect);
+          var maxW = lsz * 5;
+          if(w > maxW){ w = maxW; h = Math.round(maxW / aspect); }
+          setupCanvas(w, h);
+          if(S.logoShape === 'soft'){
+            ctx.save();
+            roundedRect(ctx, 0, 0, w, h, Math.min(w, h) * 0.16);
+            ctx.clip();
+            drawContained(ctx, lo2, 0, 0, w, h);
+            ctx.restore();
+          } else {
+            drawContained(ctx, lo2, 0, 0, w, h);
+          }
+          finish();
+        } else {
+          /* Circle mode — square canvas at the logo size, circular clip. */
+          setupCanvas(lsz, lsz);
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(lsz/2, lsz/2, lsz/2, 0, Math.PI*2);
+          ctx.clip();
+          drawContained(ctx, lo2, 0, 0, lsz, lsz);
+          ctx.restore();
+          finish();
+        }
       };
       lo2.onerror = function(){ procImg.busy = false; };
       lo2.src = S.logoUrl;
@@ -1951,40 +2612,60 @@
   function wrapHS(html){
     if(!S.hsUrl && !S.logoUrl) return html;
     var sz = avatarSizePx();
-    var pad = S.logoUrl ? 4 : 0;
+    /* Only the avatar+logo combo needs the badge-overhang pad. */
+    var pad = (S.hsUrl && S.logoUrl) ? 4 : 0;
     var br = S.hsShape==="circle"?"50%":S.hsShape==="rounded"?"10px":"0";
     var topBlock;
 
-    /* If a composited PNG is ready for the current state, use it. One img,
-       exact size, no absolute positioning — bulletproof for paste. */
+    var logoOnly = (!S.hsUrl && S.logoUrl);
+    var aspectMode = logoOnly && (S.logoShape === 'rect' || S.logoShape === 'soft');
+    var lsz = logoSizePx();
+
+    /* If a composited image is ready for the current state, use it. One img,
+       exact size (square, or natural-aspect rectangle for logo-only), no
+       absolute positioning — bulletproof for paste. */
     if(procImg.url && procImg.key === procKey()){
-      var w = sz + pad;
-      topBlock = '<img src="'+procImg.url+'" width="'+w+'" height="'+w+'" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">';
+      var cw = procImg.w || (sz + pad), chh = procImg.h || (sz + pad);
+      topBlock = '<img src="'+procImg.url+'" width="'+cw+'" height="'+chh+'" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;">';
     } else {
-      /* Live preview / pending fallback — still shows the overlap */
+      /* Live preview / pending fallback */
       if(S.hsUrl){
+        /* Avatar (photo) — cover. */
         var imgSt = "display:block;width:"+sz+"px;height:"+sz+"px;object-fit:cover;"+(S.hsShape!=="square"?"border-radius:"+br+";":"");
         var avatar = '<img src="'+esc(S.hsUrl)+'" width="'+sz+'" height="'+sz+'" alt="" border="0" style="'+imgSt+'border:0;outline:none;">';
         var badge = '';
         if(S.logoUrl){
-          var lsz = Math.max(18, Math.round(sz * 0.38));
-          var logoSt = "display:block;width:"+lsz+"px;height:"+lsz+"px;object-fit:cover;border-radius:50%;border:2px solid #ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.18);";
-          badge = '<img src="'+esc(S.logoUrl)+'" width="'+lsz+'" height="'+lsz+'" alt="" border="0" style="position:absolute;right:-4px;bottom:-4px;'+logoSt+'">';
+          /* Logo badge — contain inside a circle with white bg so non-square logos don't stretch. */
+          var bsz = Math.max(18, Math.round(sz * 0.38));
+          var logoSt = "display:block;width:"+bsz+"px;height:"+bsz+"px;object-fit:contain;background:#ffffff;border-radius:50%;border:2px solid #ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.18);";
+          badge = '<img src="'+esc(S.logoUrl)+'" width="'+bsz+'" height="'+bsz+'" alt="" border="0" style="position:absolute;right:-4px;bottom:-4px;'+logoSt+'">';
         }
         topBlock = badge
           ? '<div style="position:relative;display:inline-block;line-height:0;">'+avatar+badge+'</div>'
           : avatar;
+      } else if(aspectMode){
+        /* Logo-only natural aspect — height-locked, width auto (max 5×). soft = rounded corners. */
+        var rad = S.logoShape === 'soft' ? 'border-radius:'+Math.round(lsz*0.16)+'px;' : '';
+        topBlock = '<img src="'+esc(S.logoUrl)+'" height="'+lsz+'" alt="" border="0" style="display:block;height:'+lsz+'px;width:auto;max-width:'+(lsz*5)+'px;'+rad+'border:0;outline:none;">';
       } else {
-        var loSt = "display:block;width:"+sz+"px;height:"+sz+"px;object-fit:cover;"+(S.hsShape!=="square"?"border-radius:"+br+";":"");
-        topBlock = '<img src="'+esc(S.logoUrl)+'" width="'+sz+'" height="'+sz+'" alt="" border="0" style="'+loSt+'border:0;outline:none;">';
+        /* Logo-only circle — square contain into a circle, white bg fills the letterbox. */
+        var loSt = "display:block;width:"+lsz+"px;height:"+lsz+"px;object-fit:contain;background:#ffffff;border-radius:50%;";
+        topBlock = '<img src="'+esc(S.logoUrl)+'" width="'+lsz+'" height="'+lsz+'" alt="" border="0" style="'+loSt+'border:0;outline:none;">';
       }
       /* Kick off the composite for next render */
       setTimeout(processAvatar, 0);
     }
 
-    return '<table class="hs-wrap" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
-      '<tr><td style="padding:0 0 16px 0;">'+ topBlock +'</td></tr>'+
-      '<tr><td>'+html+'</td></tr></table>';
+    /* Two separate tables instead of one table with two rows. Some Gmail/Outlook
+       pipelines collapse adjacent <tr> elements into a single row when sanitizing
+       (turning a stacked image+content into side-by-side cells). Splitting into
+       two block-level tables can't be collapsed — they always stack. */
+    return '<table class="hs-wrap" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:0 0 16px 0;">'+
+        '<tr><td>'+ topBlock +'</td></tr>'+
+      '</table>'+
+      '<table class="hs-content" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+        '<tr><td>'+html+'</td></tr>'+
+      '</table>';
   }
 
   /* ======= TEMPLATES ======= */
@@ -2197,7 +2878,7 @@
       var icMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', SB:'substack' };
       var pills = soc.map(function(s){
         var iconWhite = iurl("simple-icons", icMap[s.k]||s.k.toLowerCase(), "#ffffff");
-        return '<a href="'+esc(s.href)+'" title="'+esc(s.v)+'" style="display:inline-block;background-color:'+a+';padding:8px;margin:0 6px 6px 0;border-radius:50%;line-height:0;text-decoration:none;vertical-align:middle;"><img src="'+iconWhite+'" width="14" height="14" alt="" style="display:block;border:0;"></a>';
+        return '<a href="'+esc(s.href)+'" title="'+esc(s.v)+'" style="display:inline-block;background-color:'+a+';padding:8px;margin:0 6px 6px 0;border-radius:50%;line-height:0;text-decoration:none;vertical-align:middle;"><img src="'+iconWhite+'" width="14" height="14" alt="" border="0" style="display:block;border:0;"></a>';
       }).join('');
       rows += '<tr><td style="padding:14px 0 0 0;line-height:0;">'+pills+'</td></tr>';
     }
@@ -2215,7 +2896,7 @@
 
     /* Location pill — ink chip with pin icon */
     if(S.loc){
-      var pin = S.icons ? '<img src="'+iurl("lucide","map-pin","#ffffff")+'" width="10" height="10" alt="" style="display:inline-block;vertical-align:-1px;margin-right:6px;border:0;">' : '';
+      var pin = S.icons ? '<img src="'+iurl("lucide","map-pin","#ffffff")+'" width="10" height="10" alt="" border="0" style="display:inline-block;vertical-align:-1px;margin-right:6px;border:0;">' : '';
       rows += '<tr><td style="padding:16px 0 0 0;">'+
         '<span style="display:inline-block;background-color:'+INK+';color:#ffffff;padding:7px 14px;font-family:'+mono+';font-size:10px;letter-spacing:2px;text-transform:uppercase;border-radius:999px;line-height:1;">'+
           pin+esc(S.loc)+
@@ -2224,6 +2905,361 @@
     }
 
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+rows+'</table>';
+  }
+
+  /* ============================================================
+     EXPERIMENTAL LAYOUTS — push the rules. Max 390px width, still
+     100% table-based + inline styles. CJK glyphs and Unicode geometry
+     are supported by every modern email client (system font fallback).
+     ============================================================ */
+
+  /* Field 01 — section labels, dot-leader contacts, half-moon anchor */
+  function tField(a){
+    var nm = esc(S.name||"Your Name");
+    var nf = nFont();
+    var mono = JM;
+    var aSt = 'color:'+INK+';text-decoration:none;';
+
+    var titleUpper = (S.title||"").toUpperCase();
+    var companyUpper = (S.company||"").toUpperCase();
+    var topLabel = (titleUpper && companyUpper) ? titleUpper+' ─── '+companyUpper :
+                   (titleUpper || companyUpper);
+
+    function dlRow(label, value, href){
+      var v = href ? '<a href="'+href+'" style="'+aSt+'">'+value+'</a>' : value;
+      return '<tr>'+
+        '<td style="font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:2px;text-transform:uppercase;padding:3px 8px 3px 0;vertical-align:bottom;white-space:nowrap;">'+label+'</td>'+
+        '<td style="padding:3px 8px 3px 0;vertical-align:bottom;border-bottom:1px dotted '+HAIR+';width:100%;font-size:1px;line-height:1px;">&nbsp;</td>'+
+        '<td style="font-family:'+mono+';font-size:11px;color:'+INK+';padding:3px 0;vertical-align:bottom;white-space:nowrap;">'+v+'</td>'+
+      '</tr>';
+    }
+
+    var rows = "";
+    if(S.email)   rows += dlRow('EMAIL', esc(S.email),         'mailto:'+esc(S.email));
+    if(S.phone)   rows += dlRow('TEL',   esc(S.phone),         null);
+    if(S.website) rows += dlRow('WEB',   esc(bare(S.website)), esc(http(S.website)));
+    var soc = socials();
+    soc.forEach(function(s){ rows += dlRow(s.k, s.v, esc(s.href)); });
+
+    var desc = S.tag ? esc(S.tag) :
+      'OPERATES AT THE INTERSECTION OF DESIGN, IDENTITY, AND TYPOGRAPHIC SYSTEMS.';
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:390px;width:100%;">'+
+      '<tr><td style="padding:0 0 4px 0;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+
+          '<tr>'+
+            '<td style="font-family:'+mono+';font-size:9px;color:'+INK+';letter-spacing:2.5px;text-transform:uppercase;padding-bottom:2px;">'+(topLabel||'')+'</td>'+
+            '<td style="font-family:'+mono+';font-size:9px;color:'+INK+';letter-spacing:2.5px;text-align:right;padding-bottom:2px;">01</td>'+
+          '</tr>'+
+          '<tr>'+
+            '<td style="font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:2.5px;text-transform:uppercase;">SPECIMEN</td>'+
+            '<td style="font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:2.5px;text-align:right;">MINIMALISM</td>'+
+          '</tr>'+
+        '</table>'+
+      '</td></tr>'+
+      '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
+      '<tr><td style="padding:14px 0 6px 0;font-family:'+nf+';font-size:24px;color:'+INK+';line-height:1;">◐</td></tr>'+
+      '<tr><td style="font-family:'+nf+';font-size:30px;font-weight:bold;color:'+INK+';line-height:1.05;letter-spacing:-0.5px;padding:0 0 12px 0;">'+nm+'</td></tr>'+
+      '<tr><td style="font-family:'+mono+';font-size:10px;letter-spacing:1.5px;line-height:1.7;color:'+INK+';text-transform:uppercase;text-align:justify;padding:0 0 14px 0;">'+desc.toUpperCase()+'</td></tr>'+
+      '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
+      (rows ? '<tr><td style="padding-top:10px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+rows+'</table></td></tr>' : '')+
+      (S.loc ? '<tr><td style="padding-top:10px;font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:2px;text-transform:uppercase;">' + esc(S.loc) + '</td></tr>' : '')+
+    '</table>';
+  }
+
+  /* Specimen 02 — giant CJK glyph anchor + bilingual stamp */
+  function tSpecimen(a){
+    var nm = esc(S.name||"Your Name");
+    var nf = nFont();
+    var mono = JM;
+    var aSt = 'color:'+INK+';text-decoration:none;';
+
+    var glyphs = ['印','名','工','作','文','字','形','光','風','空','道','心'];
+    var seed = (S.company||S.name||'KONPO').charCodeAt(0) || 0;
+    var glyph = glyphs[seed % glyphs.length];
+
+    var role = [];
+    if(S.title)   role.push(esc(S.title));
+    if(S.company) role.push('<span style="color:'+a+';">'+esc(S.company)+(S.reg?'<span style="font-size:9px;vertical-align:super;color:'+a+';">®</span>':'')+'</span>');
+    var roleLine = role.join(' · ');
+
+    var soc = socials();
+    var socLine = soc.map(function(s){
+      return '<a href="'+esc(s.href)+'" style="'+aSt+'">'+s.v+'</a>';
+    }).join('<span style="color:'+FAINT+';"> &nbsp;◇&nbsp; </span>');
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:390px;width:100%;">'+
+      '<tr><td style="padding:0 0 8px 0;">'+
+        '<span style="display:inline-block;font-family:'+mono+';font-size:9px;color:'+INK+';letter-spacing:2.5px;text-transform:uppercase;border-bottom:1px solid '+INK+';padding:0 14px 4px 0;">SPECIMEN ── 02</span>'+
+      '</td></tr>'+
+      '<tr><td style="padding:16px 0;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+
+          '<tr>'+
+            '<td style="width:110px;vertical-align:middle;text-align:center;">'+
+              '<div style="font-family:'+nf+';font-size:74px;font-weight:bold;color:'+INK+';line-height:1;letter-spacing:-2px;">'+glyph+'</div>'+
+              '<div style="font-family:'+mono+';font-size:8px;color:'+FAINT+';letter-spacing:2px;text-transform:uppercase;margin-top:4px;">SEAL · 印</div>'+
+            '</td>'+
+            '<td style="vertical-align:middle;padding-left:18px;">'+
+              '<div style="font-family:'+nf+';font-size:20px;font-weight:bold;color:'+INK+';line-height:1.15;letter-spacing:-0.3px;">'+nm+'</div>'+
+              (roleLine?'<div style="font-family:'+mono+';font-size:9px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:8px;line-height:1.6;">'+roleLine+'</div>':'')+
+            '</td>'+
+          '</tr>'+
+        '</table>'+
+      '</td></tr>'+
+      '<tr><td style="padding:6px 0;font-family:'+mono+';font-size:14px;color:'+a+';letter-spacing:4px;line-height:1;">◆◇◆◇◆</td></tr>'+
+      ((S.email||S.phone||S.website||soc.length)?'<tr><td style="padding:10px 0 0 0;border-top:1px solid '+HAIR+';">'+
+        (S.email   ? '<div style="font-family:'+mono+';font-size:10px;letter-spacing:1px;line-height:1.8;color:'+INK+';"><span style="color:'+FAINT+';">⌁ </span><a href="mailto:'+esc(S.email)+'" style="'+aSt+'">'+esc(S.email)+'</a></div>' : '')+
+        (S.phone   ? '<div style="font-family:'+mono+';font-size:10px;letter-spacing:1px;line-height:1.8;color:'+INK+';"><span style="color:'+FAINT+';">☎ </span>'+esc(S.phone)+'</div>' : '')+
+        (S.website ? '<div style="font-family:'+mono+';font-size:10px;letter-spacing:1px;line-height:1.8;color:'+INK+';"><span style="color:'+FAINT+';">◌ </span><a href="'+esc(http(S.website))+'" style="'+aSt+'">'+esc(bare(S.website))+'</a></div>' : '')+
+        (socLine   ? '<div style="font-family:'+mono+';font-size:10px;letter-spacing:1px;line-height:1.8;color:'+INK+';margin-top:6px;">'+socLine+'</div>' : '')+
+      '</td></tr>':'')+
+      (S.tag?'<tr><td style="padding-top:12px;font-family:Georgia,serif;font-style:italic;font-size:12px;color:'+FAINT+';line-height:1.5;border-top:1px solid '+HAIR+';margin-top:12px;">“'+esc(S.tag)+'”</td></tr>':'')+
+    '</table>';
+  }
+
+  /* Cargo 03 — shipping-tag style with dashed border and ↳ contacts */
+  function tCargo(a){
+    var nm = esc(S.name||"Your Name");
+    var nf = nFont();
+    var mono = JM;
+    var aSt = 'color:'+INK+';text-decoration:none;';
+
+    var role = [];
+    if(S.title)   role.push(esc(S.title));
+    if(S.company) role.push('<span style="color:'+a+';">'+esc(S.company)+(S.reg?'<span style="font-size:9px;vertical-align:super;color:'+a+';">®</span>':'')+'</span>');
+    var roleLine = role.join(' · ');
+
+    var soc = socials();
+    var ext = extras();
+
+    function contactRow(label, value, href){
+      var v = href ? '<a href="'+href+'" style="'+aSt+'">'+value+'</a>' : value;
+      return '<div style="font-family:'+mono+';font-size:11px;color:'+INK+';letter-spacing:0.5px;line-height:1.85;"><span style="color:'+a+';margin-right:6px;">↳</span>'+v+'</div>';
+    }
+
+    var contactLines = "";
+    if(S.email)   contactLines += contactRow('EMAIL',   esc(S.email),         'mailto:'+esc(S.email));
+    if(S.phone)   contactLines += contactRow('TEL',     esc(S.phone),         null);
+    if(S.website) contactLines += contactRow('WEB',     esc(bare(S.website)), esc(http(S.website)));
+    soc.forEach(function(s){ contactLines += contactRow(s.k, s.v, esc(s.href)); });
+    ext.forEach(function(e){ contactLines += contactRow((e.k||'LINK'), e.v, e.h); });
+
+    var desc = S.tag ? esc(S.tag).toUpperCase() :
+      'A BOUTIQUE PRACTICE OPERATING AT THE INTERSECTION OF DESIGN SYSTEMS AND IDENTITY.';
+
+    /* derive a faux "specimen number" from the name length */
+    var serial = String(((S.name||'JM').length*7)%99);
+    if(serial.length<2) serial = '0'+serial;
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:390px;width:100%;">'+
+      '<tr><td style="border:1px dashed '+INK+';padding:14px 16px 16px 16px;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+
+          '<tr>'+
+            '<td style="font-family:'+mono+';font-size:9px;color:'+INK+';letter-spacing:2.5px;text-transform:uppercase;padding-bottom:6px;">MINIMAL · STUDIO · '+serial+'</td>'+
+            '<td style="text-align:right;padding-bottom:6px;font-family:'+mono+';font-size:14px;color:'+a+';letter-spacing:2px;">▣</td>'+
+          '</tr>'+
+        '</table>'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:60px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+        '<div style="font-family:'+mono+';font-size:8px;color:'+FAINT+';letter-spacing:3px;text-transform:uppercase;margin-top:14px;">MAILING ADDRESS</div>'+
+        '<div style="font-family:'+nf+';font-size:22px;font-weight:bold;color:'+INK+';line-height:1.1;letter-spacing:-0.3px;margin-top:6px;">'+nm+'</div>'+
+        (roleLine?'<div style="font-family:'+mono+';font-size:9px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:6px;line-height:1.6;">'+roleLine+'</div>':'')+
+        '<div style="font-family:'+mono+';font-size:10px;letter-spacing:1px;line-height:1.7;color:'+INK+';text-transform:uppercase;text-align:justify;margin-top:16px;">'+desc+'</div>'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:14px;"><tr><td style="height:1px;width:60px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+        (contactLines?'<div style="margin-top:10px;">'+contactLines+'</div>':'')+
+        (S.loc?'<div style="font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:3px;text-transform:uppercase;margin-top:12px;border-top:1px dashed '+HAIR+';padding-top:10px;">▤ '+esc(S.loc)+'</div>':'')+
+      '</td></tr>'+
+    '</table>';
+  }
+
+  /* Terminal 04 — CLI prompt aesthetic on a dark panel. All-mono, accent
+     prompts ($/>), inverted color scheme, blinking caret. Reads as a system
+     transcript. */
+  function tTerminal(a){
+    var nm = S.name||"Your Name";
+    var mono = JM;
+    var BLACK = "#0e0e12";
+    var GREY  = "#6c6c76";
+    var aSt = 'color:#e8e8ee;text-decoration:none;';
+    var lineSt = 'font-family:'+mono+';font-size:11px;line-height:1.7;color:#e8e8ee;letter-spacing:0.3px;';
+    var promptSt = 'color:'+a+';font-weight:bold;margin-right:8px;';
+    var keySt = 'color:'+GREY+';';
+
+    function line(key, value, href){
+      var v = href ? '<a href="'+href+'" style="'+aSt+'">'+value+'</a>' : value;
+      return '<div style="'+lineSt+'"><span style="'+promptSt+'">&gt;</span><span style="'+keySt+'">'+key+':</span> '+v+'</div>';
+    }
+
+    /* slugify helper for the prompt title */
+    var slug = (nm.toLowerCase().split(/\s+/)[0]||'user').replace(/[^a-z0-9]/g,'');
+
+    var body = "";
+    body += '<div style="'+lineSt+'color:'+a+';font-weight:bold;margin-bottom:6px;"><span style="margin-right:8px;">$</span>sig --user=<span style="color:#fff;">'+esc(slug)+'</span> --format=<span style="color:#fff;">block</span></div>';
+    if(S.name)    body += line('name   ', esc(S.name),         null);
+    if(S.title)   body += line('role   ', esc(S.title),         null);
+    if(S.company) body += line('co     ', esc(S.company)+(S.reg?' &reg;':''),         null);
+    if(S.email)   body += line('mail   ', esc(S.email),         'mailto:'+esc(S.email));
+    if(S.phone)   body += line('tel    ', esc(S.phone),         null);
+    if(S.website) body += line('www    ', esc(bare(S.website)), esc(http(S.website)));
+    if(S.linkedin)body += line('in     ', esc(bare(S.linkedin)), esc(http(S.linkedin)));
+    socials().forEach(function(s){
+      if(s.k==="IN") return; /* already shown */
+      body += line(s.k.toLowerCase()+'     '.slice(s.k.length), s.v, esc(s.href));
+    });
+    extras().forEach(function(e){
+      body += line((e.k||'lnk').toLowerCase().slice(0,3)+'    ', e.v, e.h);
+    });
+    if(S.loc) body += line('loc    ', esc(S.loc), null);
+    if(S.tag) body += line('tag    ', '"'+esc(S.tag)+'"', null);
+    /* blinking caret line */
+    body += '<div style="'+lineSt+'color:'+a+';margin-top:6px;"><span style="margin-right:8px;font-weight:bold;">$</span><span style="display:inline-block;width:7px;height:13px;background-color:'+a+';vertical-align:-2px;">&nbsp;</span></div>';
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:390px;width:100%;">'+
+      '<tr><td bgcolor="'+BLACK+'" style="background-color:'+BLACK+';padding:18px 20px;border-radius:6px;">'+
+        /* fake window chrome */
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-bottom:12px;">'+
+          '<tr>'+
+            '<td style="width:10px;height:10px;background-color:#ff5f56;font-size:1px;line-height:1px;border-radius:50%;">&nbsp;</td>'+
+            '<td style="width:8px;font-size:1px;">&nbsp;</td>'+
+            '<td style="width:10px;height:10px;background-color:#ffbd2e;font-size:1px;line-height:1px;border-radius:50%;">&nbsp;</td>'+
+            '<td style="width:8px;font-size:1px;">&nbsp;</td>'+
+            '<td style="width:10px;height:10px;background-color:#27c93f;font-size:1px;line-height:1px;border-radius:50%;">&nbsp;</td>'+
+            '<td style="padding-left:14px;font-family:'+mono+';font-size:9px;color:'+GREY+';letter-spacing:1.5px;">~/konpo/signature.sh</td>'+
+          '</tr>'+
+        '</table>'+
+        body+
+      '</td></tr>'+
+    '</table>';
+  }
+
+  /* Manifesto 05 — newspaper front page: double-rule masthead, huge serif name,
+     accent rule, mono caps subline, italic body, footer with bullet contacts. */
+  function tManifesto(a){
+    var nm = esc(S.name||"Your Name");
+    var nf = nFont();
+    var mono = JM;
+    var aSt = 'color:'+INK+';text-decoration:none;';
+
+    var role = [];
+    if(S.title)   role.push(esc(S.title));
+    if(S.company) role.push(esc(S.company)+(S.reg?'<span style="font-size:9px;vertical-align:super;color:'+a+';">&reg;</span>':''));
+    var roleLine = role.join(' &middot; ').toUpperCase();
+
+    var contacts = [];
+    if(S.email)   contacts.push('<a href="mailto:'+esc(S.email)+'" style="'+aSt+'">'+esc(S.email)+'</a>');
+    if(S.phone)   contacts.push(esc(S.phone));
+    if(S.website) contacts.push('<a href="'+esc(http(S.website))+'" style="'+aSt+'">'+esc(bare(S.website))+'</a>');
+    socials().forEach(function(s){ contacts.push('<a href="'+esc(s.href)+'" style="'+aSt+'">'+s.v+'</a>'); });
+    var contactLine = contacts.join(' <span style="color:'+a+';">&bull;</span> ');
+
+    var tagline = S.tag ? '&ldquo;'+esc(S.tag)+'&rdquo;' :
+      '&ldquo;Operating at the intersection of design systems and identity.&rdquo;';
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:390px;width:100%;">'+
+      /* Masthead — double-rule with mono caps run */
+      '<tr><td style="border-top:2px solid '+INK+';font-size:1px;line-height:1px;height:2px;">&nbsp;</td></tr>'+
+      '<tr><td style="border-top:1px solid '+INK+';padding:6px 0;font-family:'+mono+';font-size:10px;color:'+INK+';letter-spacing:3px;text-transform:uppercase;text-align:center;">VOL. I &nbsp; &middot; &nbsp; NO. 07 &nbsp; &middot; &nbsp; KONPO PRESS</td></tr>'+
+      '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
+      /* Headline — huge serif */
+      '<tr><td style="padding:28px 0 8px 0;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:36px;font-weight:bold;color:'+INK+';line-height:1.0;letter-spacing:-0.5px;">'+nm+'</td></tr>'+
+      /* Accent rule */
+      '<tr><td style="text-align:center;padding:4px 0;"><table align="center" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:3px;width:48px;background-color:'+a+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table></td></tr>'+
+      /* Mono caps role line */
+      (roleLine?'<tr><td style="padding:6px 0 16px 0;text-align:center;font-family:'+mono+';font-size:10px;color:'+INK+';letter-spacing:3px;text-transform:uppercase;">'+roleLine+'</td></tr>':'')+
+      /* Italic body */
+      '<tr><td style="text-align:center;padding:6px 16px 22px 16px;font-family:Georgia,\'Times New Roman\',serif;font-style:italic;font-size:14px;color:'+FAINT+';line-height:1.45;">'+tagline+'</td></tr>'+
+      /* Footer rule + contacts */
+      '<tr><td style="border-top:2px solid '+INK+';font-size:1px;line-height:1px;height:2px;">&nbsp;</td></tr>'+
+      (contactLine?'<tr><td style="padding:10px 0;text-align:center;font-family:'+mono+';font-size:10px;color:'+INK+';letter-spacing:1.5px;line-height:1.7;">'+contactLine+'</td></tr>':'')+
+      '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
+      (S.loc?'<tr><td style="padding:6px 0 0 0;text-align:center;font-family:'+mono+';font-size:9px;color:'+FAINT+';letter-spacing:3px;text-transform:uppercase;">'+esc(S.loc)+' &middot; 2026</td></tr>':'')+
+    '</table>';
+  }
+
+  /* Receipt 06 — thermal-printer receipt: narrow centered column, ASCII rules,
+     all mono, dot-leader contact lines, faux barcode footer. */
+  function tReceipt(a){
+    var nm = (S.name||"Your Name").toUpperCase();
+    var mono = JM;
+    var aSt = 'color:'+INK+';text-decoration:none;';
+    var rowSt = 'font-family:'+mono+';font-size:11px;color:'+INK+';letter-spacing:0.4px;line-height:1.7;text-align:center;';
+
+    function dotted(label, val){
+      /* a row with label on left, dot leader, value on right — centered overall */
+      var dots = '.';
+      /* approximate leader by repeating dots based on remaining width */
+      var fill = 20 - label.length - val.length;
+      if(fill < 2) fill = 2;
+      var leader = "";
+      for(var i=0;i<fill;i++) leader += '.';
+      return '<div style="'+rowSt+'text-align:left;font-family:'+mono+';">'+
+        '<span style="display:inline-block;width:100%;">'+label+' <span style="color:'+HAIR+';">'+leader+'</span> '+val+'</span>'+
+      '</div>';
+    }
+    function dline(label, value, href){
+      var v = href ? '<a href="'+href+'" style="'+aSt+'">'+value+'</a>' : value;
+      return '<tr>'+
+        '<td style="font-family:'+mono+';font-size:10px;color:'+FAINT+';letter-spacing:1.5px;text-transform:uppercase;padding:2px 6px 2px 0;vertical-align:bottom;white-space:nowrap;">'+label+'</td>'+
+        '<td style="padding:2px 6px;vertical-align:bottom;border-bottom:1px dotted '+HAIR+';width:100%;font-size:1px;line-height:1px;">&nbsp;</td>'+
+        '<td style="font-family:'+mono+';font-size:10px;color:'+INK+';padding:2px 0;vertical-align:bottom;white-space:nowrap;text-align:right;">'+v+'</td>'+
+      '</tr>';
+    }
+
+    var rows = "";
+    if(S.email)   rows += dline('EMAIL', esc(S.email).split('@')[0]+'@', 'mailto:'+esc(S.email));
+    if(S.phone)   rows += dline('TEL',   esc(S.phone), null);
+    if(S.website) rows += dline('WWW',   esc(bare(S.website)), esc(http(S.website)));
+
+    var socRows = "";
+    var soc = socials();
+    soc.forEach(function(s){ socRows += dline(s.k, s.v, esc(s.href)); });
+
+    /* barcode-ish row using block characters */
+    var barcode = '▌▌ ▌ ▌▌▌▌ ▌▌ ▌▌▌ ▌▌▌▌ ▌ ▌▌ ▌▌▌ ▌▌';
+
+    /* faux serial: timestamp-like */
+    var serial = "JM" + (((S.name||"JM").length * 7) % 99).toString().padStart(2,'0') +
+                 "-2026-" + (new Date().getMonth()+1).toString().padStart(2,'0');
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:320px;width:100%;background-color:#ffffff;">'+
+      '<tr><td style="padding:18px 18px 16px 18px;background-color:#fafaf7;border-top:2px dashed '+INK+';border-bottom:2px dashed '+INK+';">'+
+        /* Header */
+        '<div style="'+rowSt+'font-weight:bold;letter-spacing:2px;">═══ KONPO STUDIO ═══</div>'+
+        '<div style="'+rowSt+'color:'+FAINT+';letter-spacing:2px;font-size:9px;margin-top:2px;">* SPECIMEN RECEIPT *</div>'+
+        /* Spacer */
+        '<div style="height:14px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+        /* Item: Name + Role */
+        '<div style="'+rowSt+'font-size:15px;font-weight:bold;letter-spacing:1px;">'+nm+'</div>'+
+        (S.title||S.company?'<div style="'+rowSt+'color:'+FAINT+';font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">'+
+          [esc(S.title),esc(S.company)].filter(Boolean).join(' &middot; ')+
+        '</div>':'')+
+        /* Spacer + divider */
+        '<div style="height:12px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+        '<div style="'+rowSt+'color:'+FAINT+';font-size:9px;letter-spacing:3px;">─ ─ ─ CONTACT ─ ─ ─</div>'+
+        '<div style="height:6px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+        /* Itemized contacts */
+        (rows?'<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+rows+'</table>':'')+
+        /* Socials section */
+        (socRows?
+          '<div style="height:10px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+          '<div style="'+rowSt+'color:'+FAINT+';font-size:9px;letter-spacing:3px;">─ ─ ─ ALSO ON ─ ─ ─</div>'+
+          '<div style="height:6px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+          '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+socRows+'</table>'
+        :'')+
+        /* Tagline / location */
+        (S.tag?'<div style="height:12px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+          '<div style="'+rowSt+'color:'+FAINT+';font-style:italic;font-family:Georgia,serif;font-size:11px;">&ldquo;'+esc(S.tag)+'&rdquo;</div>':'')+
+        (S.loc?'<div style="height:6px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+          '<div style="'+rowSt+'color:'+FAINT+';font-size:9px;letter-spacing:2px;">'+esc(S.loc).toUpperCase()+'</div>':'')+
+        /* Footer */
+        '<div style="height:14px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+        '<div style="'+rowSt+'color:'+a+';letter-spacing:2px;font-size:11px;">═══════════════════</div>'+
+        '<div style="'+rowSt+'font-size:9px;letter-spacing:2px;margin-top:6px;">THANK YOU</div>'+
+        /* Barcode */
+        '<div style="height:10px;font-size:1px;line-height:1px;">&nbsp;</div>'+
+        '<div style="'+rowSt+'font-size:13px;letter-spacing:1px;line-height:1;">'+barcode+'</div>'+
+        '<div style="'+rowSt+'color:'+FAINT+';font-size:8px;letter-spacing:2px;margin-top:4px;">REF: '+serial+'</div>'+
+      '</td></tr>'+
+    '</table>';
   }
 
   /* 8 — Brutalist — German architect title-block. Grid of bordered cells,
@@ -2470,6 +3506,12 @@
     else if(S.t==="brutalist") inner=tBrutalist(a);
     else if(S.t==="architect") inner=tArchitect(a);
     else if(S.t==="minimal")   inner=tMinimal(a);
+    else if(S.t==="field")     inner=tField(a);
+    else if(S.t==="specimen")  inner=tSpecimen(a);
+    else if(S.t==="cargo")     inner=tCargo(a);
+    else if(S.t==="terminal")  inner=tTerminal(a);
+    else if(S.t==="manifesto") inner=tManifesto(a);
+    else if(S.t==="receipt")   inner=tReceipt(a);
     else inner=tEditorial(a);
     return fontLink()+wrapHS(inner);
   }
@@ -2481,6 +3523,8 @@
       .replace(/([\w-]+=)(&quot;[^&]*&quot;)/g,'<span class="t-attr">$1</span><span class="t-val">$2</span>');
   }
   function render(){
+    /* legacy: an earlier build used "rounded" for the logo shape → now "soft" */
+    if(S.logoShape === "rounded") S.logoShape = "soft";
     /* recompute secondary font stack for this render */
     JM = secFont();
     var html=buildSig();
@@ -2496,7 +3540,431 @@
       fp2.textContent=role.toUpperCase();
       fp2.style.fontFamily=secFont();
     }
+    /* Make the preview's text editable in place; mark socials for popover */
+    makeEditable();
   }
+
+  /* ======= INLINE EDITING (preview) =======
+     Walk the rendered preview, wrap text nodes that match S values in
+     <span data-edit="…"> so they can be click-to-edit via contenteditable.
+     Wrap social <a>s with data-social so they can pop a manage popover.
+     This decoration lives ONLY in the preview DOM — buildSig() output (used
+     for copy/download) is untouched. */
+  function socialKeyFromHref(href){
+    href = String(href||"");
+    if(/^mailto:/i.test(href)) return null;
+    if(/x\.com\//i.test(href) || /twitter\.com\//i.test(href)) return "twitter";
+    if(/instagram\.com\//i.test(href)) return "instagram";
+    if(/linkedin\.com\//i.test(href)) return "linkedin";
+    if(/github\.com\//i.test(href)) return "github";
+    if(/dribbble\.com\//i.test(href)) return "dribbble";
+    if(/substack\.com/i.test(href)) return "substack";
+    return null;
+  }
+  function wrapMatchInTextNode(node, match, field){
+    var s = node.nodeValue;
+    var idx = s.indexOf(match);
+    if(idx < 0) return false;
+    var before = s.slice(0, idx);
+    var after  = s.slice(idx + match.length);
+    var frag = document.createDocumentFragment();
+    if(before) frag.appendChild(document.createTextNode(before));
+    var span = document.createElement("span");
+    span.setAttribute("data-edit", field);
+    span.textContent = match;
+    frag.appendChild(span);
+    if(after) frag.appendChild(document.createTextNode(after));
+    node.parentNode.replaceChild(frag, node);
+    return true;
+  }
+  function makeEditable(){
+    var root = gid("sigOut");
+    if(!root) return;
+
+    /* Variants for each field — try longest first so e.g. full email wins over
+       the local-part. Empty values are skipped. */
+    var nm = S.name||"", tt = S.title||"", co = S.company||"";
+    var em = S.email||"", ph = S.phone||"", wb = S.website||"";
+    var lc = S.loc||"",  tg = S.tag||"";
+    var fields = [
+      ["name",    [nm, nm.toUpperCase()]],
+      ["title",   [tt, tt.toUpperCase()]],
+      ["company", [co, co.toUpperCase()]],
+      ["email",   [em, em.toUpperCase(), em.split("@")[0]+"@"]],
+      ["phone",   [ph]],
+      ["website", [bare(wb), bare(wb).toUpperCase(), wb]],
+      ["loc",     [lc, lc.toUpperCase()]],
+      ["tag",     [tg, tg.toUpperCase()]]
+    ];
+
+    /* Snapshot text nodes first (mutating during walk breaks the iterator) */
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(function(node){
+      if(!node.parentNode) return;
+      /* skip if inside an already-wrapped span */
+      var p = node.parentNode;
+      while(p && p !== root){
+        if(p.hasAttribute && p.hasAttribute("data-edit")) return;
+        p = p.parentNode;
+      }
+      var raw = node.nodeValue;
+      if(!raw || !raw.trim()) return;
+      for(var i=0; i<fields.length; i++){
+        var fname = fields[i][0];
+        var variants = fields[i][1];
+        for(var j=0; j<variants.length; j++){
+          var v = variants[j];
+          if(v && v.length >= 2 && raw.indexOf(v) !== -1){
+            if(wrapMatchInTextNode(node, v, fname)) return;
+          }
+        }
+      }
+    });
+
+    /* Tag social links so click handler can pop a control */
+    var socEls = [];
+    root.querySelectorAll("a[href]").forEach(function(a){
+      var key = socialKeyFromHref(a.getAttribute("href"));
+      if(key){ a.setAttribute("data-social", key); socEls.push(a); }
+    });
+
+    /* Tag the avatar/logo image (the first img inside .hs-wrap) for click-to-manage */
+    var avatarImg = root.querySelector("table.hs-wrap img");
+    if(avatarImg) avatarImg.setAttribute("data-edit-image", "avatar");
+
+    /* Inject "+" affordance after the last social so users can add more inline */
+    if(socEls.length){
+      var last = socEls[socEls.length - 1];
+      if(last.parentNode && !last.parentNode.querySelector(".inline-add-social")){
+        var plus = document.createElement("span");
+        plus.className = "inline-add-social";
+        plus.setAttribute("data-add-social", "1");
+        plus.setAttribute("title", "Add another social");
+        plus.textContent = "+";
+        last.parentNode.insertBefore(plus, last.nextSibling);
+      }
+    }
+  }
+
+  /* Map a state field key to the editor section title that owns it */
+  function sectionForField(field){
+    if(/^(name|title|company)$/.test(field))                                 return "Identity";
+    if(/^(email|phone|website)$/.test(field))                                return "Contact";
+    if(/^(loc|tag)$/.test(field))                                            return "Place";
+    if(/^(linkedin|twitter|instagram|github|dribbble|substack)$/.test(field))return "Social";
+    if(/^(hsUrl|logoUrl|hsSize|hsShape)$/.test(field))                       return "Photo";
+    return null;
+  }
+  /* Open the editor group whose title starts with `prefix` (case-insensitive)
+     and scroll it into view inside the editor scroll container. */
+  function openEditorSection(prefix){
+    if(!prefix) return;
+    var groups = document.querySelectorAll(".editor .group");
+    var match = null;
+    groups.forEach(function(g){
+      var t = g.querySelector(".group-title");
+      if(!t) return;
+      var label = (t.textContent || "").trim().toLowerCase();
+      if(label.indexOf(prefix.toLowerCase()) === 0){
+        g.classList.remove("is-collapsed");
+        if(!match) match = g;
+      }
+    });
+    if(match){
+      try{
+        match.scrollIntoView({ behavior:"smooth", block:"start" });
+      }catch(e){}
+    }
+  }
+
+  function startInlineEdit(span){
+    if(span.getAttribute("contenteditable") === "true") return;
+    var field = span.getAttribute("data-edit");
+    var orig  = S[field] || "";
+    /* Open the editor section that owns this field */
+    openEditorSection(sectionForField(field));
+    span.setAttribute("contenteditable", "true");
+    span.setAttribute("spellcheck", "false");
+    span.focus();
+    /* select all */
+    var range = document.createRange();
+    range.selectNodeContents(span);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    function commit(){
+      span.removeEventListener("blur", commit);
+      span.removeEventListener("keydown", onKey);
+      span.removeAttribute("contenteditable");
+      span.removeAttribute("spellcheck");
+      var newVal = span.textContent.trim();
+      if(newVal !== orig){
+        S[field] = newVal;
+        var inp = gid("f-" + field);
+        if(inp) inp.value = newVal;
+        render();
+      }
+    }
+    function onKey(e){
+      if(e.key === "Enter"){ e.preventDefault(); commit(); }
+      else if(e.key === "Escape"){ e.preventDefault(); span.textContent = orig; commit(); }
+    }
+    span.addEventListener("blur", commit);
+    span.addEventListener("keydown", onKey);
+  }
+
+  function closeSocialPop(){
+    var pop = document.getElementById("inline-pop");
+    if(pop) pop.remove();
+    document.removeEventListener("click", onDocClickClosePop, true);
+  }
+  function onDocClickClosePop(e){
+    var pop = document.getElementById("inline-pop");
+    if(pop && !pop.contains(e.target) && !e.target.closest("[data-social]")) closeSocialPop();
+  }
+  var SOCIAL_DEFS = [
+    { key:"linkedin",  label:"LinkedIn",  placeholder:"linkedin.com/in/…" },
+    { key:"twitter",   label:"X / Twitter", placeholder:"@handle" },
+    { key:"instagram", label:"Instagram", placeholder:"@handle" },
+    { key:"github",    label:"GitHub",    placeholder:"username" },
+    { key:"dribbble",  label:"Dribbble",  placeholder:"username" },
+    { key:"substack",  label:"Substack",  placeholder:"username (becomes username.substack.com)" }
+  ];
+  function showSocialPopover(el){
+    closeSocialPop();
+    openEditorSection("Social");
+    var key = el.getAttribute("data-social");
+    var def = SOCIAL_DEFS.find(function(d){ return d.key === key; });
+    if(!def) return;
+
+    var pop = document.createElement("div");
+    pop.id = "inline-pop";
+    pop.className = "inline-pop";
+    var available = SOCIAL_DEFS.filter(function(d){ return !S[d.key]; });
+
+    pop.innerHTML =
+      '<div class="inline-pop-title">'+def.label+'</div>'+
+      '<button class="inline-pop-btn danger" data-act="remove">Remove '+def.label+'</button>'+
+      (available.length ? '<div class="inline-pop-sep">Add another</div>'+
+        available.map(function(d){
+          return '<div class="inline-pop-add"><label>'+d.label+'</label>'+
+                 '<input type="text" placeholder="'+d.placeholder+'" data-add="'+d.key+'"></div>';
+        }).join('') : '')+
+      '<div class="inline-pop-foot">'+
+        '<label class="inline-pop-check"><input type="checkbox" id="pop-iconly"'+(S.socialsIconOnly?' checked':'')+'> icons only</label>'+
+        '<label class="inline-pop-check"><input type="checkbox" id="pop-icons"'+(S.icons!==false?' checked':'')+'> show icons</label>'+
+      '</div>';
+
+    document.body.appendChild(pop);
+    positionPopNear(pop, el);
+
+    pop.querySelector('[data-act="remove"]').addEventListener("click", function(){
+      S[key] = "";
+      var inp = gid("f-" + key);
+      if(inp) inp.value = "";
+      closeSocialPop();
+      render();
+    });
+    pop.querySelectorAll('[data-add]').forEach(function(inp){
+      inp.addEventListener("change", function(){
+        var k = inp.getAttribute("data-add");
+        S[k] = inp.value.trim();
+        var fld = gid("f-" + k);
+        if(fld) fld.value = S[k];
+        closeSocialPop();
+        render();
+      });
+    });
+    pop.querySelector('#pop-iconly').addEventListener("change", function(e){
+      S.socialsIconOnly = e.target.checked;
+      var t = gid("f-socials-iconly");
+      if(t) t.checked = e.target.checked;
+      render();
+    });
+    pop.querySelector('#pop-icons').addEventListener("change", function(e){
+      S.icons = e.target.checked;
+      var t = gid("f-icons");
+      if(t) t.checked = e.target.checked;
+      render();
+    });
+
+    /* close on outside click */
+    setTimeout(function(){ document.addEventListener("click", onDocClickClosePop, true); }, 0);
+  }
+
+  /* ====== ADD-SOCIAL POPOVER (the "+" affordance) ====== */
+  function showAddSocialPopover(el){
+    closeSocialPop();
+    openEditorSection("Social");
+    var available = SOCIAL_DEFS.filter(function(d){ return !S[d.key]; });
+    var pop = document.createElement("div");
+    pop.id = "inline-pop";
+    pop.className = "inline-pop";
+    pop.innerHTML =
+      '<div class="inline-pop-title">Add social</div>'+
+      (available.length
+        ? available.map(function(d){
+            return '<div class="inline-pop-add"><label>'+d.label+'</label>'+
+                   '<input type="text" placeholder="'+d.placeholder+'" data-add="'+d.key+'"></div>';
+          }).join('')
+        : '<div class="inline-pop-add" style="color:var(--k-text-muted);">All socials are already added.</div>');
+
+    document.body.appendChild(pop);
+    positionPopNear(pop, el);
+
+    pop.querySelectorAll('[data-add]').forEach(function(inp){
+      inp.addEventListener("change", function(){
+        var k = inp.getAttribute("data-add");
+        S[k] = inp.value.trim();
+        var fld = gid("f-" + k);
+        if(fld) fld.value = S[k];
+        closeSocialPop();
+        render();
+      });
+    });
+    setTimeout(function(){ document.addEventListener("click", onDocClickClosePop, true); }, 0);
+  }
+
+  /* ====== IMAGE POPOVER (avatar + logo manager) ====== */
+  function showImagePopover(el){
+    closeSocialPop();
+    openEditorSection("Photo");
+    var pop = document.createElement("div");
+    pop.id = "inline-pop";
+    pop.className = "inline-pop";
+
+    function pillRow(label, current, options, attr){
+      return '<div class="inline-pop-add"><label>'+label+'</label>'+
+        '<div class="inline-pop-pills" data-attr="'+attr+'">'+
+        options.map(function(o){
+          return '<button type="button" class="inline-pop-pill'+(current===o.value?' on':'')+'" data-val="'+o.value+'">'+o.label+'</button>';
+        }).join('')+
+        '</div></div>';
+    }
+
+    pop.innerHTML =
+      '<div class="inline-pop-title">Photo &amp; Logo</div>'+
+      /* Avatar */
+      '<div class="inline-pop-add"><label>Avatar URL</label>'+
+        '<input type="text" placeholder="https://… or click upload" data-img-url="hsUrl" value="'+(S.hsUrl && !S.hsUrl.startsWith("data:") && !S.hsUrl.startsWith("/seed-")?esc(S.hsUrl):"")+'"></div>'+
+      '<div class="inline-pop-row">'+
+        '<button class="inline-pop-btn" data-upload="hs">Upload photo…</button>'+
+        '<button class="inline-pop-btn danger" data-remove="hs">Remove</button>'+
+      '</div>'+
+      /* Logo */
+      '<div class="inline-pop-add" style="margin-top:1rem;"><label>Logo URL</label>'+
+        '<input type="text" placeholder="https://… or click upload" data-img-url="logoUrl" value="'+(S.logoUrl && !S.logoUrl.startsWith("data:") && !S.logoUrl.startsWith("/seed-")?esc(S.logoUrl):"")+'"></div>'+
+      '<div class="inline-pop-row">'+
+        '<button class="inline-pop-btn" data-upload="logo">Upload logo…</button>'+
+        '<button class="inline-pop-btn danger" data-remove="logo">Remove</button>'+
+      '</div>'+
+      /* Size + Shape pills */
+      pillRow("Size", S.hsSize, [{label:"S",value:"S"},{label:"M",value:"M"},{label:"L",value:"L"}], "hsSize")+
+      pillRow("Shape", S.hsShape, [{label:"Circle",value:"circle"},{label:"Soft",value:"rounded"},{label:"Square",value:"square"}], "hsShape")+
+      /* Logo display row — only meaningful when logo-only (no avatar) */
+      ((S.logoUrl && !S.hsUrl)
+        ? pillRow("Logo display", S.logoShape, [{label:"Circle",value:"circle"},{label:"Soft",value:"soft"},{label:"Rectangle",value:"rect"}], "logoShape")+
+          pillRow("Logo size", S.logoSize, [{label:"S",value:"S"},{label:"M",value:"M"},{label:"L",value:"L"},{label:"XL",value:"XL"}], "logoSize")
+        : "");
+
+    document.body.appendChild(pop);
+    positionPopNear(pop, el);
+
+    pop.querySelectorAll("[data-img-url]").forEach(function(inp){
+      inp.addEventListener("change", function(){
+        var k = inp.getAttribute("data-img-url");
+        S[k] = inp.value.trim();
+        var fld = gid("f-" + (k === "hsUrl" ? "hsurl" : "logourl"));
+        if(fld) fld.value = inp.value.trim();
+        if(k === "hsUrl") updateHsThumb(); else updateLogoThumb();
+        render();
+      });
+    });
+    pop.querySelectorAll("[data-upload]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var which = b.getAttribute("data-upload");
+        gid(which === "hs" ? "hsFile" : "logoFile").click();
+        closeSocialPop();
+      });
+    });
+    pop.querySelectorAll("[data-remove]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var which = b.getAttribute("data-remove");
+        if(which === "hs"){ S.hsUrl = ""; var f=gid("f-hsurl"); if(f) f.value=""; updateHsThumb(); }
+        else              { S.logoUrl = ""; var f2=gid("f-logourl"); if(f2) f2.value=""; updateLogoThumb(); }
+        closeSocialPop();
+        render();
+      });
+    });
+    pop.querySelectorAll(".inline-pop-pills").forEach(function(group){
+      var attr = group.getAttribute("data-attr");
+      group.querySelectorAll(".inline-pop-pill").forEach(function(p){
+        p.addEventListener("click", function(){
+          group.querySelectorAll(".inline-pop-pill").forEach(function(x){x.classList.remove("on");});
+          p.classList.add("on");
+          S[attr] = p.getAttribute("data-val");
+          /* sync editor radios */
+          if(attr === "hsSize"){
+            var r = document.querySelector('input[name=hssize][value="'+S.hsSize+'"]'); if(r) r.checked=true;
+          } else if(attr === "hsShape"){
+            var r2 = document.querySelector('input[name=hsshape][value="'+S.hsShape+'"]'); if(r2) r2.checked=true;
+            var th = gid("hsThumbnail");
+            if(th) th.style.borderRadius = S.hsShape==="circle"?"200rem":S.hsShape==="rounded"?"1rem":"0";
+          } else if(attr === "logoShape"){
+            var r3 = document.querySelector('input[name=logoshape][value="'+S.logoShape+'"]'); if(r3) r3.checked=true;
+            var lth = gid("logoThumbnail");
+            if(lth) lth.style.borderRadius = S.logoShape==="circle"?"200rem":S.logoShape==="soft"?"1rem":".4rem";
+          } else if(attr === "logoSize"){
+            var r4 = document.querySelector('input[name=logosize][value="'+S.logoSize+'"]'); if(r4) r4.checked=true;
+          }
+          render();
+        });
+      });
+    });
+    setTimeout(function(){ document.addEventListener("click", onDocClickClosePop, true); }, 0);
+  }
+
+  /* Shared popover positioning */
+  function positionPopNear(pop, el){
+    var r = el.getBoundingClientRect();
+    var w = pop.offsetWidth;
+    var h = pop.offsetHeight;
+    var x = r.left + r.width/2 - w/2;
+    var y = r.bottom + window.scrollY + 8;
+    if(x < 8) x = 8;
+    if(x + w > window.innerWidth - 8) x = window.innerWidth - w - 8;
+    /* if it would clip the bottom of the viewport, flip above */
+    if(r.bottom + h + 16 > window.innerHeight) y = r.top + window.scrollY - h - 8;
+    pop.style.left = x + "px";
+    pop.style.top  = y + "px";
+  }
+
+  /* Delegate clicks once */
+  document.addEventListener("click", function(e){
+    var sig = e.target.closest("#sigOut");
+    if(!sig) return;
+    var ed = e.target.closest("[data-edit]");
+    var sc = e.target.closest("[data-social]");
+    var as = e.target.closest("[data-add-social]");
+    var ei = e.target.closest("[data-edit-image]");
+    if(as){
+      e.preventDefault(); e.stopPropagation();
+      showAddSocialPopover(as);
+    } else if(ei){
+      e.preventDefault(); e.stopPropagation();
+      showImagePopover(ei);
+    } else if(ed){
+      e.preventDefault(); e.stopPropagation();
+      startInlineEdit(ed);
+    } else if(sc){
+      e.preventDefault(); e.stopPropagation();
+      showSocialPopover(sc);
+    }
+  }, true);
 
   /* ======= INPUTS ======= */
   FIELDS.forEach(function(p){
@@ -2655,6 +4123,16 @@
       render();
     });
   });
+  Array.prototype.forEach.call(document.querySelectorAll("input[name=logoshape]"),function(r){
+    r.addEventListener("change",function(){ S.logoShape=this.value;
+      var th=gid("logoThumbnail");
+      if(th) th.style.borderRadius=this.value==="circle"?"200rem":this.value==="soft"?"1rem":".4rem";
+      render();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("input[name=logosize]"),function(r){
+    r.addEventListener("change",function(){ S.logoSize=this.value; render(); });
+  });
 
   /* ======= ACCENT ======= */
   var colorEl=gid("f-color"), hexEl=gid("f-hex");
@@ -2798,7 +4276,7 @@
   });
 
   /* ======= SHARE LINK ======= */
-  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:""};
+  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M"};
 
   /* strip empty strings + fields that match their default → smaller payload */
   function minifyState(st){
@@ -2818,7 +4296,7 @@
   /* merge decoded partial state back onto full defaults */
   function expandState(st){
     var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",
-      hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",name:"",title:"",company:"",
+      hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M",name:"",title:"",company:"",
       email:"",phone:"",website:"",linkedin:"",loc:"",tag:"",
       twitter:"",instagram:"",github:"",dribbble:"",substack:"",links:[]};
     Object.keys(st).forEach(function(k){ full[k]=st[k]; });
@@ -2842,6 +4320,10 @@
     if(sizeEl) sizeEl.checked=true;
     var shapeEl=document.querySelector("input[name=hsshape][value='"+(S.hsShape||"circle")+"']");
     if(shapeEl) shapeEl.checked=true;
+    var logoShapeEl=document.querySelector("input[name=logoshape][value='"+(S.logoShape||"circle")+"']");
+    if(logoShapeEl) logoShapeEl.checked=true;
+    var logoSizeEl=document.querySelector("input[name=logosize][value='"+(S.logoSize||"M")+"']");
+    if(logoSizeEl) logoSizeEl.checked=true;
     document.querySelectorAll(".lay").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-t")===S.t); });
     renderXLinks();
     applyAccent(S.accent,"load"); updateHsThumb(); render();
@@ -2886,10 +4368,11 @@
   document.addEventListener("click",function(){ closeSharePop(); });
 
   /* ======= INIT ======= */
-  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",
+  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:true,showLabels:true,font:"system",font2:"JetBrains Mono",
+    hsUrl:"/seed-avatar.svg", hsSize:"M", hsShape:"circle", logoUrl:"/seed-logo.svg", logoShape:"circle", logoSize:"M",
     name:"Jean Massad",title:"Founder",company:"Konpo Studio",email:"jean@konpo.studio",
-    phone:"",website:"konpo.studio",linkedin:"",loc:"",tag:"",
-    twitter:"",instagram:"",github:"",dribbble:"",substack:"",links:[]};
+    phone:"",website:"konpo.studio",linkedin:"https://www.linkedin.com/company/konpo",loc:"",tag:"",
+    twitter:"",instagram:"konpo.studio",github:"",dribbble:"",substack:"konpo",links:[]};
 
   /* load from URL ?s= param if present, otherwise SEED */
   var urlParam=new URLSearchParams(location.search).get("s");
@@ -2905,10 +4388,128 @@
   if(initSizeEl) initSizeEl.checked=true;
   var initShapeEl=document.querySelector("input[name=hsshape][value='"+(S.hsShape||"circle")+"']");
   if(initShapeEl) initShapeEl.checked=true;
+  var initLogoShapeEl=document.querySelector("input[name=logoshape][value='"+(S.logoShape||"circle")+"']");
+  if(initLogoShapeEl) initLogoShapeEl.checked=true;
+  var initLogoSizeEl=document.querySelector("input[name=logosize][value='"+(S.logoSize||"M")+"']");
+  if(initLogoSizeEl) initLogoSizeEl.checked=true;
   renderXLinks();
   updateHsThumb(); updateLogoThumb();
   applyAccent(S.accent||"#1D1D1D","init"); renderHist(); render();
   if(initState) ping("Signature loaded from link");
+
+  /* ======= TEAM WORKSPACE =======
+     On /w/<slug>: load the workspace, show a banner, allow browse + save.
+     Fully open — anyone with the URL can read AND write. No passcode. */
+  (function workspace(){
+    var m = location.pathname.match(/^\/w\/([a-z0-9][a-z0-9-]{1,38}[a-z0-9])\/?$/i);
+    if(!m) return; /* not in a workspace → leave the Create-workspace CTA visible */
+    var slug = m[1].toLowerCase();
+
+    /* inside a workspace: hide the "create" CTA, the banner takes over */
+    var cta = gid("wsCta"); if(cta) cta.style.display = "none";
+
+    var banner = gid("wsBanner"), nameEl = gid("wsName"), metaEl = gid("wsMeta");
+    var drawer = gid("wsDrawer"), drawerList = gid("wsDrawerList"), drawerTitle = gid("wsDrawerTitle");
+    var saveBtn = gid("wsSaveBtn"), browseBtn = gid("wsBrowseBtn"), drawerClose = gid("wsDrawerClose");
+    var WS = null; // current workspace object {slug,name,signatures:[]}
+
+    function fmtTime(ts){
+      var d = new Date(ts), now = Date.now(), diff = (now - ts)/1000;
+      if(diff < 60) return "just now";
+      if(diff < 3600) return Math.floor(diff/60) + "m ago";
+      if(diff < 86400) return Math.floor(diff/3600) + "h ago";
+      return d.toLocaleDateString();
+    }
+
+    function renderBanner(){
+      if(!WS){ banner.style.display="none"; return; }
+      banner.style.display="flex";
+      nameEl.textContent = WS.name || slug;
+      var n = (WS.signatures||[]).length;
+      metaEl.textContent = n + (n===1?" saved sig":" saved sigs");
+    }
+
+    function renderDrawer(){
+      drawerTitle.textContent = (WS.name||slug) + " — signatures";
+      var sigs = WS.signatures||[];
+      if(!sigs.length){
+        drawerList.innerHTML = '<div class="ws-empty">No team signatures yet. Build one and hit “Save to team”.</div>';
+        return;
+      }
+      drawerList.innerHTML = sigs.map(function(s){
+        return '<div class="ws-row" data-id="'+s.id+'">'+
+          '<div class="ws-row-info">'+
+            '<div class="ws-row-label">'+esc(s.label||"Untitled")+'</div>'+
+            '<div class="ws-row-meta">'+fmtTime(s.updatedAt)+'</div>'+
+          '</div>'+
+          '<button class="ws-row-del" data-del="'+s.id+'" title="Delete" aria-label="Delete">&times;</button>'+
+        '</div>';
+      }).join('');
+    }
+
+    function fetchWS(){
+      return fetch("/api/workspace?slug="+encodeURIComponent(slug))
+        .then(function(r){ return r.json().then(function(j){ return {ok:r.ok,j:j}; }); })
+        .then(function(res){
+          if(!res.ok){ WS=null; renderBanner(); ping(res.j.error||"Workspace not found"); return; }
+          WS = res.j.workspace;
+          renderBanner();
+        })
+        .catch(function(){ ping("Could not reach workspace"); });
+    }
+
+    function doSave(){
+      var label = window.prompt("Name this signature:", (S.name||"Untitled") + (S.title?" — "+S.title:""));
+      if(label===null) return;
+      saveBtn.disabled = true; saveBtn.textContent = "Saving…";
+      fetch("/api/workspace", {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({ action:"save", slug:slug, sig:{ label:label||"Untitled", state:S } })
+      }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok,j:j}; }); })
+        .then(function(res){
+          saveBtn.disabled = false; saveBtn.textContent = "Save to team";
+          if(!res.ok){ ping(res.j.error||"Save failed"); return; }
+          WS = res.j.workspace;
+          renderBanner(); renderDrawer();
+          ping("Saved to "+(WS.name||slug));
+        }).catch(function(){
+          saveBtn.disabled=false; saveBtn.textContent="Save to team"; ping("Save failed — network");
+        });
+    }
+
+    function doDelete(id){
+      fetch("/api/workspace", {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({ action:"delete", slug:slug, id:id })
+      }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok,j:j}; }); })
+        .then(function(res){
+          if(!res.ok){ ping(res.j.error||"Delete failed"); return; }
+          WS = res.j.workspace; renderBanner(); renderDrawer();
+        }).catch(function(){ ping("Delete failed — network"); });
+    }
+
+    saveBtn.addEventListener("click", doSave);
+    browseBtn.addEventListener("click", function(){
+      if(!WS){ return; }
+      var open = drawer.style.display !== "none";
+      if(open){ drawer.style.display="none"; return; }
+      renderDrawer();
+      drawer.style.display="block";
+    });
+    drawerClose.addEventListener("click", function(){ drawer.style.display="none"; });
+    drawerList.addEventListener("click", function(e){
+      var del = e.target.closest("[data-del]");
+      if(del){ e.stopPropagation(); if(confirm("Delete this signature?")) doDelete(del.getAttribute("data-del")); return; }
+      var row = e.target.closest(".ws-row");
+      if(row){
+        var id = row.getAttribute("data-id");
+        var sig = (WS.signatures||[]).filter(function(s){ return s.id===id; })[0];
+        if(sig && sig.state){ loadState(sig.state); ping("Loaded “"+(sig.label||"Untitled")+"”"); drawer.style.display="none"; }
+      }
+    });
+
+    fetchWS();
+  })();
 
   /* ======= STRIP NAVY BG FROM KONPO LOTTIE =======
      The hosted lottie has a solid navy backplate + a navy center circle.
@@ -2939,7 +4540,7 @@
   })();
 
   /* ======= RANDOMIZE — re-roll the visual design (not the data) ======= */
-  var R_LAYOUTS  = ["editorial","manifest","split","bold","compact","card","wildin","brutalist","architect","minimal"];
+  var R_LAYOUTS  = ["editorial","manifest","split","bold","compact","card","wildin","brutalist","architect","minimal","field","specimen","cargo","terminal","manifesto","receipt"];
   var R_FONT_PRIMARY = ["Inter","Plus Jakarta Sans","DM Sans","Syne","Space Grotesk","Fraunces","Playfair Display","DM Mono","IBM Plex Mono","JetBrains Mono","Space Mono"];
   var R_FONT_SECOND  = ["JetBrains Mono","DM Mono","IBM Plex Mono","Space Mono","Inter","Space Grotesk","DM Sans"];
   var R_ACCENTS  = ["#9680FF","#0F62FE","#1B998B","#E4572E","#B79100","#D74843","#7C5CFF","#FF6B9D","#22C55E","#1D1D1D"];
@@ -2984,7 +4585,7 @@
      looks" section at startup. */
   (function relocateLayout(){
     var src = gid("layout-block");
-    var dst = gid("layout-group-moved");
+    var dst = gid("layout-group-moved-top") || gid("layout-group-moved");
     if(src && dst && dst.parentNode){
       dst.parentNode.replaceChild(src, dst);
     }

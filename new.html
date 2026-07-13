@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New team workspace — Sweet &amp; Simple Sigs</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:62.5%;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  :root{
+    --canvas:#ececef; --canvas-dot:rgba(0,0,0,0.06);
+    --surface:#ffffff;
+    --ink:#0e0e12; --muted:#6b6b76; --faint:#9a9aa3;
+    --hairline:rgba(0,0,0,0.08);
+    --accent-h:250; --accent-s:90%; --accent-l:73%;
+    --accent:hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+    --accent-hover:hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) - 6%));
+    --accent-ring:hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.28);
+    --destructive:#d74843;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --ease:cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  body{
+    background-color:var(--canvas);
+    background-image:radial-gradient(var(--canvas-dot) 1px, transparent 1px);
+    background-size:16px 16px;
+    color:var(--ink); font-family:var(--sans);
+    font-size:1.5rem; line-height:1.5;
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:4rem 2rem;
+  }
+  .card{
+    width:100%; max-width:46rem;
+    background:#ffffff;
+    border:1px solid var(--hairline);
+    border-radius:2rem;
+    box-shadow:0 8px 32px rgba(0,0,0,0.08);
+    padding:3.6rem 3.6rem 3.2rem;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:1.05rem; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--muted);
+    margin-bottom:1.4rem;
+  }
+  h1{
+    font-family:var(--sans); font-weight:700;
+    font-size:3.2rem; line-height:1.1; letter-spacing:-0.5px;
+    margin-bottom:1.2rem;
+  }
+  .lead{ color:var(--muted); margin-bottom:2.8rem; font-size:1.55rem; }
+  .field{ display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.8rem; }
+  .field label{
+    font-family:var(--mono); font-size:1.05rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted); font-weight:500;
+  }
+  .field input{
+    width:100%; height:5rem; padding:0 1.4rem;
+    border:1px solid var(--hairline); border-radius:1.2rem;
+    background:#ffffff; color:var(--ink);
+    font-family:var(--sans); font-size:1.6rem;
+    transition:border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+  }
+  .field input:focus{
+    outline:none; border-color:var(--accent);
+    box-shadow:0 0 0 4px var(--accent-ring);
+  }
+  .field input.bad{ border-color:var(--destructive); }
+  .field-hint{
+    font-family:var(--mono); font-size:1.05rem;
+    color:var(--faint); letter-spacing:.04em; margin-top:.3rem;
+  }
+  .field-error{
+    font-family:var(--mono); font-size:1.05rem;
+    color:var(--destructive); margin-top:.3rem;
+    min-height:1.5rem;
+  }
+  .slug-row{ position:relative; }
+  .slug-prefix{
+    position:absolute; left:1.4rem; top:50%; transform:translateY(-50%);
+    color:var(--faint); font-family:var(--mono); font-size:1.4rem;
+    pointer-events:none;
+  }
+  .slug-row input{ padding-left:13rem; }
+  .submit{
+    display:block; width:100%; height:5.2rem;
+    margin-top:.8rem;
+    background:var(--accent); color:#fff;
+    border:none; border-radius:1.2rem;
+    font-family:var(--sans); font-size:1.55rem; font-weight:600;
+    cursor:pointer;
+    box-shadow:0 4px 16px var(--accent-ring);
+    transition:background 180ms var(--ease), transform 120ms var(--ease);
+  }
+  .submit:hover{ background:var(--accent-hover); }
+  .submit:active{ transform:scale(.98); }
+  .submit:disabled{ opacity:0.5; cursor:not-allowed; }
+  .back{
+    display:inline-block; margin-top:1.6rem;
+    font-family:var(--mono); font-size:1.1rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted);
+    text-decoration:none; transition:color 180ms;
+  }
+  .back:hover{ color:var(--accent); }
+  .success{
+    margin-top:2rem; padding:1.6rem;
+    background:#f4f0ff; border:1px solid #d6c9ff;
+    border-radius:1.2rem;
+    color:var(--ink);
+    display:none;
+  }
+  .success.show{ display:block; }
+  .success-title{
+    font-family:var(--mono); font-size:1.1rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent);
+    font-weight:700; margin-bottom:.8rem;
+  }
+  .success-url{
+    font-family:var(--mono); font-size:1.4rem;
+    color:var(--ink);
+    background:#ffffff; padding:.9rem 1.2rem;
+    border-radius:.8rem; border:1px solid var(--hairline);
+    margin-top:1rem; word-break:break-all;
+    display:block; text-decoration:none;
+  }
+  .success-url:hover{ border-color:var(--accent); }
+  .success small{ display:block; margin-top:1rem; color:var(--muted); font-size:1.25rem; }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="eyebrow">Sweet &amp; Simple Sigs ── Team</div>
+  <h1>New team workspace</h1>
+  <p class="lead">Pick a URL slug. Anyone with the link can browse and save your team's signatures — no accounts, no passwords. Keep the link within your team.</p>
+
+  <form id="form">
+    <div class="field">
+      <label for="slug">Workspace slug</label>
+      <div class="slug-row">
+        <span class="slug-prefix">/w/</span>
+        <input type="text" id="slug" autocomplete="off" spellcheck="false" required minlength="3" maxlength="40" pattern="[a-z0-9][a-z0-9-]{1,38}[a-z0-9]" placeholder="acme-design">
+      </div>
+      <div class="field-hint">3–40 chars. Lowercase letters, numbers, dashes. Can't start or end with a dash.</div>
+      <div class="field-error" id="slug-error"></div>
+    </div>
+
+    <div class="field">
+      <label for="name">Team name</label>
+      <input type="text" id="name" autocomplete="off" required maxlength="80" placeholder="Acme Design">
+    </div>
+
+    <button type="submit" class="submit" id="submit">Create workspace</button>
+  </form>
+
+  <div class="success" id="success">
+    <div class="success-title">Workspace created</div>
+    <div>Share this URL with your team:</div>
+    <a class="success-url" id="success-url" href="#"></a>
+    <small>Bookmark it. Anyone with this link can browse and save signatures — keep it within your team.</small>
+  </div>
+
+  <a class="back" href="/">← Back to the editor</a>
+</main>
+
+<script>
+(function(){
+  var form = document.getElementById('form');
+  var slugEl = document.getElementById('slug');
+  var nameEl = document.getElementById('name');
+  var btn = document.getElementById('submit');
+  var err = document.getElementById('slug-error');
+  var success = document.getElementById('success');
+  var successUrl = document.getElementById('success-url');
+
+  /* auto-lowercase + sanitize slug as user types */
+  slugEl.addEventListener('input', function(){
+    var v = slugEl.value.toLowerCase().replace(/[^a-z0-9-]/g, '');
+    if (v !== slugEl.value) slugEl.value = v;
+    slugEl.classList.remove('bad');
+    err.textContent = '';
+  });
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    err.textContent = '';
+    slugEl.classList.remove('bad');
+    btn.disabled = true;
+    btn.textContent = 'Creating…';
+
+    try {
+      var res = await fetch('/api/workspace', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'create',
+          slug: slugEl.value.trim().toLowerCase(),
+          name: nameEl.value.trim(),
+        }),
+      });
+      var data = await res.json();
+      if (!res.ok) {
+        err.textContent = data.error || 'something went wrong';
+        slugEl.classList.add('bad');
+        btn.disabled = false;
+        btn.textContent = 'Create workspace';
+        return;
+      }
+      var url = location.origin + '/w/' + data.workspace.slug;
+      successUrl.textContent = url;
+      successUrl.href = url;
+      success.classList.add('show');
+      form.style.display = 'none';
+    } catch(e2){
+      err.textContent = 'network error — try again';
+      btn.disabled = false;
+      btn.textContent = 'Create workspace';
+    }
+  });
+})();
+</script>
+</body>
+</html>

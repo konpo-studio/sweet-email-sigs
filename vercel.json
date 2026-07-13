@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "alias": ["konpo-signatures.vercel.app"]
+  "alias": ["konpo-signatures.vercel.app"],
+  "rewrites": [
+    { "source": "/w/:slug", "destination": "/" }
+  ]
 }
