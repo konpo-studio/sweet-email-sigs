@@ -179,7 +179,7 @@
   .mail-wrap.mobile .hs-wrap>tbody>tr,
   .mail-wrap.mobile .hs-wrap>tr{display:block}
   .mail-wrap.mobile .hs-wrap>tbody>tr>td,
-  .mail-wrap.mobile .hs-wrap>tr>td{display:block;padding-right:0 !important;padding-bottom:16px}
+  .mail-wrap.mobile .hs-wrap>tr>td{display:block;padding-right:0 !important;padding-bottom:11px}
   /* mobile: stack Split layout vertically */
   .mail-wrap.mobile .sig-split,.mail-wrap.mobile .sig-split>tbody,.mail-wrap.mobile .sig-split>tbody>tr,.mail-wrap.mobile .sig-split>tr{display:block}
   .mail-wrap.mobile .sig-split .split-left{display:block;padding-right:0 !important;padding-bottom:14px}
@@ -1923,6 +1923,14 @@
             <div class="field"><label>Pinterest</label><input type="text" id="f-pinterest" placeholder="username"></div>
             <div class="field"><label>Substack</label><input type="text" id="f-substack" placeholder="username"></div>
           </div>
+          <div class="pill-group">
+            <span class="field-label">Icon size</span>
+            <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-s" value="S"><label for="socialiconsize-s">S</label></div>
+              <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-m" value="M" checked><label for="socialiconsize-m">M</label></div>
+              <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-l" value="L"><label for="socialiconsize-l">L</label></div>
+            </div>
+          </div>
 
           <div class="subgroup-title">Extra links <span id="xlinks-count">Custom rows</span></div>
           <div class="xlinks" id="xlinks"></div>
@@ -2240,7 +2248,7 @@
   };
 
   var S = {
-    t:"editorial", accent:"#1D1D1D", reg:false, icons:true, socialsIconOnly:false, showLabels:true, font:"system", font2:"JetBrains Mono",
+    t:"editorial", accent:"#1D1D1D", reg:false, icons:true, socialsIconOnly:false, socialIconSize:"M", showLabels:true, font:"system", font2:"JetBrains Mono",
     hsUrl:"", hsSize:"M", hsShape:"circle", logoUrl:"", logoShape:"circle", logoSize:"M",
     name:"", title:"", company:"",
     email:"", phone:"", website:"", linkedin:"", loc:"", tag:"",
@@ -2315,7 +2323,8 @@
   function icSubstack(c){  return iurl("simple-icons","substack",c); }
 
   function iconImg(url){ return '<img src="'+url+'" width="12" height="12" alt="" border="0" style="display:inline-block;vertical-align:middle;margin-right:5px;">'; }
-  function iconImgLg(url){ return '<img src="'+url+'" width="18" height="18" alt="" border="0" style="display:inline-block;vertical-align:middle;">'; }
+  function socialIconPx(){ return S.socialIconSize==="L"?22:S.socialIconSize==="S"?14:18; }
+  function iconImgLg(url){ var px = socialIconPx(); return '<img src="'+url+'" width="'+px+'" height="'+px+'" alt="" border="0" style="display:inline-block;vertical-align:middle;">'; }
   function socialsIconLine(){
     /* horizontal inline row of social icons — used when S.socialsIconOnly is true */
     var sx = socials();
@@ -2667,7 +2676,7 @@
        pipelines collapse adjacent <tr> elements into a single row when sanitizing
        (turning a stacked image+content into side-by-side cells). Splitting into
        two block-level tables can't be collapsed — they always stack. */
-    return '<table class="hs-wrap" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:0 0 16px 0;">'+
+    return '<table class="hs-wrap" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:0 0 11px 0;">'+
         '<tr><td>'+ topBlock +'</td></tr>'+
       '</table>'+
       '<table class="hs-content" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
@@ -4125,6 +4134,9 @@
   Array.prototype.forEach.call(document.querySelectorAll("input[name=hssize]"),function(r){
     r.addEventListener("change",function(){ S.hsSize=this.value; render(); });
   });
+  Array.prototype.forEach.call(document.querySelectorAll("input[name=socialiconsize]"),function(r){
+    r.addEventListener("change",function(){ S.socialIconSize=this.value; render(); });
+  });
   Array.prototype.forEach.call(document.querySelectorAll("input[name=hsshape]"),function(r){
     r.addEventListener("change",function(){ S.hsShape=this.value;
       var th=gid("hsThumbnail");
@@ -4277,6 +4289,8 @@
       if(!Array.isArray(S.links)) S.links=[];
       FIELDS.forEach(function(p){ var el=gid(p[1]); if(el) el.value=S[p[0]]||""; });
       gid("f-reg").checked=!!S.reg; gid("f-icons").checked=S.icons!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly; gid("f-labels").checked=S.showLabels!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly;
+      var histSisEl=document.querySelector("input[name=socialiconsize][value='"+(S.socialIconSize||"M")+"']");
+      if(histSisEl) histSisEl.checked=true;
       if(S.font) gid("f-font").value=S.font;
       if(S.font2) gid("f-font2").value=S.font2;
       ensureFont(S.font); ensureFont(S.font2);
@@ -4287,7 +4301,7 @@
   });
 
   /* ======= SHARE LINK ======= */
-  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M"};
+  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,socialIconSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M"};
 
   /* strip empty strings + fields that match their default → smaller payload */
   function minifyState(st){
@@ -4306,7 +4320,7 @@
   }
   /* merge decoded partial state back onto full defaults */
   function expandState(st){
-    var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",
+    var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,socialIconSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",
       hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M",name:"",title:"",company:"",
       email:"",phone:"",website:"",linkedin:"",loc:"",tag:"",
       twitter:"",instagram:"",github:"",dribbble:"",pinterest:"",substack:"",links:[]};
@@ -4335,6 +4349,8 @@
     if(logoShapeEl) logoShapeEl.checked=true;
     var logoSizeEl=document.querySelector("input[name=logosize][value='"+(S.logoSize||"M")+"']");
     if(logoSizeEl) logoSizeEl.checked=true;
+    var sisEl=document.querySelector("input[name=socialiconsize][value='"+(S.socialIconSize||"M")+"']");
+    if(sisEl) sisEl.checked=true;
     document.querySelectorAll(".lay").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-t")===S.t); });
     renderXLinks();
     applyAccent(S.accent,"load"); updateHsThumb(); render();
@@ -4379,7 +4395,7 @@
   document.addEventListener("click",function(){ closeSharePop(); });
 
   /* ======= INIT ======= */
-  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:true,showLabels:true,font:"system",font2:"JetBrains Mono",
+  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:true,socialIconSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",
     hsUrl:"/seed-avatar.svg", hsSize:"M", hsShape:"circle", logoUrl:"/seed-logo.svg", logoShape:"circle", logoSize:"M",
     name:"Jean Massad",title:"Founder",company:"Konpo Studio",email:"jean@konpo.studio",
     phone:"",website:"konpo.studio",linkedin:"https://www.linkedin.com/company/konpo",loc:"",tag:"",
@@ -4403,6 +4419,8 @@
   if(initLogoShapeEl) initLogoShapeEl.checked=true;
   var initLogoSizeEl=document.querySelector("input[name=logosize][value='"+(S.logoSize||"M")+"']");
   if(initLogoSizeEl) initLogoSizeEl.checked=true;
+  var initSisEl=document.querySelector("input[name=socialiconsize][value='"+(S.socialIconSize||"M")+"']");
+  if(initSisEl) initSisEl.checked=true;
   renderXLinks();
   updateHsThumb(); updateLogoThumb();
   applyAccent(S.accent||"#1D1D1D","init"); renderHist(); render();
