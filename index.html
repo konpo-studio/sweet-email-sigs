@@ -1919,7 +1919,10 @@
             <div class="field"><label>GitHub</label><input type="text" id="f-github" placeholder="username"></div>
             <div class="field"><label>Dribbble</label><input type="text" id="f-dribbble" placeholder="username"></div>
           </div>
-          <div class="field"><label>Substack</label><input type="text" id="f-substack" placeholder="username (becomes username.substack.com)"></div>
+          <div class="row2">
+            <div class="field"><label>Pinterest</label><input type="text" id="f-pinterest" placeholder="username"></div>
+            <div class="field"><label>Substack</label><input type="text" id="f-substack" placeholder="username"></div>
+          </div>
 
           <div class="subgroup-title">Extra links <span id="xlinks-count">Custom rows</span></div>
           <div class="xlinks" id="xlinks"></div>
@@ -2241,7 +2244,7 @@
     hsUrl:"", hsSize:"M", hsShape:"circle", logoUrl:"", logoShape:"circle", logoSize:"M",
     name:"", title:"", company:"",
     email:"", phone:"", website:"", linkedin:"", loc:"", tag:"",
-    twitter:"", instagram:"", github:"", dribbble:"", substack:"",
+    twitter:"", instagram:"", github:"", dribbble:"", pinterest:"", substack:"",
     links:[] /* extra rows: {text, url, iconSet, iconName} */
   };
 
@@ -2258,6 +2261,7 @@
     { key:"camera",    label:"Photo",     set:"lucide",       name:"camera" },
     { key:"download",  label:"Download",  set:"lucide",       name:"download" },
     { key:"x",         label:"X / Twitter", set:"simple-icons", name:"x" },
+    { key:"pinterest", label:"Pinterest", set:"simple-icons", name:"pinterest" },
     { key:"youtube",   label:"YouTube",   set:"simple-icons", name:"youtube" },
     { key:"figma",     label:"Figma",     set:"simple-icons", name:"figma" },
     { key:"behance",   label:"Behance",   set:"simple-icons", name:"behance" },
@@ -2277,7 +2281,7 @@
     ["email","f-email"],["phone","f-phone"],["website","f-website"],
     ["linkedin","f-linkedin"],["loc","f-loc"],["tag","f-tag"],
     ["twitter","f-twitter"],["instagram","f-instagram"],
-    ["github","f-github"],["dribbble","f-dribbble"],["substack","f-substack"],
+    ["github","f-github"],["dribbble","f-dribbble"],["pinterest","f-pinterest"],["substack","f-substack"],
     ["hsUrl","f-hsurl"],
     ["logoUrl","f-logourl"]
   ];
@@ -2307,6 +2311,7 @@
   function icInstagram(c){ return iurl("simple-icons","instagram",c); }
   function icGitHub(c){    return iurl("simple-icons","github",c); }
   function icDribbble(c){  return iurl("simple-icons","dribbble",c); }
+  function icPinterest(c){ return iurl("simple-icons","pinterest",c); }
   function icSubstack(c){  return iurl("simple-icons","substack",c); }
 
   function iconImg(url){ return '<img src="'+url+'" width="12" height="12" alt="" border="0" style="display:inline-block;vertical-align:middle;margin-right:5px;">'; }
@@ -2367,6 +2372,7 @@
     h=S.instagram?S.instagram.replace(/^@/,""):""; if(h) o.push({k:"IG", v:"@"+h, href:"https://instagram.com/"+h, ic:icInstagram(INK)});
     h=S.github?S.github.replace(/^@/,""):""; if(h) o.push({k:"GH", v:h,     href:"https://github.com/"+h,          ic:icGitHub(INK)});
     h=S.dribbble?S.dribbble.replace(/^@/,""):""; if(h) o.push({k:"DB", v:h,  href:"https://dribbble.com/"+h,        ic:icDribbble(INK)});
+    h=S.pinterest?S.pinterest.replace(/^@/,""):""; if(h) o.push({k:"PT", v:h, href:"https://pinterest.com/"+h,      ic:icPinterest(INK)});
     h=S.substack?S.substack.replace(/^@/,""):""; if(h) o.push({k:"SB", v:h,  href:/^https?:\/\//i.test(S.substack)?S.substack:(/\./.test(h)?"https://"+h:"https://"+h+".substack.com"), ic:icSubstack(INK)});
     return o;
   }
@@ -2876,7 +2882,7 @@
     /* Socials — accent-filled circular pills with white icons */
     var soc = socials();
     if(soc.length){
-      var icMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', SB:'substack' };
+      var icMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', PT:'pinterest', SB:'substack' };
       var pills = soc.map(function(s){
         var iconWhite = iurl("simple-icons", icMap[s.k]||s.k.toLowerCase(), "#ffffff");
         return '<a href="'+esc(s.href)+'" title="'+esc(s.v)+'" style="display:inline-block;background-color:'+a+';padding:8px;margin:0 6px 6px 0;border-radius:50%;line-height:0;text-decoration:none;vertical-align:middle;"><img src="'+iconWhite+'" width="14" height="14" alt="" border="0" style="display:block;border:0;"></a>';
@@ -3320,7 +3326,7 @@
       if(S.socialsIconOnly){
         rows += '<tr><td colspan="2" style="'+cellSt+'line-height:0;padding:11px 12px;">'+socialsIconLine()+'</td></tr>';
       } else {
-        var labelMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', SB:'substack' };
+        var labelMap = { IN:'linkedin', X:'x', IG:'instagram', GH:'github', DB:'dribbble', PT:'pinterest', SB:'substack' };
         for(var j=0; j<soc.length; j+=2){
           var s1 = soc[j], s2 = soc[j+1];
           var l1 = labelMap[s1.k]||s1.k.toLowerCase();
@@ -3401,7 +3407,7 @@
         var line = socialsIconLine();
         out += '<tr><td style="border:1px solid '+HAIR+';padding:14px;line-height:0;">'+line+'</td></tr>';
       } else {
-        var labelMap = { IN:'LinkedIn', X:'X / Twitter', IG:'Instagram', GH:'GitHub', DB:'Dribbble', SB:'Substack' };
+        var labelMap = { IN:'LinkedIn', X:'X / Twitter', IG:'Instagram', GH:'GitHub', DB:'Dribbble', PT:'Pinterest', SB:'Substack' };
         soc.forEach(function(s){
           var lbl = labelMap[s.k] || s.k;
           out += row(lbl, '<a href="'+esc(s.href)+'" style="'+aSt+'">'+s.v+'</a>');
@@ -3559,6 +3565,7 @@
     if(/linkedin\.com\//i.test(href)) return "linkedin";
     if(/github\.com\//i.test(href)) return "github";
     if(/dribbble\.com\//i.test(href)) return "dribbble";
+    if(/pinterest\.com\//i.test(href)) return "pinterest";
     if(/substack\.com/i.test(href)) return "substack";
     return null;
   }
@@ -3655,7 +3662,7 @@
     if(/^(name|title|company)$/.test(field))                                 return "Identity";
     if(/^(email|phone|website)$/.test(field))                                return "Contact";
     if(/^(loc|tag)$/.test(field))                                            return "Place";
-    if(/^(linkedin|twitter|instagram|github|dribbble|substack)$/.test(field))return "Social";
+    if(/^(linkedin|twitter|instagram|github|dribbble|pinterest|substack)$/.test(field))return "Social";
     if(/^(hsUrl|logoUrl|hsSize|hsShape)$/.test(field))                       return "Photo";
     return null;
   }
@@ -3733,6 +3740,7 @@
     { key:"instagram", label:"Instagram", placeholder:"@handle" },
     { key:"github",    label:"GitHub",    placeholder:"username" },
     { key:"dribbble",  label:"Dribbble",  placeholder:"username" },
+    { key:"pinterest", label:"Pinterest", placeholder:"username" },
     { key:"substack",  label:"Substack",  placeholder:"username (becomes username.substack.com)" }
   ];
   function showSocialPopover(el){
@@ -4212,11 +4220,13 @@
     var tw=S.twitter?S.twitter.replace(/^@/,""):"";
     var gh=S.github?S.github.replace(/^@/,""):"";
     var db=S.dribbble?S.dribbble.replace(/^@/,""):"";
+    var pt=S.pinterest?S.pinterest.replace(/^@/,""):"";
     var sb=S.substack?S.substack.replace(/^@/,""):"";
     if(tw) lines.push("X: @"+tw);
     if(ig) lines.push("Instagram: @"+ig);
     if(gh) lines.push("GitHub: "+gh);
     if(db) lines.push("Dribbble: "+db);
+    if(pt) lines.push("Pinterest: "+pt);
     if(sb) lines.push("Substack: "+(/\./.test(sb)?sb:sb+".substack.com"));
     (S.links||[]).forEach(function(l){ if(l&&l.text&&l.url) lines.push(l.text+": "+http(l.url)); });
     if(S.loc) lines.push(S.loc);
@@ -4299,7 +4309,7 @@
     var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,showLabels:true,font:"system",font2:"JetBrains Mono",
       hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M",name:"",title:"",company:"",
       email:"",phone:"",website:"",linkedin:"",loc:"",tag:"",
-      twitter:"",instagram:"",github:"",dribbble:"",substack:"",links:[]};
+      twitter:"",instagram:"",github:"",dribbble:"",pinterest:"",substack:"",links:[]};
     Object.keys(st).forEach(function(k){ full[k]=st[k]; });
     return full;
   }
@@ -4373,7 +4383,7 @@
     hsUrl:"/seed-avatar.svg", hsSize:"M", hsShape:"circle", logoUrl:"/seed-logo.svg", logoShape:"circle", logoSize:"M",
     name:"Jean Massad",title:"Founder",company:"Konpo Studio",email:"jean@konpo.studio",
     phone:"",website:"konpo.studio",linkedin:"https://www.linkedin.com/company/konpo",loc:"",tag:"",
-    twitter:"",instagram:"konpo.studio",github:"",dribbble:"",substack:"konpo",links:[]};
+    twitter:"",instagram:"konpo.studio",github:"",dribbble:"",pinterest:"",substack:"konpo",links:[]};
 
   /* load from URL ?s= param if present, otherwise SEED */
   var urlParam=new URLSearchParams(location.search).get("s");
@@ -4602,6 +4612,7 @@
     if(S.instagram)n++;
     if(S.github)   n++;
     if(S.dribbble) n++;
+    if(S.pinterest)n++;
     if(S.substack) n++;
     (S.links||[]).forEach(function(l){ if(l && l.text && l.url) n++; });
     var b = gid("social-count");
