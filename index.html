@@ -1892,6 +1892,7 @@
           <div class="pill-group">
             <span class="field-label">Size</span>
             <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="namesize" id="namesize-xs" value="XS"><label for="namesize-xs">XS</label></div>
               <div class="pill-radio"><input type="radio" name="namesize" id="namesize-s" value="S"><label for="namesize-s">S</label></div>
               <div class="pill-radio"><input type="radio" name="namesize" id="namesize-m" value="M" checked><label for="namesize-m">M</label></div>
               <div class="pill-radio"><input type="radio" name="namesize" id="namesize-l" value="L"><label for="namesize-l">L</label></div>
@@ -2372,7 +2373,7 @@
 
   function nFont(){ return S.font&&S.font!=="system"?FONTS[S.font].stack:"Helvetica,Arial,sans-serif"; }
   /* Primary (display) font size — scales each layout's base name size */
-  function nameSizePx(base){ var m = S.nameSize==="S"?0.85:S.nameSize==="L"?1.2:1; return Math.round(base*m); }
+  function nameSizePx(base){ var m = S.nameSize==="XS"?0.7:S.nameSize==="S"?0.85:S.nameSize==="L"?1.2:1; return Math.round(base*m); }
   function secFont(){
     var k=S.font2||"JetBrains Mono";
     if(k==="system") return "Helvetica,Arial,sans-serif";
