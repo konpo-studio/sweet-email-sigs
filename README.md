@@ -6,11 +6,11 @@ Beautiful, typographic email signatures that survive Gmail, Outlook and Apple Ma
 
 ## What's in the box
 
-- 10 distinct layouts — Editorial, Manifest, Stacked, Headline, Compact, Banner, Wildin' Out, Brutalist, Architect, Minimal AF
+- 12 distinct layouts — Editorial, Manifest, Stacked, Lockup, Masthead, Headline, Compact, Banner, Wildin' Out, Brutalist, Architect, Minimal AF
 - Avatar + logo badge composited into a single retina-sharp JPEG (works in Gmail's signature settings)
 - Single-accent design system — change the color and the whole UI re-skins
 - Display + secondary font picker (lazy-loaded Google Fonts)
-- Social links incl. LinkedIn, X, Instagram, GitHub, Dribbble, Substack
+- Social links incl. LinkedIn, X, Instagram, GitHub, Dribbble, Pinterest, Substack
 - Extra custom links with icon picker
 - Sharable signature via URL (state encoded in the address bar, shortened via is.gd)
 - One-click Copy signature / Copy HTML / Download .html

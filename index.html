@@ -1605,6 +1605,29 @@
               </svg>
             </button>
 
+            <button class="lay" data-t="lockup">
+              <span class="lay-name">Lockup</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="22" cy="34" r="13" fill="#1d1d1d"/>
+                <rect x="45" y="19" width="42" height="6" rx="1" fill="#1d1d1d"/>
+                <rect x="45" y="31" width="30" height="3" rx="1" fill="#9b9b9b"/>
+                <rect x="45" y="40" width="50" height="1.5" fill="#dcdcdc"/>
+                <rect x="45" y="46" width="38" height="3" rx="1" fill="#9680ff"/>
+              </svg>
+            </button>
+
+            <button class="lay" data-t="masthead">
+              <span class="lay-name">Masthead</span>
+              <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="9" width="56" height="10" rx="1" fill="#1d1d1d"/>
+                <rect x="8" y="25" width="24" height="3" rx="1" fill="#9b9b9b"/><rect x="36" y="25" width="20" height="3" rx="1" fill="#9680ff"/>
+                <rect x="8" y="34" width="94" height="1" fill="#dcdcdc"/>
+                <circle cx="11" cy="44" r="2.5" fill="#4a4a4a"/><rect x="17" y="42.5" width="30" height="3" rx="1" fill="#4a4a4a"/>
+                <circle cx="11" cy="54" r="2.5" fill="#4a4a4a"/><rect x="17" y="52.5" width="24" height="3" rx="1" fill="#4a4a4a"/>
+                <circle cx="78" cy="54" r="3" fill="#1d1d1d"/><circle cx="87" cy="54" r="3" fill="#1d1d1d"/><circle cx="96" cy="54" r="3" fill="#1d1d1d"/>
+              </svg>
+            </button>
+
             <button class="lay" data-t="bold">
               <span class="lay-name">Headline</span>
               <svg viewBox="0 0 110 68" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2672,6 +2695,19 @@
       setTimeout(processAvatar, 0);
     }
 
+    /* Lockup layout — image left, content right, in one row. Side-by-side
+       cells in a single <tr> are safe (the Gmail collapse bug only affects
+       stacked <tr>s). Own class (.hs-lockup) so the editor's mobile-stack
+       preview CSS for .hs-wrap doesn't force it to stack. */
+    if(S.t==="lockup"){
+      return '<table class="hs-lockup" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+        '<tr>'+
+          '<td style="vertical-align:middle;padding:0 16px 0 0;">'+ topBlock +'</td>'+
+          '<td style="vertical-align:middle;">'+html+'</td>'+
+        '</tr>'+
+      '</table>';
+    }
+
     /* Two separate tables instead of one table with two rows. Some Gmail/Outlook
        pipelines collapse adjacent <tr> elements into a single row when sanitizing
        (turning a stacked image+content into side-by-side cells). Splitting into
@@ -2701,6 +2737,61 @@
       (cr?cr:'')+
       (S.loc?'<tr><td style="padding:6px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</td></tr>':'')+
       (S.tag?'<tr><td style="padding:12px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';">'+esc(S.tag)+'</td></tr>':'')+
+    '</table>';
+  }
+
+  /* 1b — Lockup: image left (handled in wrapHS), clean stack right */
+  function tLockup(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var role=roleInline(a);
+    var cr=contactRows();
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
+      '<tr><td style="font-family:'+nf+';font-size:17px;font-weight:bold;color:'+INK+';letter-spacing:.2px;line-height:1.25;">'+nm+'</td></tr>'+
+      (role?'<tr><td style="padding:4px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:'+SUB+';">'+role+'</td></tr>':'')+
+      '<tr><td style="padding:10px 0 6px;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:200px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+      '</td></tr>'+
+      (cr?cr:'')+
+      (S.loc?'<tr><td style="padding:5px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</td></tr>':'')+
+      (S.tag?'<tr><td style="padding:10px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';">'+esc(S.tag)+'</td></tr>':'')+
+    '</table>';
+  }
+
+  /* 1c — Masthead: display-size name, full-width rule, roomy contact rows,
+     socials icon row anchored bottom-right */
+  function tMasthead(a){
+    var nm=esc(S.name||"Your Name"), nf=nFont();
+    var role=roleInline(a);
+    function rowIc(u){ return u?'<img src="'+u+'" width="14" height="14" alt="" border="0" style="display:inline-block;vertical-align:middle;margin-right:9px;">':''; }
+    function row(ic,val){ return '<div style="font-family:'+nf+';font-size:13px;line-height:2.1;white-space:nowrap;">'+ic+val+'</div>'; }
+    var left="";
+    contacts().forEach(function(c){
+      var ic=S.icons&&c.ic?rowIc(c.ic):"";
+      left+=row(ic, c.h?'<a href="'+c.h+'" style="color:'+INK+';text-decoration:none;">'+c.v+'</a>':'<span style="color:'+INK+';">'+c.v+'</span>');
+    });
+    if(!S.socialsIconOnly){
+      socials().forEach(function(s){
+        left+=row(S.icons&&s.ic?rowIc(s.ic):"", '<a href="'+esc(s.href)+'" style="color:'+INK+';text-decoration:none;">'+s.v+'</a>');
+      });
+    }
+    extras().forEach(function(e){
+      left+=row(S.icons&&e.ic?rowIc(e.ic):"", '<a href="'+e.h+'" style="color:'+INK+';text-decoration:none;">'+e.v+'</a>');
+    });
+    if(S.loc) left+='<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+FAINT+';margin-top:6px;white-space:nowrap;">'+(S.icons?iconImg(icPin(FAINT)):'')+esc(S.loc)+'</div>';
+    var socLine = S.socialsIconOnly ? socialsIconLine() : "";
+
+    return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:360px;">'+
+      '<tr><td colspan="2" style="font-family:'+nf+';font-size:27px;font-weight:normal;color:'+INK+';letter-spacing:.2px;line-height:1.15;">'+nm+'</td></tr>'+
+      (role?'<tr><td colspan="2" style="padding:9px 0 0;font-family:'+JM+';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';">'+role+'</td></tr>':'')+
+      '<tr><td colspan="2" style="padding:14px 0 12px;">'+
+        '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;"><tr><td style="height:1px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
+      '</td></tr>'+
+      '<tr>'+
+        '<td style="vertical-align:bottom;">'+left+'</td>'+
+        (socLine?'<td style="vertical-align:bottom;text-align:right;line-height:0;padding:0 0 9px 12px;">'+socLine+'</td>':'')+
+      '</tr>'+
+      (S.tag?'<tr><td colspan="2" style="padding:10px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+FAINT+';">'+esc(S.tag)+'</td></tr>':'')+
     '</table>';
   }
 
@@ -3514,6 +3605,8 @@
   function buildSig(){
     var a=S.accent, inner;
     if(S.t==="manifest") inner=tManifest(a);
+    else if(S.t==="lockup")   inner=tLockup(a);
+    else if(S.t==="masthead") inner=tMasthead(a);
     else if(S.t==="split")    inner=tSplit(a);
     else if(S.t==="bold")     inner=tBold(a);
     else if(S.t==="compact")  inner=tCompact(a);
@@ -3649,7 +3742,7 @@
     });
 
     /* Tag the avatar/logo image (the first img inside .hs-wrap) for click-to-manage */
-    var avatarImg = root.querySelector("table.hs-wrap img");
+    var avatarImg = root.querySelector("table.hs-wrap img, table.hs-lockup img");
     if(avatarImg) avatarImg.setAttribute("data-edit-image", "avatar");
 
     /* Inject "+" affordance after the last social so users can add more inline */
@@ -4569,7 +4662,7 @@
   })();
 
   /* ======= RANDOMIZE — re-roll the visual design (not the data) ======= */
-  var R_LAYOUTS  = ["editorial","manifest","split","bold","compact","card","wildin","brutalist","architect","minimal","field","specimen","cargo","terminal","manifesto","receipt"];
+  var R_LAYOUTS  = ["editorial","manifest","lockup","masthead","split","bold","compact","card","wildin","brutalist","architect","minimal","field","specimen","cargo","terminal","manifesto","receipt"];
   var R_FONT_PRIMARY = ["Inter","Plus Jakarta Sans","DM Sans","Syne","Space Grotesk","Fraunces","Playfair Display","DM Mono","IBM Plex Mono","JetBrains Mono","Space Mono"];
   var R_FONT_SECOND  = ["JetBrains Mono","DM Mono","IBM Plex Mono","Space Mono","Inter","Space Grotesk","DM Sans"];
   var R_ACCENTS  = ["#9680FF","#0F62FE","#1B998B","#E4572E","#B79100","#D74843","#7C5CFF","#FF6B9D","#22C55E","#1D1D1D"];
