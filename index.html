@@ -1889,6 +1889,14 @@
             </select>
           </div>
           <div class="font-preview" id="fontPreview">Jean Massad</div>
+          <div class="pill-group">
+            <span class="field-label">Size</span>
+            <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="namesize" id="namesize-s" value="S"><label for="namesize-s">S</label></div>
+              <div class="pill-radio"><input type="radio" name="namesize" id="namesize-m" value="M" checked><label for="namesize-m">M</label></div>
+              <div class="pill-radio"><input type="radio" name="namesize" id="namesize-l" value="L"><label for="namesize-l">L</label></div>
+            </div>
+          </div>
 
           <div class="subgroup-title">Secondary font <span>role, contact, tagline</span></div>
           <div class="field">
@@ -2272,7 +2280,7 @@
   };
 
   var S = {
-    t:"editorial", accent:"#1D1D1D", reg:false, icons:true, socialsIconOnly:false, socialIconSize:"M", showLabels:true, font:"system", font2:"JetBrains Mono",
+    t:"editorial", accent:"#1D1D1D", reg:false, icons:true, socialsIconOnly:false, socialIconSize:"M", nameSize:"M", showLabels:true, font:"system", font2:"JetBrains Mono",
     hsUrl:"", hsSize:"M", hsShape:"circle", logoUrl:"", logoShape:"circle", logoSize:"M",
     name:"", title:"", company:"",
     email:"", phone:"", website:"", linkedin:"", loc:"", tag:"",
@@ -2363,6 +2371,8 @@
   var INK = "#1d1d1d", SUB = "#1d1d1d", FAINT = "#2e2e2e", HAIR = "#dcdcdc";
 
   function nFont(){ return S.font&&S.font!=="system"?FONTS[S.font].stack:"Helvetica,Arial,sans-serif"; }
+  /* Primary (display) font size — scales each layout's base name size */
+  function nameSizePx(base){ var m = S.nameSize==="S"?0.85:S.nameSize==="L"?1.2:1; return Math.round(base*m); }
   function secFont(){
     var k=S.font2||"JetBrains Mono";
     if(k==="system") return "Helvetica,Arial,sans-serif";
@@ -2730,7 +2740,7 @@
     var cr=contactRows();
 
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
-      '<tr><td style="font-family:'+nf+';font-size:19px;font-weight:bold;color:'+INK+';letter-spacing:.3px;line-height:1.2;">'+nm+'</td></tr>'+
+      '<tr><td style="font-family:'+nf+';font-size:'+nameSizePx(19)+'px;font-weight:bold;color:'+INK+';letter-spacing:.3px;line-height:1.2;">'+nm+'</td></tr>'+
       (role?'<tr><td style="padding:6px 0 0;font-family:'+JM+';font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:'+SUB+';">'+role+'</td></tr>':'')+
       '<tr><td style="padding:12px 0 8px;">'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:240px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
@@ -2748,7 +2758,7 @@
     var cr=contactRows();
 
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
-      '<tr><td style="font-family:'+nf+';font-size:17px;font-weight:bold;color:'+INK+';letter-spacing:.2px;line-height:1.25;">'+nm+'</td></tr>'+
+      '<tr><td style="font-family:'+nf+';font-size:'+nameSizePx(17)+'px;font-weight:bold;color:'+INK+';letter-spacing:.2px;line-height:1.25;">'+nm+'</td></tr>'+
       (role?'<tr><td style="padding:4px 0 0;font-family:'+JM+';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:'+SUB+';">'+role+'</td></tr>':'')+
       '<tr><td style="padding:10px 0 6px;">'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:200px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
@@ -2783,7 +2793,7 @@
     var socLine = S.socialsIconOnly ? socialsIconLine() : "";
 
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:360px;">'+
-      '<tr><td colspan="2" style="font-family:'+nf+';font-size:27px;font-weight:normal;color:'+INK+';letter-spacing:.2px;line-height:1.15;">'+nm+'</td></tr>'+
+      '<tr><td colspan="2" style="font-family:'+nf+';font-size:'+nameSizePx(27)+'px;font-weight:normal;color:'+INK+';letter-spacing:.2px;line-height:1.15;">'+nm+'</td></tr>'+
       (role?'<tr><td colspan="2" style="padding:9px 0 0;font-family:'+JM+';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';">'+role+'</td></tr>':'')+
       '<tr><td colspan="2" style="padding:14px 0 12px;">'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;"><tr><td style="height:1px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
@@ -2823,7 +2833,7 @@
     var socLine = S.socialsIconOnly ? socialsIconLine() : "";
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
       '<tr><td style="padding-bottom:12px;">'+
-        '<div style="font-family:'+nf+';font-size:18px;font-weight:bold;color:'+INK+';line-height:1.2;">'+nm+'</div>'+
+        '<div style="font-family:'+nf+';font-size:'+nameSizePx(18)+'px;font-weight:bold;color:'+INK+';line-height:1.2;">'+nm+'</div>'+
         (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:5px;">'+role+'</div>':'')+
       '</td></tr>'+
       (rows?'<tr><td style="border-top:1px solid '+HAIR+';padding-top:11px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+rows+'</table></td></tr>':'')+
@@ -2850,7 +2860,7 @@
 
     return '<table class="sig-split" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
       '<tr><td class="split-left" style="vertical-align:top;padding:0 0 14px 0;">'+
-        '<div style="font-family:'+nf+';font-size:20px;font-weight:bold;color:'+INK+';line-height:1.15;">'+nmH+'</div>'+
+        '<div style="font-family:'+nf+';font-size:'+nameSizePx(20)+'px;font-weight:bold;color:'+INK+';line-height:1.15;">'+nmH+'</div>'+
         (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:8px;line-height:1.9;">'+role+'</div>':'')+
       '</td></tr>'+
       '<tr><td class="split-right" style="vertical-align:top;">'+
@@ -2869,7 +2879,7 @@
 
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
       '<tr><td>'+
-        '<div style="font-family:'+nf+';font-size:28px;font-weight:bold;color:'+INK+';letter-spacing:-.3px;line-height:1.05;">'+nm+'</div>'+
+        '<div style="font-family:'+nf+';font-size:'+nameSizePx(28)+'px;font-weight:bold;color:'+INK+';letter-spacing:-.3px;line-height:1.05;">'+nm+'</div>'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:10px 0;"><tr><td style="height:3px;width:240px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
         (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-bottom:8px;">'+role+'</div>':'')+
         (cr?'<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+cr+'</table>':'')+
@@ -2886,7 +2896,7 @@
 
     return '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
       '<tr><td>'+
-        '<div style="font-family:'+nf+';font-size:16px;font-weight:bold;color:'+INK+';line-height:1.2;">'+nm+'</div>'+
+        '<div style="font-family:'+nf+';font-size:'+nameSizePx(16)+'px;font-weight:bold;color:'+INK+';line-height:1.2;">'+nm+'</div>'+
         (sub?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:'+FAINT+';margin-top:4px;line-height:1.4;">'+sub+'</div>':'')+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin:9px 0;">'+
           '<tr><td style="height:1px;width:240px;background-color:'+HAIR+';font-size:1px;line-height:1px;">&nbsp;</td></tr>'+
@@ -2907,7 +2917,7 @@
       '<tr><td class="card-content" style="vertical-align:top;">'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">'+
           '<tr><td style="padding-bottom:10px;">'+
-            '<div style="font-family:'+nf+';font-size:20px;font-weight:bold;color:'+INK+';line-height:1.1;">'+nm+'</div>'+
+            '<div style="font-family:'+nf+';font-size:'+nameSizePx(20)+'px;font-weight:bold;color:'+INK+';line-height:1.1;">'+nm+'</div>'+
             (role?'<div style="font-family:'+JM+';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:5px;">'+role+'</div>':'')+
           '</td></tr>'+
           '<tr><td style="padding:0 0 8px;">'+
@@ -2944,7 +2954,7 @@
 
     /* Inverted name plate */
     rows += '<tr><td bgcolor="'+BLACK+'" style="background-color:'+BLACK+';padding:22px 24px;color:#ffffff;">'+
-      '<div style="font-family:'+nf+';font-size:34px;font-weight:bold;line-height:1.0;letter-spacing:-1px;color:#ffffff;text-transform:uppercase;">'+esc(nm)+'</div>'+
+      '<div style="font-family:'+nf+';font-size:'+nameSizePx(34)+'px;font-weight:bold;line-height:1.0;letter-spacing:-1px;color:#ffffff;text-transform:uppercase;">'+esc(nm)+'</div>'+
       (roleLine?'<div style="font-family:'+mono+';font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:'+a+';margin-top:10px;line-height:1.4;">'+roleLine+'</div>':'')+
     '</td></tr>';
 
@@ -3067,7 +3077,7 @@
       '</td></tr>'+
       '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
       '<tr><td style="padding:14px 0 6px 0;font-family:'+nf+';font-size:24px;color:'+INK+';line-height:1;">◐</td></tr>'+
-      '<tr><td style="font-family:'+nf+';font-size:30px;font-weight:bold;color:'+INK+';line-height:1.05;letter-spacing:-0.5px;padding:0 0 12px 0;">'+nm+'</td></tr>'+
+      '<tr><td style="font-family:'+nf+';font-size:'+nameSizePx(30)+'px;font-weight:bold;color:'+INK+';line-height:1.05;letter-spacing:-0.5px;padding:0 0 12px 0;">'+nm+'</td></tr>'+
       '<tr><td style="font-family:'+mono+';font-size:10px;letter-spacing:1.5px;line-height:1.7;color:'+INK+';text-transform:uppercase;text-align:justify;padding:0 0 14px 0;">'+desc.toUpperCase()+'</td></tr>'+
       '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
       (rows ? '<tr><td style="padding-top:10px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">'+rows+'</table></td></tr>' : '')+
@@ -3108,7 +3118,7 @@
               '<div style="font-family:'+mono+';font-size:8px;color:'+FAINT+';letter-spacing:2px;text-transform:uppercase;margin-top:4px;">SEAL · 印</div>'+
             '</td>'+
             '<td style="vertical-align:middle;padding-left:18px;">'+
-              '<div style="font-family:'+nf+';font-size:20px;font-weight:bold;color:'+INK+';line-height:1.15;letter-spacing:-0.3px;">'+nm+'</div>'+
+              '<div style="font-family:'+nf+';font-size:'+nameSizePx(20)+'px;font-weight:bold;color:'+INK+';line-height:1.15;letter-spacing:-0.3px;">'+nm+'</div>'+
               (roleLine?'<div style="font-family:'+mono+';font-size:9px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:8px;line-height:1.6;">'+roleLine+'</div>':'')+
             '</td>'+
           '</tr>'+
@@ -3169,7 +3179,7 @@
         '</table>'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:1px;width:60px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
         '<div style="font-family:'+mono+';font-size:8px;color:'+FAINT+';letter-spacing:3px;text-transform:uppercase;margin-top:14px;">MAILING ADDRESS</div>'+
-        '<div style="font-family:'+nf+';font-size:22px;font-weight:bold;color:'+INK+';line-height:1.1;letter-spacing:-0.3px;margin-top:6px;">'+nm+'</div>'+
+        '<div style="font-family:'+nf+';font-size:'+nameSizePx(22)+'px;font-weight:bold;color:'+INK+';line-height:1.1;letter-spacing:-0.3px;margin-top:6px;">'+nm+'</div>'+
         (roleLine?'<div style="font-family:'+mono+';font-size:9px;letter-spacing:2px;text-transform:uppercase;color:'+SUB+';margin-top:6px;line-height:1.6;">'+roleLine+'</div>':'')+
         '<div style="font-family:'+mono+';font-size:10px;letter-spacing:1px;line-height:1.7;color:'+INK+';text-transform:uppercase;text-align:justify;margin-top:16px;">'+desc+'</div>'+
         '<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:14px;"><tr><td style="height:1px;width:60px;background-color:'+INK+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table>'+
@@ -3268,7 +3278,7 @@
       '<tr><td style="border-top:1px solid '+INK+';padding:6px 0;font-family:'+mono+';font-size:10px;color:'+INK+';letter-spacing:3px;text-transform:uppercase;text-align:center;">VOL. I &nbsp; &middot; &nbsp; NO. 07 &nbsp; &middot; &nbsp; KONPO PRESS</td></tr>'+
       '<tr><td style="border-top:1px solid '+INK+';font-size:1px;line-height:1px;height:1px;">&nbsp;</td></tr>'+
       /* Headline — huge serif */
-      '<tr><td style="padding:28px 0 8px 0;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:36px;font-weight:bold;color:'+INK+';line-height:1.0;letter-spacing:-0.5px;">'+nm+'</td></tr>'+
+      '<tr><td style="padding:28px 0 8px 0;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:'+nameSizePx(36)+'px;font-weight:bold;color:'+INK+';line-height:1.0;letter-spacing:-0.5px;">'+nm+'</td></tr>'+
       /* Accent rule */
       '<tr><td style="text-align:center;padding:4px 0;"><table align="center" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr><td style="height:3px;width:48px;background-color:'+a+';font-size:1px;line-height:1px;">&nbsp;</td></tr></table></td></tr>'+
       /* Mono caps role line */
@@ -3336,7 +3346,7 @@
         /* Spacer */
         '<div style="height:14px;font-size:1px;line-height:1px;">&nbsp;</div>'+
         /* Item: Name + Role */
-        '<div style="'+rowSt+'font-size:15px;font-weight:bold;letter-spacing:1px;">'+nm+'</div>'+
+        '<div style="'+rowSt+'font-size:'+nameSizePx(15)+'px;font-weight:bold;letter-spacing:1px;">'+nm+'</div>'+
         (S.title||S.company?'<div style="'+rowSt+'color:'+FAINT+';font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">'+
           [esc(S.title),esc(S.company)].filter(Boolean).join(' &middot; ')+
         '</div>':'')+
@@ -4231,6 +4241,9 @@
   Array.prototype.forEach.call(document.querySelectorAll("input[name=socialiconsize]"),function(r){
     r.addEventListener("change",function(){ S.socialIconSize=this.value; render(); });
   });
+  Array.prototype.forEach.call(document.querySelectorAll("input[name=namesize]"),function(r){
+    r.addEventListener("change",function(){ S.nameSize=this.value; render(); });
+  });
   Array.prototype.forEach.call(document.querySelectorAll("input[name=hsshape]"),function(r){
     r.addEventListener("change",function(){ S.hsShape=this.value;
       var th=gid("hsThumbnail");
@@ -4385,6 +4398,8 @@
       gid("f-reg").checked=!!S.reg; gid("f-icons").checked=S.icons!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly; gid("f-labels").checked=S.showLabels!==false; gid("f-socials-iconly").checked=!!S.socialsIconOnly;
       var histSisEl=document.querySelector("input[name=socialiconsize][value='"+(S.socialIconSize||"M")+"']");
       if(histSisEl) histSisEl.checked=true;
+      var histNsEl=document.querySelector("input[name=namesize][value='"+(S.nameSize||"M")+"']");
+      if(histNsEl) histNsEl.checked=true;
       if(S.font) gid("f-font").value=S.font;
       if(S.font2) gid("f-font2").value=S.font2;
       ensureFont(S.font); ensureFont(S.font2);
@@ -4395,7 +4410,7 @@
   });
 
   /* ======= SHARE LINK ======= */
-  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,socialIconSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M"};
+  var SDEF={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,socialIconSize:"M",nameSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M"};
 
   /* strip empty strings + fields that match their default → smaller payload */
   function minifyState(st){
@@ -4414,7 +4429,7 @@
   }
   /* merge decoded partial state back onto full defaults */
   function expandState(st){
-    var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,socialIconSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",
+    var full={t:"editorial",accent:"#1D1D1D",reg:false,icons:true,socialsIconOnly:false,socialIconSize:"M",nameSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",
       hsUrl:"",hsSize:"M",hsShape:"circle",logoUrl:"",logoShape:"circle",logoSize:"M",name:"",title:"",company:"",
       email:"",phone:"",website:"",linkedin:"",loc:"",tag:"",
       twitter:"",instagram:"",github:"",dribbble:"",pinterest:"",substack:"",links:[]};
@@ -4445,6 +4460,8 @@
     if(logoSizeEl) logoSizeEl.checked=true;
     var sisEl=document.querySelector("input[name=socialiconsize][value='"+(S.socialIconSize||"M")+"']");
     if(sisEl) sisEl.checked=true;
+    var nsEl=document.querySelector("input[name=namesize][value='"+(S.nameSize||"M")+"']");
+    if(nsEl) nsEl.checked=true;
     document.querySelectorAll(".lay").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-t")===S.t); });
     renderXLinks();
     applyAccent(S.accent,"load"); updateHsThumb(); render();
@@ -4489,7 +4506,7 @@
   document.addEventListener("click",function(){ closeSharePop(); });
 
   /* ======= INIT ======= */
-  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:true,socialIconSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",
+  var SEED={t:"editorial",accent:"#9680FF",reg:false,icons:true,socialsIconOnly:true,socialIconSize:"M",nameSize:"M",showLabels:true,font:"system",font2:"JetBrains Mono",
     hsUrl:"/seed-avatar.svg", hsSize:"M", hsShape:"circle", logoUrl:"/seed-logo.svg", logoShape:"circle", logoSize:"M",
     name:"Jean Massad",title:"Founder",company:"Konpo Studio",email:"jean@konpo.studio",
     phone:"",website:"konpo.studio",linkedin:"https://www.linkedin.com/company/konpo",loc:"",tag:"",
@@ -4515,6 +4532,8 @@
   if(initLogoSizeEl) initLogoSizeEl.checked=true;
   var initSisEl=document.querySelector("input[name=socialiconsize][value='"+(S.socialIconSize||"M")+"']");
   if(initSisEl) initSisEl.checked=true;
+  var initNsEl=document.querySelector("input[name=namesize][value='"+(S.nameSize||"M")+"']");
+  if(initNsEl) initNsEl.checked=true;
   renderXLinks();
   updateHsThumb(); updateLogoThumb();
   applyAccent(S.accent||"#1D1D1D","init"); renderHist(); render();
