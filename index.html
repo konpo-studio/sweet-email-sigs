@@ -1949,6 +1949,7 @@
           <div class="pill-group">
             <span class="field-label">Icon size</span>
             <div class="pill-row">
+              <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-xs" value="XS"><label for="socialiconsize-xs">XS</label></div>
               <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-s" value="S"><label for="socialiconsize-s">S</label></div>
               <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-m" value="M" checked><label for="socialiconsize-m">M</label></div>
               <div class="pill-radio"><input type="radio" name="socialiconsize" id="socialiconsize-l" value="L"><label for="socialiconsize-l">L</label></div>
@@ -2346,7 +2347,7 @@
   function icSubstack(c){  return iurl("simple-icons","substack",c); }
 
   function iconImg(url){ return '<img src="'+url+'" width="12" height="12" alt="" border="0" style="display:inline-block;vertical-align:middle;margin-right:5px;">'; }
-  function socialIconPx(){ return S.socialIconSize==="L"?22:S.socialIconSize==="S"?14:18; }
+  function socialIconPx(){ return S.socialIconSize==="L"?22:S.socialIconSize==="S"?14:S.socialIconSize==="XS"?12:18; }
   function iconImgLg(url){ var px = socialIconPx(); return '<img src="'+url+'" width="'+px+'" height="'+px+'" alt="" border="0" style="display:inline-block;vertical-align:middle;">'; }
   function socialsIconLine(){
     /* horizontal inline row of social icons — used when S.socialsIconOnly is true */
