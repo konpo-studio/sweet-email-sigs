@@ -1877,6 +1877,7 @@
           <div class="field">
             <select id="f-font">
               <option value="system">System — Helvetica / Arial (email-safe)</option>
+              <option value="Helvetica Neue">Helvetica Neue — refined classic (email-safe)</option>
               <option value="Inter">Inter — clean geometric</option>
               <option value="Plus Jakarta Sans">Plus Jakarta Sans — editorial</option>
               <option value="DM Sans">DM Sans — friendly grotesque</option>
@@ -1910,6 +1911,7 @@
               <option value="Inter">Inter — sans, clean</option>
               <option value="Space Grotesk">Space Grotesk — sans, techy</option>
               <option value="DM Sans">DM Sans — sans, friendly</option>
+              <option value="Helvetica Neue">Helvetica Neue — refined classic (email-safe)</option>
               <option value="system">System sans — Helvetica / Arial (email-safe)</option>
             </select>
           </div>
@@ -2266,6 +2268,7 @@
 
   var FONTS = {
     "system":           {stack:"Helvetica, Arial, sans-serif",                        gfParam:null},
+    "Helvetica Neue":   {stack:"'Helvetica Neue', Helvetica, Arial, sans-serif",      gfParam:null},
     "Inter":            {stack:"'Inter', Helvetica, Arial, sans-serif",               gfParam:"Inter:wght@400;700"},
     "Plus Jakarta Sans":{stack:"'Plus Jakarta Sans', Helvetica, Arial, sans-serif",   gfParam:"Plus+Jakarta+Sans:wght@400;700"},
     "DM Sans":          {stack:"'DM Sans', Helvetica, Arial, sans-serif",             gfParam:"DM+Sans:wght@400;700"},
@@ -4684,7 +4687,7 @@
 
   /* ======= RANDOMIZE — re-roll the visual design (not the data) ======= */
   var R_LAYOUTS  = ["editorial","manifest","lockup","masthead","split","bold","compact","card","wildin","brutalist","architect","minimal","field","specimen","cargo","terminal","manifesto","receipt"];
-  var R_FONT_PRIMARY = ["Inter","Plus Jakarta Sans","DM Sans","Syne","Space Grotesk","Fraunces","Playfair Display","DM Mono","IBM Plex Mono","JetBrains Mono","Space Mono"];
+  var R_FONT_PRIMARY = ["Inter","Plus Jakarta Sans","DM Sans","Syne","Space Grotesk","Fraunces","Playfair Display","DM Mono","IBM Plex Mono","JetBrains Mono","Space Mono","Helvetica Neue"];
   var R_FONT_SECOND  = ["JetBrains Mono","DM Mono","IBM Plex Mono","Space Mono","Inter","Space Grotesk","DM Sans"];
   var R_ACCENTS  = ["#9680FF","#0F62FE","#1B998B","#E4572E","#B79100","#D74843","#7C5CFF","#FF6B9D","#22C55E","#1D1D1D"];
   var R_SHAPES   = ["circle","rounded","square"];
